@@ -353,9 +353,14 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/New Input System/PlayerAction.cs"
-"Assets/Scripts/Items/CollectorItem.cs"
+"Assets/Scripts/Items/Interaction/AbstractInteraction.cs"
+"Assets/Scripts/Items/Interaction/AbstractItemObstacle.cs"
+"Assets/Scripts/Items/Interaction/CollectorItem.cs"
+"Assets/Scripts/Items/Interaction/DestroyerObstacle.cs"
 "Assets/Scripts/Items/Item.cs"
+"Assets/Scripts/Items/Obstacle.cs"
 "Assets/Scripts/Player/Character/Movement.cs"
+"Assets/Scripts/Player/PlayerInventory.cs"
 -langversion:9.0
 
 /deterministic
