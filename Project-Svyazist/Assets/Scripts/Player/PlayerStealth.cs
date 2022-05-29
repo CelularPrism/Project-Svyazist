@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class PlayerStealth : MonoBehaviour
 {
-    private bool _inShelter = false;
+    [SerializeField] private Transform playerCharacter;
+    private Vector3 _scale;
 
-    public bool GetState()
+    private void Start()
     {
-        return _inShelter;
+        _scale = playerCharacter.localScale;
     }
 
-    public void SetState(bool state)
+
+    private void OnTriggerEnter(Collider other)
     {
-        _inShelter = state;
+        if (other.gameObject.layer == 7)
+        {
+            Debug.Log("Sit down");
+            playerCharacter.localScale = new Vector3(_scale.x, _scale.y / 2, _scale.z);
+            _scale = playerCharacter.localScale;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            Debug.Log("Sit down");
+            playerCharacter.localScale = new Vector3(_scale.x, _scale.y * 2, _scale.z);
+            _scale = playerCharacter.localScale;
+        }
     }
 }
