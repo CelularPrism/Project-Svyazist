@@ -361,6 +361,8 @@
 "Assets/Scripts/Items/Obstacle.cs"
 "Assets/Scripts/Player/Character/Movement.cs"
 "Assets/Scripts/Player/PlayerInventory.cs"
+"Assets/Scripts/Player/PlayerStealth.cs"
+"Assets/Scripts/StealthAI/EnemyLight.cs"
 -langversion:9.0
 
 /deterministic
