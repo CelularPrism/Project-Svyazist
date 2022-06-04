@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyerObstacle : AbstractInteraction
 {
-    bool _destroy = false;
+    bool _destroy;
     public override void Awake()
     {
         base.Awake();
@@ -19,7 +19,6 @@ public class DestroyerObstacle : AbstractInteraction
             if (_destroy)
             {
                 _object.Use();
-                _destroy = false;
             }
         }
     }

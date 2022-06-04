@@ -11,13 +11,13 @@ public class PlayerInventory : MonoBehaviour
         _listItems = new List<int>();
     }
 
-    public bool GetItem(int obstacleKey)
+    public bool GetItem(int obstacle)
     {
         bool _item = false;
 
         foreach (int i in _listItems)
         {
-            if (i == obstacleKey)
+            if (i == obstacle)
             {
                 _item = true;
                 _listItems.Remove(i);
@@ -28,8 +28,8 @@ public class PlayerInventory : MonoBehaviour
         return _item;
     }
 
-    public void SetItem(int itemKey)
+    public void SetItem(int item)
     {
-        _listItems.Add(itemKey);
+        _listItems.Add(item);
     }
 }
