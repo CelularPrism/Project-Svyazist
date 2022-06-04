@@ -11,9 +11,15 @@ TagManager:
   - Item
   - Water
   - UI
+<<<<<<< Updated upstream
   - 
   - 
   - 
+=======
+  - Player
+  - WallShelter
+  - Obstacle
+>>>>>>> Stashed changes
   - 
   - 
   - 
