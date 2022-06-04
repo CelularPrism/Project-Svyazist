@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<AbstractItemObstacle> _listItems;
+    private List<int> _listItems;
 
     private void Start()
     {
-        _listItems = new List<AbstractItemObstacle>();
+        _listItems = new List<int>();
     }
 
-    public AbstractItemObstacle GetItem(AbstractItemObstacle obstacle)
+    public bool GetItem(int obstacle)
     {
-        AbstractItemObstacle _item = null;
+        bool _item = false;
 
-        foreach (AbstractItemObstacle i in _listItems)
+        foreach (int i in _listItems)
         {
-            if (i.key == obstacle.key)
+            if (i == obstacle)
             {
-                _item = i;
-                _listItems.Remove(_item);
+                _item = true;
+                _listItems.Remove(i);
                 break;
             }
         }
@@ -28,7 +28,7 @@ public class PlayerInventory : MonoBehaviour
         return _item;
     }
 
-    public void SetItem(AbstractItemObstacle item)
+    public void SetItem(int item)
     {
         _listItems.Add(item);
     }
