@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class AbstractItemObstacle : MonoBehaviour
 {
+    //may be interface
     public int key;
     public virtual AbstractItemObstacle Get()
     {
