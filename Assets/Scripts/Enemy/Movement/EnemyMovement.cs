@@ -58,11 +58,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void Rotate(Vector3 point)
     {
-        Vector3 lookPoint = (point - transform.position).normalized;
+        Quaternion rotTarget = Quaternion.LookRotation(point - transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed/* * Time.deltaTime*/);
+
+        /*Vector3 lookPoint = (point - transform.position).normalized;
         float pointAngle = 90 - Mathf.Atan2(lookPoint.x, lookPoint.x) * Mathf.Rad2Deg;
 
         float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, pointAngle, rotationSpeed);
-        transform.eulerAngles = Vector3.up * angle;
+        transform.eulerAngles = Vector3.up * angle;*/
     }
 
     private void GetNextPoint()

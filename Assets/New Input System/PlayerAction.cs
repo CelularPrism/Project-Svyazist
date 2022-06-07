@@ -44,6 +44,24 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateCameraLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e9c7aae-b590-4c4b-8096-87abf0c7dc65"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateCameraRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""788cd556-75c8-453e-84e1-f780fdc16c05"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +130,28 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""action"": ""GetItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2fc896c-58c1-4a3b-b084-2719b48a7245"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCameraLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""075a882f-a61a-4eda-85c0-eecee455cd33"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCameraRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +162,8 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
+        m_Player_RotateCameraLeft = m_Player.FindAction("RotateCameraLeft", throwIfNotFound: true);
+        m_Player_RotateCameraRight = m_Player.FindAction("RotateCameraRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +225,16 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_GetItem;
+    private readonly InputAction m_Player_RotateCameraLeft;
+    private readonly InputAction m_Player_RotateCameraRight;
     public struct PlayerActions
     {
         private @PlayerAction m_Wrapper;
         public PlayerActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
+        public InputAction @RotateCameraLeft => m_Wrapper.m_Player_RotateCameraLeft;
+        public InputAction @RotateCameraRight => m_Wrapper.m_Player_RotateCameraRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +250,12 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @GetItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetItem;
                 @GetItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetItem;
                 @GetItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetItem;
+                @RotateCameraLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraLeft;
+                @RotateCameraLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraLeft;
+                @RotateCameraLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraLeft;
+                @RotateCameraRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraRight;
+                @RotateCameraRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraRight;
+                @RotateCameraRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraRight;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +266,12 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @GetItem.started += instance.OnGetItem;
                 @GetItem.performed += instance.OnGetItem;
                 @GetItem.canceled += instance.OnGetItem;
+                @RotateCameraLeft.started += instance.OnRotateCameraLeft;
+                @RotateCameraLeft.performed += instance.OnRotateCameraLeft;
+                @RotateCameraLeft.canceled += instance.OnRotateCameraLeft;
+                @RotateCameraRight.started += instance.OnRotateCameraRight;
+                @RotateCameraRight.performed += instance.OnRotateCameraRight;
+                @RotateCameraRight.canceled += instance.OnRotateCameraRight;
             }
         }
     }
@@ -222,5 +280,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnGetItem(InputAction.CallbackContext context);
+        void OnRotateCameraLeft(InputAction.CallbackContext context);
+        void OnRotateCameraRight(InputAction.CallbackContext context);
     }
 }
