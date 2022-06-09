@@ -44,6 +44,15 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LockPicking"",
+                    ""type"": ""Button"",
+                    ""id"": ""41213bb8-a7fd-401a-9b8c-3afd77fd66c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""action"": ""GetItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d62441d9-8638-4c50-a531-acb15214d26f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockPicking"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
+        m_Player_LockPicking = m_Player.FindAction("LockPicking", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +204,14 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_GetItem;
+    private readonly InputAction m_Player_LockPicking;
     public struct PlayerActions
     {
         private @PlayerAction m_Wrapper;
         public PlayerActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
+        public InputAction @LockPicking => m_Wrapper.m_Player_LockPicking;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +227,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @GetItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetItem;
                 @GetItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetItem;
                 @GetItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetItem;
+                @LockPicking.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockPicking;
+                @LockPicking.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockPicking;
+                @LockPicking.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockPicking;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +240,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @GetItem.started += instance.OnGetItem;
                 @GetItem.performed += instance.OnGetItem;
                 @GetItem.canceled += instance.OnGetItem;
+                @LockPicking.started += instance.OnLockPicking;
+                @LockPicking.performed += instance.OnLockPicking;
+                @LockPicking.canceled += instance.OnLockPicking;
             }
         }
     }
@@ -222,5 +251,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnGetItem(InputAction.CallbackContext context);
+        void OnLockPicking(InputAction.CallbackContext context);
     }
 }
