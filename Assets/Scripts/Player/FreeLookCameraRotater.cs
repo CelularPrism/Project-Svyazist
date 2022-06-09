@@ -7,20 +7,17 @@ using Cinemachine;
 public class FreeLookCameraRotater : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float inaccuracy;
     [SerializeField] private float[] XAxisValues;
 
     private CinemachineFreeLook _freeLook;
     private PlayerAction _inputActions;
 
-    private float[] _speedArray = new float[2]; 
     private float _xAxisValue;
     private int _index;
 
     void Start()
     {
-        _speedArray[0] = speed;
-        _speedArray[1] = -speed;
-
         _freeLook = GetComponent<CinemachineFreeLook>();
         _inputActions = new PlayerAction();
         _inputActions.Enable();
@@ -31,30 +28,51 @@ public class FreeLookCameraRotater : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_freeLook.m_XAxis.Value >= 360f)
+        if (_freeLook.m_XAxis.Value >= 359f)
+        {
             _freeLook.m_XAxis.Value = 0;
+            _xAxisValue = 0;
+        }
+
+        //float value = Mathf.Round(_freeLook.m_XAxis.Value);
 
         if (_freeLook.m_XAxis.Value != _xAxisValue)
-            _freeLook.m_XAxis.Value += speed;
+        {
+            //ChangeSpeed();
+            _freeLook.m_XAxis.Value = Mathf.Lerp(_freeLook.m_XAxis.Value, _xAxisValue, speed * Time.deltaTime);//_speed;
+        }
     }
 
     private void RotateLeft()
     {
-        _index++;
-        if (_index == XAxisValues.Length)
-            _index = 0;
+        if (_freeLook.m_XAxis.Value >= Mathf.Abs(_xAxisValue - inaccuracy))
+        {
+            _index++;
+            float value = 0;
 
-        _xAxisValue = XAxisValues[_index];
-        speed = _speedArray[0];
+            if (_index == XAxisValues.Length)
+            {
+                //_freeLook.m_XAxis.Value = 0;
+                value = _freeLook.m_XAxis.m_MaxValue;
+                _index = 0;
+            }
+
+            _xAxisValue = XAxisValues[_index] + value;
+        }
     }
 
     private void RotateRight()
     {
-        _index--;
-        if (_index < 0)
-            _index = XAxisValues.Length - 1;
+        if (_freeLook.m_XAxis.Value >= Mathf.Abs(_xAxisValue - inaccuracy))
+        {
+            _index--;
+            if (_index < 0)
+            {
+                _freeLook.m_XAxis.Value = _freeLook.m_XAxis.m_MaxValue - 2;
+                _index = XAxisValues.Length - 1;
+            }
 
-        _xAxisValue = XAxisValues[_index];
-        speed = _speedArray[1];
+            _xAxisValue = XAxisValues[_index];
+        }
     }
 }

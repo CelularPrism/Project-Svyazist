@@ -21,7 +21,7 @@ public class EnemyLight : MonoBehaviour
     {
         if (CanSeePlayer())
         {
-            Debug.Log("I see you");
+            //Debug.Log("I see you");
             spotLight.color = Color.red;
         } else
         {
