@@ -27,7 +27,7 @@ public class PlayerStealth : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
-            Debug.Log("Sit down");
+            Debug.Log("Stand up");
             playerCharacter.localScale = new Vector3(_scale.x, _scale.y * 2, _scale.z);
             _scale = playerCharacter.localScale;
         }

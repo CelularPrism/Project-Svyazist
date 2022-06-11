@@ -29,8 +29,8 @@ public class InventoryUI : MonoBehaviour
     {
         GameObject gameObject = Instantiate(prefabInventoryItem, transform);
         gameObject.GetComponent<Item>().key = item.key;
-        gameObject.GetComponent<Item>().SOItem = item.SOItem;
+        gameObject.GetComponent<Item>().spriteItem = item.spriteItem;
 
-        gameObject.GetComponent<Image>().sprite = item.SOItem.image2D;
+        gameObject.GetComponent<Image>().sprite = item.spriteItem;
     }
 }

@@ -1126,7 +1126,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.31378806, y: -0.000000016352681, z: 0.0000000053939204, w: 0.94949305}
+  m_LocalRotation: {x: 0.31378812, y: 0.000000016493098, z: -0.0000000053476863, w: 0.94949305}
   m_LocalPosition: {x: 0, y: 13.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1237,7 +1237,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974488204}
-  m_LocalRotation: {x: 0.31378806, y: -0.000000016337335, z: 0.0000000053991553, w: 0.94949305}
+  m_LocalRotation: {x: 0.3137881, y: 0.000000016337344, z: -0.0000000053991585, w: 0.94949305}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 1
-  SOItem: {fileID: 0}
+  spriteItem: {fileID: 0}
 --- !u!1 &1532359879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1602,7 @@ GameObject:
   - component: {fileID: 1620874074}
   - component: {fileID: 1620874076}
   - component: {fileID: 1620874075}
+  - component: {fileID: 1620874077}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1655,6 +1656,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1620874077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620874073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b92e7a94eabfc44975230f7e18fb4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1685738831}
 --- !u!1 &1638219517
 GameObject:
   m_ObjectHideFlags: 3
@@ -2048,6 +2062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1685738830}
+  - component: {fileID: 1685738831}
   m_Layer: 0
   m_Name: Scene
   m_TagString: Untagged
@@ -2075,6 +2090,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685738831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685738829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae36ebe276f7942bcf44d03a72658b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737071531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,4 +2593,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 1
-  SOItem: {fileID: 11400000, guid: 5f464b3cb3b754b429aa150c37ac6d82, type: 2}
+  spriteItem: {fileID: 21300000, guid: db2b87bb3d6814f4eaaa91f4a9bf0539, type: 3}

@@ -7,11 +7,11 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] InventoryUI inventoryUI;
 
-    private Dictionary<int, ScriptableObjectItem> _dictItems;
+    private Dictionary<int, Sprite> _dictItems;
 
     private void Start()
     {
-        _dictItems = new Dictionary<int, ScriptableObjectItem>();
+        _dictItems = new Dictionary<int, Sprite>();
     }
 
     public bool GetItem(int obstacle)
@@ -26,10 +26,10 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
-    public ScriptableObjectItem[] GetAllItems()
+    public Sprite[] GetAllItems()
     {
         int count = _dictItems.Count;
-        ScriptableObjectItem[] array = new ScriptableObjectItem[count];
+        Sprite[] array = new Sprite[count];
         _dictItems.Values.CopyTo(array, 0);
 
         return array;
@@ -37,7 +37,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetItem(AbstractItemObstacle item)
     {
-        _dictItems[item.key] = item.SOItem;
+        _dictItems[item.key] = item.spriteItem;
         inventoryUI.InsertItem(item);
     }
 }
