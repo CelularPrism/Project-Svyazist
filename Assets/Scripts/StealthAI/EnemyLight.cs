@@ -21,7 +21,7 @@ public class EnemyLight : MonoBehaviour
     {
         if (CanSeePlayer())
         {
-            Debug.Log("I see you");
+            player.GetComponent<PlayerStealthController>().Detected();
             spotLight.color = Color.red;
         } else
         {

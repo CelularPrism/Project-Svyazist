@@ -5,32 +5,39 @@ using Cinemachine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<int> _listItems;
+    [SerializeField] InventoryUI inventoryUI;
+
+    private Dictionary<int, Sprite> _dictItems;
 
     private void Start()
     {
-        _listItems = new List<int>();
+        _dictItems = new Dictionary<int, Sprite>();
     }
 
     public bool GetItem(int obstacle)
     {
-        bool _item = false;
-
-        foreach (int i in _listItems)
+        if (_dictItems.ContainsKey(obstacle))
         {
-            if (i == obstacle)
-            {
-                _item = true;
-                _listItems.Remove(i);
-                break;
-            }
+            _dictItems.Remove(obstacle);
+            inventoryUI.DeleteItem(obstacle);
+            return true;
         }
 
-        return _item;
+        return false;
     }
 
-    public void SetItem(int item)
+    public Sprite[] GetAllItems()
     {
-        _listItems.Add(item);
+        int count = _dictItems.Count;
+        Sprite[] array = new Sprite[count];
+        _dictItems.Values.CopyTo(array, 0);
+
+        return array;
+    }
+
+    public void SetItem(AbstractItemObstacle item)
+    {
+        _dictItems[item.key] = item.spriteItem;
+        inventoryUI.InsertItem(item);
     }
 }
