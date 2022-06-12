@@ -8,6 +8,7 @@ using UnityEngine;
 public class AbstractItemObstacle : MonoBehaviour
 {
     public int key;
+    public Sprite spriteItem;
     public virtual AbstractItemObstacle Get()
     {
         return this;
