@@ -28,31 +28,28 @@ public class FreeLookCameraRotater : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_freeLook.m_XAxis.Value >= 359f)
+        if (_freeLook.m_XAxis.Value >= _freeLook.m_XAxis.m_MaxValue - inaccuracy)
         {
             _freeLook.m_XAxis.Value = 0;
             _xAxisValue = 0;
         }
 
-        //float value = Mathf.Round(_freeLook.m_XAxis.Value);
-
         if (_freeLook.m_XAxis.Value != _xAxisValue)
         {
-            //ChangeSpeed();
             _freeLook.m_XAxis.Value = Mathf.Lerp(_freeLook.m_XAxis.Value, _xAxisValue, speed * Time.deltaTime);//_speed;
         }
     }
 
     private void RotateLeft()
     {
-        if (_freeLook.m_XAxis.Value >= Mathf.Abs(_xAxisValue - inaccuracy))
+        if (_freeLook.m_XAxis.Value >= Mathf.Abs(_xAxisValue - inaccuracy) 
+            || _freeLook.m_XAxis.Value <= inaccuracy)
         {
             _index++;
             float value = 0;
 
             if (_index == XAxisValues.Length)
             {
-                //_freeLook.m_XAxis.Value = 0;
                 value = _freeLook.m_XAxis.m_MaxValue;
                 _index = 0;
             }
@@ -63,7 +60,8 @@ public class FreeLookCameraRotater : MonoBehaviour
 
     private void RotateRight()
     {
-        if (_freeLook.m_XAxis.Value >= Mathf.Abs(_xAxisValue - inaccuracy))
+        if (_freeLook.m_XAxis.Value >= Mathf.Abs(_xAxisValue - inaccuracy) 
+            || _freeLook.m_XAxis.Value <= inaccuracy)
         {
             _index--;
             if (_index < 0)
