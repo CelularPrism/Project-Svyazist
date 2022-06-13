@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class PlayerGravity : MonoBehaviour
 {
-    [SerializeField] private CharacterController characterController;
+    //[SerializeField] private CharacterController characterController;
     [SerializeField] private LayerMask groundMask;
  
     [SerializeField] private float gravity;
@@ -15,7 +15,7 @@ public class PlayerGravity : MonoBehaviour
 
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        //characterController = GetComponent<CharacterController>();
         radius = GetComponent<SphereCollider>().radius;
         _speed = 0f;
     }
@@ -23,7 +23,7 @@ public class PlayerGravity : MonoBehaviour
     void FixedUpdate()
     {
         _isGround = Physics.CheckSphere(transform.position, radius, groundMask);
-
+        
         if (_isGround)
         {
             _speed = 0;
@@ -33,6 +33,11 @@ public class PlayerGravity : MonoBehaviour
         }
 
         Vector3 movement = new Vector3(0f, _speed, 0f);
-        characterController.Move(movement);
+        //characterController.Move(movement);
+    }
+
+    public float GetGravitySpeed()
+    {
+        return _speed;
     }
 }
