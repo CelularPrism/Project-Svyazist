@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
 
     private bool _isMove;
 
+    [SerializeField] private PlayerGravity gravity;
     [SerializeField] private PlayerRotater rotater;
     [SerializeField] private float speed;
 
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        _moveInput = new Vector3(_moveInput.x, gravity.GetGravitySpeed(), _moveInput.z);
         _character.Move(_moveInput * speed * Time.fixedDeltaTime);
     }
 
