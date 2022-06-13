@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CaptureData : MonoBehaviour
 {
-    [SerializeField] private float[] _sliderSpeed;
+    [SerializeField] private Image[] _detectionZones;
+    [SerializeField] private float _sliderSpeed;
 
-    [SerializeField] private GameObject[] _detectionZones;
-
-    private BoxCollider _currentDetectionZoneCollider;
+    private BoxCollider2D _currentDetectionZoneCollider;
 
     private float _leftSize;
     private float _rightSize;
 
-    private int _currentIndexDetectionZone;
-    private int _currentIndexSliderSpeed;
+    private int _currentIndex;
 
     private string _previousSceneName; //It is necessary to store the name or index of the scene in the global data
 
@@ -30,46 +29,40 @@ public class CaptureData : MonoBehaviour
     }
     public float SliderSpeed
     {
-        get { return _sliderSpeed[_currentIndexSliderSpeed]; }
-    }
-    public int CurrentIndexSliderSpeed
+        get { return _sliderSpeed; }
+    }   
+    public int CurrentIndex
     {
-        get { return _currentIndexSliderSpeed; }
+        get { return _currentIndex; }
         set
         {
-            _currentIndexSliderSpeed = value;
-        }
-    }    
-    public int CurrentIndexDetectionZone
-    {
-        get { return _currentIndexDetectionZone; }
-        set
-        {
-            _currentIndexDetectionZone = value;
+            _currentIndex = value;
         }
     }
     private void Start()
     {
-        //_previousSceneName = Scene.name; it is necessary to specify the scene name
+        //_previousSceneName = Scene.name; it is necessary to specify the name of previous scene
     }
     public void SetNextDetectionZones()
     {
-        if (CurrentIndexDetectionZone >= _detectionZones.Length - 1)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (CurrentIndex >= _detectionZones.Length)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //it is necessary to load previous scene
         else
         {
             for(int i = 0; i < _detectionZones.Length; i++)
             {
-                if (CurrentIndexDetectionZone == i)
+                if (CurrentIndex == i)
                 {
-                    _detectionZones[i].SetActive(true);
-                    _currentDetectionZoneCollider = _detectionZones[i].GetComponent<BoxCollider>();
+                    _detectionZones[i].gameObject.SetActive(true);
+                    _currentDetectionZoneCollider = _detectionZones[i].GetComponent<BoxCollider2D>();
 
-                    _rightSize = _detectionZones[i].transform.position.x + _currentDetectionZoneCollider.size.x * _detectionZones[i].transform.localScale.x;
-                    _leftSize = _detectionZones[i].transform.position.x - _currentDetectionZoneCollider.size.x * _detectionZones[i].transform.localScale.x;
+                    _rightSize = _detectionZones[i].GetComponent<RectTransform>().anchoredPosition3D.x + 
+                        (_currentDetectionZoneCollider.size.x / 2) * _detectionZones[i].transform.localScale.x;
+                    _leftSize = _detectionZones[i].GetComponent<RectTransform>().anchoredPosition3D.x - 
+                        (_currentDetectionZoneCollider.size.x / 2)* _detectionZones[i].transform.localScale.x;
                 }
                 else
-                    _detectionZones[i].SetActive(false);
+                    _detectionZones[i].gameObject.SetActive(false);
             }
         }
     }
