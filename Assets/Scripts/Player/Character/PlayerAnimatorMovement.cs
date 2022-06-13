@@ -7,7 +7,7 @@ public class PlayerAnimatorMovement : MonoBehaviour
     [SerializeField] private Movement plrMovement;
     [SerializeField] private Animator animator;
 
-    void Start()
+    private void Start()
     {
         plrMovement = GetComponent<Movement>();
     }
@@ -19,5 +19,13 @@ public class PlayerAnimatorMovement : MonoBehaviour
             float rnd = Random.Range(0f, 1f);
             animator.SetFloat("BlendStand", rnd);
         }
+    }
+    private void Idle()
+    {
+
+    }
+    private void Move()
+    {
+        
     }
 }
