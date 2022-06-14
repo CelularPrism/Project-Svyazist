@@ -20,8 +20,6 @@ public class PlayerAnimatorMovement : MonoBehaviour
     private string _nameSteathParameter = "Steath";
     private string _nameDeathParameter = "Death";
     private string _nameDeadParameter = "Dead";
-    private string _nameSteathMovementParameter = "SteathMovement";
-    private string _nameSteathUseParameter = "SteathUse";
     private string _nameEnterRadioSetParameter = "EnterRadioSet";
     #endregion
 
@@ -43,7 +41,6 @@ public class PlayerAnimatorMovement : MonoBehaviour
         animator.ResetTrigger(_nameGetItemParameter);
         animator.ResetTrigger(_nameUseItemParameter);
         animator.ResetTrigger(_nameDeadParameter);
-        animator.ResetTrigger(_nameSteathUseParameter);
         animator.ResetTrigger(_nameEnterRadioSetParameter);
 
         Idle();
@@ -85,14 +82,26 @@ public class PlayerAnimatorMovement : MonoBehaviour
     {
         StopAllCoroutines();
         animator.SetTrigger(_nameUseItemParameter);
-    }
-    public void GoToSteath()
+    }    
+    public void UseRadioSet()
     {
-
+        StopAllCoroutines();
+        animator.SetTrigger(_nameEnterRadioSetParameter);
     }
-    public void GoToStand()
+    public void GoToSteath() //it is necessary to choose button
     {
-
+        StopAllCoroutines();
+        animator.SetBool(_nameSteathParameter, true);
+    }
+    public void SetDeath()
+    {
+        StopAllCoroutines();
+        animator.SetTrigger(_nameDeadParameter);
+    }
+    public void GoToStand() //it is necessary to choose button
+    {
+        StopAllCoroutines();
+        animator.SetBool(_nameSteathParameter, false);
     }
     private IEnumerator ChangeIdleAnimation()
     {
