@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a1f3f300-88a6-4d39-ae31-08983ab934f6}">
+		<property name="assetPath">
+			<value>Walkie_Loud_2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.1253333333333337</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a708aebe-f39b-4089-a2a0-c247192121a0}</destination>
+		</relationship>
+	</object>
+</objects>
