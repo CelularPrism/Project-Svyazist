@@ -5,7 +5,8 @@ using Cinemachine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField] InventoryUI inventoryUI;
+    [SerializeField] private InventoryUI inventoryUI;
+    [SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement;
 
     private Dictionary<int, Sprite> _dictItems;
 
@@ -18,6 +19,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if (_dictItems.ContainsKey(obstacle))
         {
+            _playerAnimatorMovement.UseItem();
             _dictItems.Remove(obstacle);
             inventoryUI.DeleteItem(obstacle);
             return true;
@@ -37,6 +39,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetItem(AbstractItemObstacle item)
     {
+        _playerAnimatorMovement.GetItem();
         _dictItems[item.key] = item.spriteItem;
         inventoryUI.InsertItem(item);
     }

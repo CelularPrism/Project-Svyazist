@@ -11,13 +11,16 @@ public class Movement : MonoBehaviour
 
     private Vector3 _moveInput;
 
-    private bool _isMove;
+    [SerializeField] private bool _isMove;
+    [SerializeField] private bool _isRun;
 
     [SerializeField] private PlayerGravity gravity;
     [SerializeField] private PlayerRotater rotater;
     [SerializeField] private float speed;
 
-    void Awake()
+    [SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement; //Script Movement is defined which animation should play
+
+    private void Awake()
     {
         _inputActions = new PlayerAction();
         _inputActions.Enable();
@@ -27,10 +30,13 @@ public class Movement : MonoBehaviour
             SetMoveInput(move);
         };
 
+        _inputActions.Player.Run.performed += run => _isRun = true;  //adding button for running
+        _inputActions.Player.Run.canceled += run => _isRun = false;  //adding button for running
+
         _character = GetComponent<CharacterController>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (DialogueManager.GetInstance()._dialogueIsPlaying)
         {
@@ -38,7 +44,11 @@ public class Movement : MonoBehaviour
         }
 
         _moveInput = new Vector3(_moveInput.x, gravity.GetGravitySpeed(), _moveInput.z);
-        _character.Move(_moveInput * speed * Time.fixedDeltaTime);
+        
+        if (!_isRun)
+            _character.Move(_moveInput * speed * Time.fixedDeltaTime);
+        else
+            _character.Move(_moveInput * (1.7f * speed) * Time.fixedDeltaTime);
     }
 
     private void SetMoveInput(InputAction.CallbackContext move)
@@ -49,18 +59,23 @@ public class Movement : MonoBehaviour
         if (_moveInput != Vector3.zero)
         {
             _isMove = true;
-        } else
+            if (!_isRun)
+                _playerAnimatorMovement.Move();
+            else
+                _playerAnimatorMovement.Run();
+        }
+        else
         {
             _isMove = false;
+            _playerAnimatorMovement.Idle();
         }
     }
-
-    public Vector3 GetMoveInput()
+    public Vector3 GetMoveInput() //can be delete
     {
         return _moveInput;
     }
 
-    public bool IsMove()
+    public bool IsMove() //can be delete
     {
         return _isMove;
     }
