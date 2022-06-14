@@ -32,6 +32,11 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (DialogueManager.GetInstance()._dialogueIsPlaying)
+        {
+            return;
+        }
+
         _moveInput = new Vector3(_moveInput.x, gravity.GetGravitySpeed(), _moveInput.z);
         _character.Move(_moveInput * speed * Time.fixedDeltaTime);
     }
