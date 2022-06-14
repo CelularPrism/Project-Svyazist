@@ -12,10 +12,20 @@ public class PlayerAnimatorMovement : MonoBehaviour
 
     private PlayerAction _inputActions;
 
+    #region Names (string) of parametres
     private string _nameMovementParameter = "Movement";
     private string _nameIdleParameter = "IdleIndex";
     private string _nameGetItemParameter = "GetItem";
     private string _nameUseItemParameter = "UseItem";
+    private string _nameSteathParameter = "Steath";
+    private string _nameDeathParameter = "Death";
+    private string _nameDeadParameter = "Dead";
+    private string _nameSteathMovementParameter = "SteathMovement";
+    private string _nameSteathUseParameter = "SteathUse";
+    private string _nameEnterRadioSetParameter = "EnterRadioSet";
+    #endregion
+
+    private bool _steath = false;
 
     private float[] _idleIndex = { 0, 0.5f, 1};
     private float _movement;
@@ -30,10 +40,13 @@ public class PlayerAnimatorMovement : MonoBehaviour
         _inputActions.Enable();
         _inputActions.Player.GetItem.performed += perf => GetItem();*/
 
-        Idle();
-
         animator.ResetTrigger(_nameGetItemParameter);
         animator.ResetTrigger(_nameUseItemParameter);
+        animator.ResetTrigger(_nameDeadParameter);
+        animator.ResetTrigger(_nameSteathUseParameter);
+        animator.ResetTrigger(_nameEnterRadioSetParameter);
+
+        Idle();
     }
     void FixedUpdate()
     {
@@ -72,6 +85,14 @@ public class PlayerAnimatorMovement : MonoBehaviour
     {
         StopAllCoroutines();
         animator.SetTrigger(_nameUseItemParameter);
+    }
+    public void GoToSteath()
+    {
+
+    }
+    public void GoToStand()
+    {
+
     }
     private IEnumerator ChangeIdleAnimation()
     {
