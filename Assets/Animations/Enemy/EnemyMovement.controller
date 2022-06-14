@@ -130,7 +130,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Idle
     m_Mirror: 0
-  m_BlendParameter: Move
+  m_BlendParameter: BlendTree
   m_BlendParameterY: Idle
   m_MinThreshold: 0
   m_MaxThreshold: 0
@@ -264,7 +264,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Idle
     m_Mirror: 0
-  m_BlendParameter: Shoot
+  m_BlendParameter: BlendTree
   m_BlendParameterY: Idle
   m_MinThreshold: 0
   m_MaxThreshold: 0
@@ -286,7 +286,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Detection
+  - m_Name: BlendTree
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -306,18 +306,6 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: CanShoot
     m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Move
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Shoot
-    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -428,7 +416,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Idle
     m_Mirror: 0
-  m_BlendParameter: Detection
+  m_BlendParameter: BlendTree
   m_BlendParameterY: Idle
   m_MinThreshold: 0
   m_MaxThreshold: 0
