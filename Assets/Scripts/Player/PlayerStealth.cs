@@ -7,7 +7,9 @@ public class PlayerStealth : MonoBehaviour
 {
     public bool playerSit { get; private set; }
 
-    [SerializeField] private Transform playerCharacter;
+    [SerializeField] private Movement plrMovement;
+    [SerializeField] private PlayerAnimatorMovement animator;
+    //[SerializeField] private Transform playerCharacter;
 
     private PlayerAction _inputActions;
     private bool _inShelter;
@@ -15,18 +17,12 @@ public class PlayerStealth : MonoBehaviour
 
     private void Start()
     {
-        _scale = playerCharacter.localScale;
+        //_scale = playerCharacter.localScale;
         _inputActions = new PlayerAction();
         _inputActions.Enable();
-        _inputActions.Player.SitDown.performed += perf =>
-        {
-            SitDown(perf);
-        };
-    }
 
-    private void SitDown(InputAction.CallbackContext perf)
-    {
-        Debug.Log(perf.ReadValue<float>());
+        _inputActions.Player.SitDown.performed += perf => Sit();
+        _inputActions.Player.SitDown.canceled += perf => Stand();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,5 +43,17 @@ public class PlayerStealth : MonoBehaviour
             /*playerCharacter.localScale = new Vector3(_scale.x, _scale.y * 2, _scale.z);
             _scale = playerCharacter.localScale;*/
         }
+    }
+
+    private void Sit()
+    {
+        animator.GoToSteath();
+        plrMovement.SpeedSitDown(true);
+    }
+
+    private void Stand()
+    {
+        animator.GoToStand();
+        plrMovement.SpeedSitDown(false);
     }
 }

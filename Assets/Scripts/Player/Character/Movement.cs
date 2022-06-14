@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
 
     private Vector3 _moveInput;
 
-    [SerializeField] private bool _isMove;
-    [SerializeField] private bool _isRun;
+    private bool _isMove;
+    private bool _isRun;
 
     [SerializeField] private PlayerGravity gravity;
     [SerializeField] private PlayerRotater rotater;
@@ -70,6 +70,15 @@ public class Movement : MonoBehaviour
             _playerAnimatorMovement.Idle();
         }
     }
+
+    public void SpeedSitDown(bool sitDown)
+    {
+        if (sitDown)
+            speed /= 2;
+        else
+            speed *= 2;
+    }
+
     public Vector3 GetMoveInput() //can be delete
     {
         return _moveInput;

@@ -13,6 +13,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image iconInterlocutor;
     [SerializeField] private GameObject phrasePrefab;
 
+    [Header("Button Close Dialogue")]
+    [SerializeField] private GameObject btnClose;
+
     private static DialogueManager _instance;
     private Story _curentStory;
     private PlayerAction _inputActions;
@@ -40,7 +43,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         _dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
     }
 
     private void Update()
@@ -58,16 +61,6 @@ public class DialogueManager : MonoBehaviour
         {
             Destroy(contentPanel.transform.GetChild(i).gameObject);
         }
-    }
-
-    private IEnumerator ExitDialogueMode()
-    {
-        yield return new WaitForSeconds(0.2f);
-
-        _dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
-        _inputActions.Disable();
-        ClearContent();
     }
 
     private string HandleTags(List<string> currentTags)
@@ -103,7 +96,8 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ExitDialogueMode());
+            btnClose.SetActive(true);
+            //StartCoroutine(ExitDialogueMode());
         }
     }
 
@@ -115,6 +109,17 @@ public class DialogueManager : MonoBehaviour
         _curentStory = new Story(inkJSON.text);
         _dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        Debug.Log(dialoguePanel.activeSelf);
         _inputActions.Enable();
+    }
+
+    public void ExitDialogueMode()
+    {
+        _dialogueIsPlaying = false;
+
+        btnClose.SetActive(false);
+        dialoguePanel.SetActive(false);
+        _inputActions.Disable();
+        ClearContent();
     }
 }

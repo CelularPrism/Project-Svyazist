@@ -9,6 +9,7 @@ using UnityEngine;
 public class AbstractInteraction : MonoBehaviour
 {
     [SerializeField] private int mask;
+    [SerializeField] protected GameObject ButtonsCue;
 
     protected PlayerAction _inputActions;
     protected PlayerInventory _playerInventory;
@@ -25,9 +26,11 @@ public class AbstractInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.layer);
         if (other.gameObject.layer == mask)
         {
-            _object = other.gameObject.GetComponent<AbstractItemObstacle>();
+            _object = other.gameObject.GetComponent<Item>();
+            ButtonsCue.SetActive(true);
         }
     }
 
@@ -36,6 +39,7 @@ public class AbstractInteraction : MonoBehaviour
         if (other.gameObject.layer == mask)
         {
             _object = null;
+            ButtonsCue.SetActive(false);
         }
     }
 }

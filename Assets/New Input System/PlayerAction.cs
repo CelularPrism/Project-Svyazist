@@ -89,6 +89,24 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Nextphrase"",
+                    ""type"": ""Button"",
+                    ""id"": ""d28357d3-49d5-44b8-a2e8-de87395bf470"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SitDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""a90d9ace-3f8b-430c-8b7c-4e3a020ec4ed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -205,11 +223,33 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f162b137-271c-4e90-91cc-fa8de3f92999"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2c1620b-8ba1-4af9-b727-2d4289578834"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nextphrase"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0159b95-5a4d-4af9-ab52-3c45110c00f0"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SitDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -227,6 +267,8 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_Player_SizeCameraUp = m_Player.FindAction("SizeCameraUp", throwIfNotFound: true);
         m_Player_SizeCameraDown = m_Player.FindAction("SizeCameraDown", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
+        m_Player_Nextphrase = m_Player.FindAction("Nextphrase", throwIfNotFound: true);
+        m_Player_SitDown = m_Player.FindAction("SitDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +335,8 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SizeCameraUp;
     private readonly InputAction m_Player_SizeCameraDown;
     private readonly InputAction m_Player_Run;
+    private readonly InputAction m_Player_Nextphrase;
+    private readonly InputAction m_Player_SitDown;
     public struct PlayerActions
     {
         private @PlayerAction m_Wrapper;
@@ -304,6 +348,8 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         public InputAction @SizeCameraUp => m_Wrapper.m_Player_SizeCameraUp;
         public InputAction @SizeCameraDown => m_Wrapper.m_Player_SizeCameraDown;
         public InputAction @Run => m_Wrapper.m_Player_Run;
+        public InputAction @Nextphrase => m_Wrapper.m_Player_Nextphrase;
+        public InputAction @SitDown => m_Wrapper.m_Player_SitDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -334,6 +380,12 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Nextphrase.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextphrase;
+                @Nextphrase.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextphrase;
+                @Nextphrase.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextphrase;
+                @SitDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSitDown;
+                @SitDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSitDown;
+                @SitDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSitDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -359,6 +411,12 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @Run.started += instance.OnRun;
                 @Run.performed += instance.OnRun;
                 @Run.canceled += instance.OnRun;
+                @Nextphrase.started += instance.OnNextphrase;
+                @Nextphrase.performed += instance.OnNextphrase;
+                @Nextphrase.canceled += instance.OnNextphrase;
+                @SitDown.started += instance.OnSitDown;
+                @SitDown.performed += instance.OnSitDown;
+                @SitDown.canceled += instance.OnSitDown;
             }
         }
     }
@@ -372,5 +430,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         void OnSizeCameraUp(InputAction.CallbackContext context);
         void OnSizeCameraDown(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnNextphrase(InputAction.CallbackContext context);
+        void OnSitDown(InputAction.CallbackContext context);
     }
 }
