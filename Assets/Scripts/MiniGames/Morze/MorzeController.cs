@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class MorzeController : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class MorzeController : MonoBehaviour
     {
         _inputActions = new PlayerAction();
         _inputActions.Player.Enable();
-        _inputActions.Player.Morze.canceled += perf => CheckSymbolPosition(perf);
+        _inputActions.Player.Morze.performed += perf => CheckSymbolPosition(perf);
 
         _textMorzeData = GetComponent<TextMorzeData>();
 
@@ -42,20 +42,27 @@ public class MorzeController : MonoBehaviour
             - ((_textMorzeData.SelecterWindow.GetComponent<BoxCollider2D>().size.x / 2) * _textMorzeData.SelecterWindow.transform.localScale.x);
 
         Debug.Log("leftSizeSelecter " + _leftSizeSelecter + ", rightSizeSelecter " + _rightSizeSelecter);
+
+        _textMorzeData.SetNewSymbol();
     }
     private void CheckSymbolPosition(InputAction.CallbackContext perf)
     {
         _rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
         _leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
 
-        if (_rightSizeSetImage > _rightSizeSelecter && _leftSizeSetImage < _leftSizeSelecter)
+        int imageNum = _textMorzeData.CurrentSymbol;
+
+        if (_rightSizeSetImage < _rightSizeSelecter && _leftSizeSetImage > _leftSizeSelecter)
         {
-            if (perf.duration < 0.3f && _textMorzeData.CurrentSymbol == 0)
+            Debug.Log("Checking");
+            if (perf.interaction is TapInteraction && imageNum == 0)
             {
+                _countOfCorrectAnswer++;
                 WinMatch();
             }
-            else if (perf.duration > 0.3f && _textMorzeData.CurrentSymbol == 1)
+            else if (perf.interaction is HoldInteraction && imageNum == 1)
             {
+                _countOfCorrectAnswer++;
                 WinMatch();
             }
             else
@@ -64,13 +71,12 @@ public class MorzeController : MonoBehaviour
         else
             LoseMatch();
 
-        Debug.Log("leftSize " + _leftSizeSetImage + ", rightSize" + _rightSizeSetImage);
-
-        Debug.Log("Duration" + perf.duration * 100);
+        Debug.Log("ImageNum " + imageNum);
+        Debug.Log(perf.interaction);
+        Debug.Log("leftSizeSetImage " + _leftSizeSetImage + ", rightSizeSetImage " + _rightSizeSetImage);
     }
     public void WinMatch()
     {
-        _countOfCorrectAnswer++;
         _textMorzeData.UpdateSprite(true);
         if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
             _textMorzeData.SetNewSymbol();
@@ -91,7 +97,7 @@ public class MorzeController : MonoBehaviour
     {
         if (_countOfCorrectAnswer / _textMorzeData.FullAnswer > 0.5f)
         {
-            Debug.Log("You Win, score is" + _countOfCorrectAnswer / _textMorzeData.FullAnswer);
+            Debug.Log("You Win, score is" + (_countOfCorrectAnswer / _textMorzeData.FullAnswer));
             _headerImageEvil.SetActive(false);
             _headerImageGood.SetActive(false);
             //reload privious scene after 2 seconds
@@ -106,5 +112,6 @@ public class MorzeController : MonoBehaviour
     {
         _countOfCorrectAnswer = 0;
         _textMorzeData.Initialaze();
+        _textMorzeData.SetNewSymbol();
     }
 }

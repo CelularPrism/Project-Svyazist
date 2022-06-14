@@ -87,7 +87,6 @@ public class TextMorzeData : MonoBehaviour
                     RememberImage(picture);
                 }
             }
-        SetNewSymbol();
     }
     public void SetNewSymbol()
     {
