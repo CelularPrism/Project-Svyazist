@@ -65,11 +65,6 @@ public class Movement : MonoBehaviour
             _playerAnimatorMovement.Idle();
         }
     }
-    private void SetRunAnimation(InputAction.CallbackContext run)
-    {
-
-    }
-
     public Vector3 GetMoveInput() //can be delete
     {
         return _moveInput;

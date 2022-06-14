@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAnimatorMovement : MonoBehaviour
 {
     [Header("Required components")]
-    [SerializeField] private Movement plrMovement;
     [SerializeField] private Animator animator;
 
     [Header("Options for Idle animation")]
@@ -16,6 +15,7 @@ public class PlayerAnimatorMovement : MonoBehaviour
     private string _nameMovementParameter = "Movement";
     private string _nameIdleParameter = "IdleIndex";
     private string _nameGetItemParameter = "GetItem";
+    private string _nameUseItemParameter = "UseItem";
 
     private float[] _idleIndex = { 0, 0.5f, 1};
     private float _movement;
@@ -24,14 +24,16 @@ public class PlayerAnimatorMovement : MonoBehaviour
 
     private void Awake()
     {
-        plrMovement = GetComponent<Movement>();
         animator = GetComponentInChildren<Animator>();
 
-        _inputActions = new PlayerAction();
+        /*_inputActions = new PlayerAction();
         _inputActions.Enable();
-        _inputActions.Player.GetItem.performed += perf => GetItem();
+        _inputActions.Player.GetItem.performed += perf => GetItem();*/
 
         Idle();
+
+        animator.ResetTrigger(_nameGetItemParameter);
+        animator.ResetTrigger(_nameUseItemParameter);
     }
     void FixedUpdate()
     {
@@ -52,14 +54,14 @@ public class PlayerAnimatorMovement : MonoBehaviour
         StopAllCoroutines();
         
         _movement = 0.5f;
-        animator.SetFloat(_nameMovementParameter, _movement, 0.1f, Time.deltaTime);
+        animator.SetFloat(_nameMovementParameter, _movement);
     }
     public void Run()
     {
         StopAllCoroutines();
 
         _movement = 1f;
-        animator.SetFloat(_nameMovementParameter, _movement, 0.1f, Time.deltaTime);
+        animator.SetFloat(_nameMovementParameter, _movement);
     }
     public void GetItem()
     {
@@ -68,7 +70,8 @@ public class PlayerAnimatorMovement : MonoBehaviour
     }
     public void UseItem()
     {
-
+        StopAllCoroutines();
+        animator.SetTrigger(_nameUseItemParameter);
     }
     private IEnumerator ChangeIdleAnimation()
     {
