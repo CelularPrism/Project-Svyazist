@@ -62,6 +62,33 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SizeCameraUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""5486f5f2-0b7e-4b08-bf29-537268a6abaa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SizeCameraDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""b81264e3-da9f-40b7-8052-68cb25db7880"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""5135ee9a-62be-444a-b84e-ebc4fe2b300e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +179,39 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""action"": ""RotateCameraRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""864bf80e-c17e-4b88-b499-08f7b6408242"",
+                    ""path"": ""<Keyboard>/equals"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SizeCameraUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09d40bb7-e82b-49f0-999c-67260daa88cb"",
+                    ""path"": ""<Keyboard>/minus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SizeCameraDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f162b137-271c-4e90-91cc-fa8de3f92999"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +224,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
         m_Player_RotateCameraLeft = m_Player.FindAction("RotateCameraLeft", throwIfNotFound: true);
         m_Player_RotateCameraRight = m_Player.FindAction("RotateCameraRight", throwIfNotFound: true);
+        m_Player_SizeCameraUp = m_Player.FindAction("SizeCameraUp", throwIfNotFound: true);
+        m_Player_SizeCameraDown = m_Player.FindAction("SizeCameraDown", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -227,6 +290,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_GetItem;
     private readonly InputAction m_Player_RotateCameraLeft;
     private readonly InputAction m_Player_RotateCameraRight;
+    private readonly InputAction m_Player_SizeCameraUp;
+    private readonly InputAction m_Player_SizeCameraDown;
+    private readonly InputAction m_Player_Run;
     public struct PlayerActions
     {
         private @PlayerAction m_Wrapper;
@@ -235,6 +301,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
         public InputAction @RotateCameraLeft => m_Wrapper.m_Player_RotateCameraLeft;
         public InputAction @RotateCameraRight => m_Wrapper.m_Player_RotateCameraRight;
+        public InputAction @SizeCameraUp => m_Wrapper.m_Player_SizeCameraUp;
+        public InputAction @SizeCameraDown => m_Wrapper.m_Player_SizeCameraDown;
+        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -256,6 +325,15 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @RotateCameraRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraRight;
                 @RotateCameraRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraRight;
                 @RotateCameraRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCameraRight;
+                @SizeCameraUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSizeCameraUp;
+                @SizeCameraUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSizeCameraUp;
+                @SizeCameraUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSizeCameraUp;
+                @SizeCameraDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSizeCameraDown;
+                @SizeCameraDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSizeCameraDown;
+                @SizeCameraDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSizeCameraDown;
+                @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -272,6 +350,15 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @RotateCameraRight.started += instance.OnRotateCameraRight;
                 @RotateCameraRight.performed += instance.OnRotateCameraRight;
                 @RotateCameraRight.canceled += instance.OnRotateCameraRight;
+                @SizeCameraUp.started += instance.OnSizeCameraUp;
+                @SizeCameraUp.performed += instance.OnSizeCameraUp;
+                @SizeCameraUp.canceled += instance.OnSizeCameraUp;
+                @SizeCameraDown.started += instance.OnSizeCameraDown;
+                @SizeCameraDown.performed += instance.OnSizeCameraDown;
+                @SizeCameraDown.canceled += instance.OnSizeCameraDown;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
             }
         }
     }
@@ -282,5 +369,8 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         void OnGetItem(InputAction.CallbackContext context);
         void OnRotateCameraLeft(InputAction.CallbackContext context);
         void OnRotateCameraRight(InputAction.CallbackContext context);
+        void OnSizeCameraUp(InputAction.CallbackContext context);
+        void OnSizeCameraDown(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
 }

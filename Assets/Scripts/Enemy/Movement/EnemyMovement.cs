@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [Header("Points")]
     [SerializeField] private PointEnemyMovement[] _arrayPoints;
+    [SerializeField] private bool repeatPoints;
 
     [Header("Speed enemy")]
     [SerializeField] private float moveSpeed;
@@ -37,7 +38,8 @@ public class EnemyMovement : MonoBehaviour
                 Move();
             } else
             {
-                GetNextPoint();
+                if (_pointChanger != 0)
+                    GetNextPoint();
             }
         }
     }
@@ -48,7 +50,11 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transPoint.position, transform.position) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(transform.position, transPoint.position, moveSpeed * Time.deltaTime);
-            Rotate(transPoint.position);
+
+            if (_nowPoint.isLook)
+                Rotate(_nowPoint.GetLookAtPoint());
+            else
+                Rotate(transPoint.position);
         } else
         {
             isMove = false;
@@ -59,13 +65,7 @@ public class EnemyMovement : MonoBehaviour
     private void Rotate(Vector3 point)
     {
         Quaternion rotTarget = Quaternion.LookRotation(point - transform.position);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed/* * Time.deltaTime*/);
-
-        /*Vector3 lookPoint = (point - transform.position).normalized;
-        float pointAngle = 90 - Mathf.Atan2(lookPoint.x, lookPoint.x) * Mathf.Rad2Deg;
-
-        float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, pointAngle, rotationSpeed);
-        transform.eulerAngles = Vector3.up * angle;*/
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed);
     }
 
     private void GetNextPoint()
@@ -80,7 +80,12 @@ public class EnemyMovement : MonoBehaviour
                 moveSpeed = _nowPoint.GetSpeed();
 
             if (_indexPoint == _arrayPoints.Length - 1 || _indexPoint == 0)
+            {
                 _pointChanger = -_pointChanger;
+
+                if (!repeatPoints)
+                    _pointChanger = 0;
+            }
         }
     }
 }
