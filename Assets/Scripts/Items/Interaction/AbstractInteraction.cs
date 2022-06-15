@@ -26,10 +26,9 @@ public class AbstractInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.layer);
         if (other.gameObject.layer == mask)
         {
-            _object = other.gameObject.GetComponent<Item>();
+            _object = other.gameObject.GetComponent<AbstractItemObstacle>();
             ButtonsCue.SetActive(true);
         }
     }

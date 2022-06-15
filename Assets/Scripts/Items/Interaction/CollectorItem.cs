@@ -11,6 +11,7 @@ public class CollectorItem: AbstractInteraction
 
     private void GetItem()
     {
+        Debug.Log(_object);
         if (_object != null)
         {
             _playerInventory.SetItem(_object);
