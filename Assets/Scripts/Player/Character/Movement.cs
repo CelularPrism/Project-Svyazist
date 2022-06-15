@@ -82,13 +82,19 @@ public class Movement : MonoBehaviour
         Debug.Log(sitDown);
         if (sitDown)
         {
+            _playerAnimatorMovement.GoToSteath();
             _collider.center = new Vector3(0f, _collider.center.y * 2, 0f);
+            _character.center = new Vector3(0f, _character.center.y * 2, 0f);
+            _character.height /= 2;
             _collider.size /= 2;
             speed /= 2;
         }
         else
         {
+            _playerAnimatorMovement.GoToStand();
             _collider.center = new Vector3(0f, _collider.center.y / 2, 0f);
+            _character.center = new Vector3(0f, _character.center.y / 2, 0f);
+            _character.height *= 2;
             _collider.size *= 2;
             speed *= 2;
         }
