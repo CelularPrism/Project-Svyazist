@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2176342355783401935}
   - component: {fileID: 2176342355783401929}
   - component: {fileID: 2176342355783401930}
+  - component: {fileID: 63267399154917491}
   m_Layer: 0
   m_Name: Player ver 2
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   gravity: {fileID: 2176342356227010936}
   rotater: {fileID: 2176342356133265533}
   speed: 7
+  _playerAnimatorMovement: {fileID: 0}
 --- !u!114 &2176342355783401929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,8 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1ae56781bdd5e47b6c72a43763884e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plrMovement: {fileID: 0}
   animator: {fileID: 2176342356133265534}
+  _idleAnimations: []
 --- !u!143 &2176342355783401930
 CharacterController:
   m_ObjectHideFlags: 0
@@ -84,6 +86,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.6, z: 0}
+--- !u!65 &63267399154917491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176342355783401933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1.5, z: 0.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &2176342356227010942
 GameObject:
   m_ObjectHideFlags: 0
