@@ -9,7 +9,7 @@ public class MorzeController : MonoBehaviour
     [SerializeField] private GameObject _headerImageEvil;
     [SerializeField] private GameObject _headerImageGood;
 
-    private PlayerAction _inputActions;
+    private MiniGamesAction _inputActions;
 
     private TextMorzeData _textMorzeData;
 
@@ -24,9 +24,9 @@ public class MorzeController : MonoBehaviour
 
     private void Awake()
     {
-        _inputActions = new PlayerAction();
-        _inputActions.Player.Enable();
-        _inputActions.Player.Morze.performed += perf => 
+        _inputActions = new MiniGamesAction();
+        _inputActions.MiniGames.Enable();
+        _inputActions.MiniGames.Morze.performed += perf => 
         //_inputActions.Player.Morze.canceled += perf =>
         {
             if (perf.interaction is TapInteraction)
@@ -105,7 +105,10 @@ public class MorzeController : MonoBehaviour
         if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
             _textMorzeData.SetNewSymbol();
         else
+        {
+            _textMorzeData.SetImage.GetComponent<Animator>().enabled = false;
             ScoreGame();
+        }
     }
     public void LoseMatch()
     {

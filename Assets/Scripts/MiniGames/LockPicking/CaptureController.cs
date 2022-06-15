@@ -14,13 +14,13 @@ public class CaptureController : MonoBehaviour
     [SerializeField] private SliderMovement _sliderMovement;
     [SerializeField] private CaptureData _captureData;
 
-    private PlayerAction _inputActions;
+    private MiniGamesAction _inputActions;
 
     private void Awake()
     {
-        _inputActions = new PlayerAction();
-        _inputActions.Player.Enable();
-        _inputActions.Player.LockPicking.performed += perf => CheckSliderPosition();
+        _inputActions = new MiniGamesAction();
+        _inputActions.MiniGames.Enable();
+        _inputActions.MiniGames.LockPicking.performed += perf => CheckSliderPosition();
     }
 
     private void Start()

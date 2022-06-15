@@ -53,15 +53,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Morze"",
-                    ""type"": ""Button"",
-                    ""id"": ""2ceb7e87-07f5-44b4-ba9c-b322bb044c48"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -141,17 +132,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""action"": ""LockPicking"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""64b81633-84d3-4519-aebc-d510f8e5bd5a"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Hold(duration=0.3),Tap(duration=0.15)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Morze"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -163,7 +143,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
         m_Player_LockPicking = m_Player.FindAction("LockPicking", throwIfNotFound: true);
-        m_Player_Morze = m_Player.FindAction("Morze", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -226,7 +205,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_GetItem;
     private readonly InputAction m_Player_LockPicking;
-    private readonly InputAction m_Player_Morze;
     public struct PlayerActions
     {
         private @PlayerAction m_Wrapper;
@@ -234,7 +212,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
         public InputAction @LockPicking => m_Wrapper.m_Player_LockPicking;
-        public InputAction @Morze => m_Wrapper.m_Player_Morze;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -253,9 +230,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @LockPicking.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockPicking;
                 @LockPicking.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockPicking;
                 @LockPicking.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockPicking;
-                @Morze.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMorze;
-                @Morze.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMorze;
-                @Morze.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMorze;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -269,9 +243,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @LockPicking.started += instance.OnLockPicking;
                 @LockPicking.performed += instance.OnLockPicking;
                 @LockPicking.canceled += instance.OnLockPicking;
-                @Morze.started += instance.OnMorze;
-                @Morze.performed += instance.OnMorze;
-                @Morze.canceled += instance.OnMorze;
             }
         }
     }
@@ -281,6 +252,5 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnGetItem(InputAction.CallbackContext context);
         void OnLockPicking(InputAction.CallbackContext context);
-        void OnMorze(InputAction.CallbackContext context);
     }
 }
