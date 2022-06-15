@@ -15,11 +15,120 @@ MonoBehaviour:
   Path: Assets/Sounds FMOD/Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637900219285551037
+  lastModified: 637908517453023338
   FileSizes:
   - Name: Desktop
-    Value: 2145248
+    Value: 4216512
   Exists: 1
+--- !u!114 &-6151768730122937928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Enemy_Gunfire
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Enemy_Gunfire
+  Guid:
+    Data1: 832503004
+    Data2: 1159323436
+    Data3: -1341945939
+    Data4: 37941183
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &-6032064301452298140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI_And_Menu/UI
+  m_EditorClassIdentifier: 
+  Path: event:/UI_And_Menu/UI
+  Guid:
+    Data1: 320641333
+    Data2: 1250252593
+    Data3: -997348199
+    Data4: -2059300625
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-5029491085451455342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: parameter:/Terrain
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1582613689
+    data2: 842979852
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Grass
+  - Puddle
+  - Wood
+  Exists: 1
+--- !u!114 &-1056849567690125243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Main_Character/Character_Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Main_Character/Character_Footsteps
+  Guid:
+    Data1: -1454312121
+    Data2: 1272781273
+    Data3: -760326724
+    Data4: -1535000203
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7555399025450050062}
+  MinDistance: 1
+  MaxDistance: 85
+  Length: 0
 --- !u!114 &-1001442758371809321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,10 +144,10 @@ MonoBehaviour:
   Path: Assets/Sounds FMOD/Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637900219285561029
+  lastModified: 637908517453053264
   FileSizes:
   - Name: Desktop
-    Value: 758
+    Value: 1268
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -57,13 +166,48 @@ MonoBehaviour:
   - {fileID: -6654103470205927141}
   EditorEvents:
   - {fileID: 4682350059901019894}
-  EditorParameters: []
+  - {fileID: 4932054888129657044}
+  - {fileID: 6820001029672358944}
+  - {fileID: 6177114701390072328}
+  - {fileID: -6032064301452298140}
+  - {fileID: -1056849567690125243}
+  - {fileID: 1956617674290439360}
+  - {fileID: -6151768730122937928}
+  EditorParameters:
+  - {fileID: -5029491085451455342}
   MasterBanks:
   - {fileID: -6654103470205927141}
   StringsBanks:
   - {fileID: -1001442758371809321}
-  cacheTime: 637900219285561029
+  cacheTime: 637908517453053264
   cacheVersion: 131591
+--- !u!114 &1956617674290439360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Main_Character/Character_Footsteps_Inside
+  m_EditorClassIdentifier: 
+  Path: event:/Main_Character/Character_Footsteps_Inside
+  Guid:
+    Data1: -1577822788
+    Data2: 1270468449
+    Data3: -1509191764
+    Data4: 1361252423
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &4682350059901019894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,3 +235,136 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 151968
+--- !u!114 &4932054888129657044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience & Music/Location 1/Ambience_Location_1
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience & Music/Location 1/Ambience_Location_1
+  Guid:
+    Data1: 970198020
+    Data2: 1166838546
+    Data3: -1335268168
+    Data4: -945159640
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 17109
+--- !u!114 &6177114701390072328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Enemy_Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Enemy_Footsteps
+  Guid:
+    Data1: -1601624268
+    Data2: 1155395393
+    Data3: 506720691
+    Data4: -1590245647
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &6782610420869200637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/WalkieTalkie/ConnectionQuality
+  m_EditorClassIdentifier: 
+  Name: ConnectionQuality
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 709982590
+    data2: 3358804143
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6820001029672358944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Other/WalkieTalkie
+  m_EditorClassIdentifier: 
+  Path: event:/Other/WalkieTalkie
+  Guid:
+    Data1: 1396485930
+    Data2: 1203162227
+    Data3: -1110929008
+    Data4: -1829429492
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6782610420869200637}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20000
+--- !u!114 &7555399025450050062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Character_Footsteps/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1582613689
+    data2: 842979852
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Grass
+  - Puddle
+  - Wood
+  Exists: 1
