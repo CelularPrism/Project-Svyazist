@@ -146,7 +146,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""64b81633-84d3-4519-aebc-d510f8e5bd5a"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Hold,Tap"",
+                    ""interactions"": ""Hold(duration=0.3),Tap(duration=0.15)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Morze"",

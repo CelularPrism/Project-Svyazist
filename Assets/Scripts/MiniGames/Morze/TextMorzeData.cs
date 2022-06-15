@@ -77,6 +77,9 @@ public class TextMorzeData : MonoBehaviour
                     image.sprite = _dotDefaultImage;
                     image.rectTransform.sizeDelta = new Vector2(_scaleDotWidth, _scaleDotYHeight);
 
+                    //image.sprite = _spaceDefaultImage;
+                    //image.rectTransform.sizeDelta = new Vector2(_scaleSpaceWidth, _scaleSpaceHeight);
+
                     RememberImage(picture);
                 }
                 else
@@ -92,7 +95,8 @@ public class TextMorzeData : MonoBehaviour
     {
         if (_images[_index] == 0)
             _setImages.sprite =_dotCorrecttImage;
-            
+            //_setImages.sprite = _spaceCorrectImage;
+
         else
             _setImages.sprite = _spaceCorrectImage;
 
