@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private bool staticSpeed;
 
+    //[SerializeField] private EnemyAnimator _enemyAnimator; 
+
     [Header("State enemy")]
     public bool isMove;
 
@@ -21,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
 
     private int _indexPoint;
     private int _pointChanger;
+
 
     void Start()
     {
@@ -35,6 +38,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (isMove)
             {
+                //_enemyAnimator.Move();
                 Move();
             } else
             {
@@ -59,6 +63,7 @@ public class EnemyMovement : MonoBehaviour
         {
             isMove = false;
             _stayTime = Time.time + _nowPoint.GetStayTime();
+            //_enemyAnimator.Idle();
         }
     }
 

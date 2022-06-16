@@ -97,11 +97,20 @@ public class PlayerAnimatorMovement : MonoBehaviour
     {
         StopAllCoroutines();
         animator.SetTrigger(_nameDeadParameter);
+        animator.SetFloat(_nameDeathParameter, 0);
+    }
+    public void SetDeathFromMine()
+    {
+        StopAllCoroutines();
+        animator.SetTrigger(_nameDeadParameter);
+        animator.SetFloat(_nameDeathParameter, 1);
     }
     public void GoToStand() //it is necessary to choose button
     {
         StopAllCoroutines();
         animator.SetBool(_nameSteathParameter, false);
+
+        StartCoroutine("ChangeIdleAnimation"); //changes
     }
     private IEnumerator ChangeIdleAnimation()
     {

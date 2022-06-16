@@ -10,6 +10,8 @@ public class EnemyLight : MonoBehaviour
     [SerializeField] private Light spotLight;
     [SerializeField] private Color defaultLightColor;
 
+    //[SerializeField] private EnemyAnimator _enemyAnimator; 
+
     private float _viewAngle;
 
     void Start()
@@ -23,7 +25,10 @@ public class EnemyLight : MonoBehaviour
         {
             player.GetComponent<PlayerStealthController>().Detected();
             spotLight.color = Color.red;
-        } else
+            //_enemyAnimator.Detect();
+            //_enemyAnimator.Shoot();
+        }
+        else
         {
             spotLight.color = defaultLightColor;
         }
