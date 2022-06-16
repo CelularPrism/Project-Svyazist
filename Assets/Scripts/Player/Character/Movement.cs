@@ -61,6 +61,7 @@ public class Movement : MonoBehaviour
     private void SetMoveInput(InputAction.CallbackContext move)
     {
         _moveInput = new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y);
+        Debug.Log(_moveInput);
         rotater.Rotate(_moveInput);
 
         if (_moveInput != Vector3.zero)
