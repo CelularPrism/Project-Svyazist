@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b89eeb6b-7cb6-4274-80ef-43f3c760abb3}">
+		<property name="name">
+			<value>ConnectionQuality</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e8584168-1ea7-420c-813f-8651999d1335}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d546691b-7e45-4761-b72d-62fcdcab8846}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d546691b-7e45-4761-b72d-62fcdcab8846}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

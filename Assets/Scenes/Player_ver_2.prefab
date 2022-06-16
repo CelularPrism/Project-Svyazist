@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2176342355783401935}
   - component: {fileID: 2176342355783401929}
   - component: {fileID: 2176342355783401930}
-  m_Layer: 0
-  m_Name: Player ver 2
+  m_Layer: 6
+  m_Name: Player_ver_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,9 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef204d2748a4dd94281363a6d5fb678c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMove: 0
+  _isRun: 0
   gravity: {fileID: 2176342356227010936}
   rotater: {fileID: 2176342356133265533}
   speed: 7
+  _playerAnimatorMovement: {fileID: 2176342355783401929}
 --- !u!114 &2176342355783401929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,8 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1ae56781bdd5e47b6c72a43763884e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plrMovement: {fileID: 0}
   animator: {fileID: 2176342356133265534}
+  _idleAnimations:
+  - {fileID: -887982601649841707, guid: 97db8fd4117027449a6560e9191b0ab8, type: 3}
+  - {fileID: -887982601649841707, guid: 2dce670bbb757694daa1ef66d7020d95, type: 3}
+  - {fileID: -887982601649841707, guid: 3d78b3ca4f344c54aa6a1b893a42b981, type: 3}
 --- !u!143 &2176342355783401930
 CharacterController:
   m_ObjectHideFlags: 0

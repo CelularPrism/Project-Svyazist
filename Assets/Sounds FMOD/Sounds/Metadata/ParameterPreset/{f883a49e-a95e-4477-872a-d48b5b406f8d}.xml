@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{f883a49e-a95e-4477-872a-d48b5b406f8d}">
+		<property name="name">
+			<value>Puddle_1</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e8584168-1ea7-420c-813f-8651999d1335}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e8eb5b8b-f1c2-4d2f-8923-7d9ef925d3e7}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e8eb5b8b-f1c2-4d2f-8923-7d9ef925d3e7}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

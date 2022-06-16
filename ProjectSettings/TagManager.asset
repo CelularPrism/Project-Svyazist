@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wood
+  - Grass
+  - Puddle
   layers:
   - Default
   - TransparentFX
@@ -15,9 +18,9 @@ TagManager:
   - WallShelter
   - Obstacle
   - Ground
-  - 
-  - 
-  - 
+  - Wood
+  - Grass
+  - Puddle
   - 
   - 
   - 

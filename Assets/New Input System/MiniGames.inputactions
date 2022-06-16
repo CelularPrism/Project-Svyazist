@@ -1,0 +1,54 @@
+{
+    "name": "MiniGames",
+    "maps": [
+        {
+            "name": "MiniGames",
+            "id": "bab2d274-46ca-4ead-a7e3-a6480d906137",
+            "actions": [
+                {
+                    "name": "LockPicking",
+                    "type": "Button",
+                    "id": "54c48060-509f-456f-b8d7-8f7c136812d3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Morze",
+                    "type": "Button",
+                    "id": "c260b6d2-1064-4d92-a7be-4d3fb3b2ac35",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b0afbb64-8897-45a1-952b-10b76d6a24fb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockPicking",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d492574e-da17-4334-ac3e-a1431c0484b2",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Hold(duration=0.3),Tap(duration=0.15)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Morze",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
