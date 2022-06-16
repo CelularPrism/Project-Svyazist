@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f849702b-9cb0-462d-bc77-6c250702072d}">
+		<property name="assetPath">
+			<value>deutschland-04.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>7.8933333333333335</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a708aebe-f39b-4089-a2a0-c247192121a0}</destination>
+		</relationship>
+	</object>
+</objects>

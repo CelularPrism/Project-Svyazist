@@ -15,6 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool _playerInRange;
     private PlayerAction _inputActions;
+    private bool _isActive;
 
     private void Awake()
     {
@@ -26,26 +27,30 @@ public class DialogueTrigger : MonoBehaviour
         {
             OpenDialogue();
         };
+        _isActive = true;
     }
 
     private void Update()
     {
-        if (_playerInRange && !DialogueManager.GetInstance()._dialogueIsPlaying)
-            visualCue.SetActive(true);
-        else
-            visualCue.SetActive(false);
+        if (_isActive)
+        {
+            if (_playerInRange && !DialogueManager.GetInstance()._dialogueIsPlaying)
+                visualCue.SetActive(true);
+            else
+                visualCue.SetActive(false);
+        }
     }
 
     private void OpenDialogue()
     {
         DialogueManager.GetInstance().EnterDialogueMode(inkJSON, sprite);
         visualCue.SetActive(false);
-        Destroy(this.gameObject, 1f);
+        _isActive = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == playerLayer)
+        if (other.gameObject.layer == playerLayer && _isActive)
         {
             _inputActions.Enable();
             _playerInRange = true;
@@ -54,7 +59,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == playerLayer)
+        if (other.gameObject.layer == playerLayer && _isActive)
         {
             _inputActions.Disable();
             _playerInRange = false;
