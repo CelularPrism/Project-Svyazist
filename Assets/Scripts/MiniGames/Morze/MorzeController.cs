@@ -44,8 +44,8 @@ public class MorzeController : MonoBehaviour
         };
         _textMorzeData = GetComponent<TextMorzeData>();
 
-        _headerImageEvil.SetActive(true);
-        _headerImageGood.SetActive(false);
+        //_headerImageEvil.SetActive(true);
+        //_headerImageGood.SetActive(false);
 
     }
     private void Start()
@@ -126,8 +126,8 @@ public class MorzeController : MonoBehaviour
         if (_countOfCorrectAnswer > (0.5f * _textMorzeData.FullAnswer))
         {
             
-            _headerImageEvil.SetActive(false);
-            _headerImageGood.SetActive(true);
+            //_headerImageEvil.SetActive(false);
+            //_headerImageGood.SetActive(true);
             //reload privious scene after 2 seconds
         }
         else
