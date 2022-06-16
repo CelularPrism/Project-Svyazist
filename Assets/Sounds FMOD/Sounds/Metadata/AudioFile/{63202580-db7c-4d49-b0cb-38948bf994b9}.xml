@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{63202580-db7c-4d49-b0cb-38948bf994b9}">
 		<property name="assetPath">
-			<value>ALotFire_5.wav</value>
+			<value>Ambience/ALotFire_5.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

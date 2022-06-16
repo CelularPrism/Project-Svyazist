@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(BoxCollider))]
 public class Movement : MonoBehaviour
 {
     private PlayerAction _inputActions;
     private CharacterController _character;
+    private BoxCollider _collider;
 
     private Vector3 _moveInput;
 
@@ -16,6 +18,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private PlayerGravity gravity;
     [SerializeField] private PlayerRotater rotater;
+    [SerializeField] private Transform characterModel;
     [SerializeField] private float speed;
 
     [SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement; //Script Movement is defined which animation should play
@@ -33,7 +36,11 @@ public class Movement : MonoBehaviour
         _inputActions.Player.Run.performed += run => _isRun = true;  //adding button for running
         _inputActions.Player.Run.canceled += run => _isRun = false;  //adding button for running
 
+        _inputActions.Player.SitDown.performed += sit => SpeedSitDown(true);
+        _inputActions.Player.SitDown.canceled += sit => SpeedSitDown(false);
+
         _character = GetComponent<CharacterController>();
+        _collider = GetComponent<BoxCollider>();
     }
 
     private void FixedUpdate()
@@ -73,10 +80,29 @@ public class Movement : MonoBehaviour
 
     public void SpeedSitDown(bool sitDown)
     {
+        Debug.Log(sitDown);
         if (sitDown)
+        {
+            _playerAnimatorMovement.GoToSteath();
+            //   _collider.center = new Vector3(0f, _collider.center.y * 2, 0f);
+            // _character.center = new Vector3(0f, _character.center.y, 0f);
+            characterModel.position = new Vector3(characterModel.position.x, characterModel.position.y + 0.25f, characterModel.position.z);
+    
+            _character.height /= 2;
+          //  _collider.size /= 2;
             speed /= 2;
+        }
         else
+        {
+            _playerAnimatorMovement.GoToStand();
+            //  _collider.center = new Vector3(0f, _collider.center.y / 2, 0f);
+            // _character.center = new Vector3(0f, _character.center.y , 0f);
+            characterModel.position = new Vector3(characterModel.position.x, characterModel.position.y - 0.25f, characterModel.position.z);
+
+            _character.height *= 2;
+           // _collider.size *= 2;
             speed *= 2;
+        }
     }
 
     public Vector3 GetMoveInput() //can be delete
