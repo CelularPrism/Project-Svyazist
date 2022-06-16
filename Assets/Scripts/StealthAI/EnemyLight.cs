@@ -37,6 +37,7 @@ public class EnemyLight : MonoBehaviour
             float angleBetweenEnemyPlayer = Vector3.Angle(transform.forward, dirPlayer);
             if (angleBetweenEnemyPlayer < _viewAngle / 2f)
             {
+                Debug.Log(Physics.Linecast(transform.position, player.position, viewMask));
                 if (!Physics.Linecast(transform.position, player.position, viewMask))
                 {
                     return true;
