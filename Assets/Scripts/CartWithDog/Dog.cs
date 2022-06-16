@@ -8,10 +8,11 @@ public class Dog : MonoBehaviour
 
     [SerializeField] private DogSearching _dogSearching;
 
-    private Rigidbody _dogRigidBody;
+    [SerializeField] private Rigidbody _dogRigidBody;
 
-    //private Vector3 _movingDistance = new Vector3(0.5f, 0f, 0.5f);
-    private float _movingDistance = 1.4f;
+    [SerializeField] private DogAnimator _dogAnimator;
+
+    private float _movingDistance = 1.6f;
     private float _searchingDistanceZ = 0.5f;
     private float _moveDistance = 0.7f;
 
@@ -21,72 +22,91 @@ public class Dog : MonoBehaviour
     {
         _dogRigidBody = GetComponent<Rigidbody>();
         _dogSearching = GetComponent<DogSearching>();
+        _dogAnimator = GetComponentInChildren<DogAnimator>();
     }
 
     private void FixedUpdate()
     {
         if (!_dogSearching.IsSearching)
         {
-            Vector3 newTransform = _playerTransform.position - transform.position;
-            newTransform.y = 0;
-
             if (Vector3.Distance(_playerTransform.position, transform.position) > _movingDistance)
             {
-                _dogRigidBody.MovePosition(transform.position + (newTransform * _speed * Time.fixedDeltaTime));
+                Move(_playerTransform.position);
+                Rotate(_playerTransform.position);
             }
-
-
-            /*Vector3 newTransformNormalized = newTransform.normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(newTransformNormalized.x, 0, newTransformNormalized.z));
-            _dogRigidBody.MoveRotation(Quaternion.Inverse(lookRotation)); //invert Quaternion*/
+            else
+                _dogAnimator.SitDown();
         }
         else 
         {
-            Vector3 newTransform = _dogSearching.PositionMine - transform.position;
-            newTransform.y = 0;
-
-            _dogRigidBody.MovePosition(transform.position + (newTransform * _speed * Time.fixedDeltaTime));
+            Move(_dogSearching.PositionMine);
+            Rotate(_dogSearching.PositionMine);
 
             if (Vector3.Distance(_dogSearching.PositionMine, transform.position) < _moveDistance)
             {
+                _dogAnimator.Search();
+                if (_dogSearching.IsMoving)
+                    _dogAnimator.Find();
                 _dogSearching.IsMoving = false;
             }
 
             if ((transform.position.z - _playerTransform.position.z) < _searchingDistanceZ && !_dogSearching.IsMoving)
             {
-                Debug.Log("! "+ _dogSearching.PositionMine);
                 _dogSearching.IsSearching = false;
             }
         }
     }
+    private void Move(Vector3 targetPosition)
+    {
+        Vector3 newTransform = targetPosition - transform.position;
+        newTransform.y = 0;
 
-   /* private void OnTriggerEnter(Collider other)
-    {
-        if (!_neighbourMapPoint.Contains(other.gameObject) && other.gameObject.tag == "MapPoint")
-        {
-            _neighbourMapPoint.Add(other.gameObject);
-            if (other.gameObject.GetComponent<CartPoint>().IsMine)
-            {
-                _numMine++;
-                ShowMine(other.gameObject.GetComponent<CartPoint>().ID, "enter");
-            }
-        }
+        _dogRigidBody.MovePosition(transform.position + (newTransform * _speed * Time.fixedDeltaTime));
+
+        _dogAnimator.Move();
     }
-    private void OnTriggerExit(Collider other)
+
+    private void Rotate(Vector3 targetPosition)
     {
-        if (_neighbourMapPoint.Contains(other.gameObject) && other.gameObject.tag == "MapPoint")
-        {
-            _neighbourMapPoint.Remove(other.gameObject);
-            if (other.gameObject.GetComponent<CartPoint>().IsMine)
-            {
-                _numMine--;
-                ShowMine(other.gameObject.GetComponent<CartPoint>().ID, "exit");
-            }
-        }
+        Vector3 newTransform = (targetPosition - transform.GetChild(0).position);
+        newTransform.y = 0;
+
+        Quaternion lookRotation = Quaternion.LookRotation(newTransform);
+
+        Vector3 lookEuler = lookRotation.eulerAngles;
+        lookEuler.y += 60f;
+
+        lookRotation = Quaternion.Euler(lookEuler);
+
+        transform.GetChild(0).rotation = (lookRotation);
     }
-    private void ShowMine(int ID, string info)
-    {
-        Debug.Log("Count Of Mine " + _numMine + " Id " + ID + "Info" + info);
-        //sound from dog or UI
-    }*/
+    /* private void OnTriggerEnter(Collider other)
+     {
+         if (!_neighbourMapPoint.Contains(other.gameObject) && other.gameObject.tag == "MapPoint")
+         {
+             _neighbourMapPoint.Add(other.gameObject);
+             if (other.gameObject.GetComponent<CartPoint>().IsMine)
+             {
+                 _numMine++;
+                 ShowMine(other.gameObject.GetComponent<CartPoint>().ID, "enter");
+             }
+         }
+     }
+     private void OnTriggerExit(Collider other)
+     {
+         if (_neighbourMapPoint.Contains(other.gameObject) && other.gameObject.tag == "MapPoint")
+         {
+             _neighbourMapPoint.Remove(other.gameObject);
+             if (other.gameObject.GetComponent<CartPoint>().IsMine)
+             {
+                 _numMine--;
+                 ShowMine(other.gameObject.GetComponent<CartPoint>().ID, "exit");
+             }
+         }
+     }
+     private void ShowMine(int ID, string info)
+     {
+         Debug.Log("Count Of Mine " + _numMine + " Id " + ID + "Info" + info);
+         //sound from dog or UI
+     }*/
 }
