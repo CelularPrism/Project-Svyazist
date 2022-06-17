@@ -54,12 +54,12 @@
 			<destination>{fc471af8-c94b-43d6-a0dc-21aea92eb2d3}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{7caf1046-5910-43c4-a23b-1001cb92772c}</destination>
+			<destination>{2275b7e9-bb58-43f8-b74f-d61f965cc372}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{b7bbd27a-69c7-4cd6-ab4f-eccff96dece4}">
 		<property name="maximumDistance">
-			<value>5.20000029</value>
+			<value>200</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{89d6ccc9-779f-43c5-a205-f47fe0649bd0}" />
@@ -114,6 +114,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{e940b17f-b3f8-4213-8fb3-4bc5a3d2ae1e}">
+		<property name="volume">
+			<value>-15.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -198,7 +201,7 @@
 	<object class="MixerBusFader" id="{6d84c584-e722-4dd6-a035-0cdfc078fc1c}" />
 	<object class="SpatialiserEffect" id="{abd50ba4-5783-4654-bc98-6695e1dc7f3f}">
 		<property name="maximumDistance">
-			<value>5.20000029</value>
+			<value>200</value>
 		</property>
 	</object>
 	<object class="CompressorEffect" id="{3c93af40-1a90-48a4-a6c5-30d3c12e6780}">
@@ -267,7 +270,7 @@
 			<value>3800</value>
 		</property>
 		<property name="wetLevel">
-			<value>-18</value>
+			<value>-47</value>
 		</property>
 		<property name="dryLevel">
 			<value>-5</value>

@@ -14,7 +14,7 @@ public class CollectorItem: AbstractInteraction
         if (_object != null)
         {
             _playerInventory.SetItem(_object);
-            _object.Use();
+            _object.Use(this);
         }
     }
 }

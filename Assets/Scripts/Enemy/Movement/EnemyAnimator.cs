@@ -8,7 +8,7 @@ public class EnemyAnimator : MonoBehaviour
     [SerializeField] private Animator _enemyAnimator;
 
     [Header("Options for Idle animation")]
-    [SerializeField] private AnimationClip[] _idleAnimations;
+    //[SerializeField] private AnimationClip[] _idleAnimations;
 
     #region Names (string) of parametres
     private string _nameIdleParameter = "Idle";
@@ -37,7 +37,7 @@ public class EnemyAnimator : MonoBehaviour
     {
         _enemyAnimator.SetBool(_nameCanMoveParameter, false);
 
-        _currentIdleNum = Random.Range(0, _idleAnimations.Length);
+        _currentIdleNum = Random.Range(0, 2);
         _enemyAnimator.SetFloat(_nameIdleParameter, _idleIndex[_currentIdleNum]);
     }
     public void Move()

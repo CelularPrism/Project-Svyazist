@@ -22,7 +22,7 @@ public class TransmitterDistance : MonoBehaviour
             Vector3 pos = transform.position;
             Vector3 plrPos = _playerTrans.position;
             _distance = Vector3.Distance(plrPos, pos);
-            Debug.LogWarning(_distance);
+            //Debug.LogWarning(_distance);
         }
     }
 
@@ -30,6 +30,7 @@ public class TransmitterDistance : MonoBehaviour
     {
         if (other.gameObject.layer == mask)
         {
+            Debug.Log("Enter");
             _playerTrans = other.transform;
             _isActive = true;
         }
@@ -39,6 +40,7 @@ public class TransmitterDistance : MonoBehaviour
     {
         if (other.gameObject.layer == mask)
         {
+            Debug.Log("Exit");
             _isActive = false;
         }
     }

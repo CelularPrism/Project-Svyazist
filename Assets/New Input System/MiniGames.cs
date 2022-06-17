@@ -44,6 +44,15 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkipVideo"",
+                    ""type"": ""Button"",
+                    ""id"": ""85973936-9b81-4cbd-9972-ba468327c1db"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                     ""action"": ""Morze"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f5d20a2-b145-4e1f-b5a8-4c842ed06fe1"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkipVideo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
         m_MiniGames = asset.FindActionMap("MiniGames", throwIfNotFound: true);
         m_MiniGames_LockPicking = m_MiniGames.FindAction("LockPicking", throwIfNotFound: true);
         m_MiniGames_Morze = m_MiniGames.FindAction("Morze", throwIfNotFound: true);
+        m_MiniGames_SkipVideo = m_MiniGames.FindAction("SkipVideo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,12 +160,14 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
     private IMiniGamesActions m_MiniGamesActionsCallbackInterface;
     private readonly InputAction m_MiniGames_LockPicking;
     private readonly InputAction m_MiniGames_Morze;
+    private readonly InputAction m_MiniGames_SkipVideo;
     public struct MiniGamesActions
     {
         private @MiniGamesAction m_Wrapper;
         public MiniGamesActions(@MiniGamesAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @LockPicking => m_Wrapper.m_MiniGames_LockPicking;
         public InputAction @Morze => m_Wrapper.m_MiniGames_Morze;
+        public InputAction @SkipVideo => m_Wrapper.m_MiniGames_SkipVideo;
         public InputActionMap Get() { return m_Wrapper.m_MiniGames; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -160,6 +183,9 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                 @Morze.started -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnMorze;
                 @Morze.performed -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnMorze;
                 @Morze.canceled -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnMorze;
+                @SkipVideo.started -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnSkipVideo;
+                @SkipVideo.performed -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnSkipVideo;
+                @SkipVideo.canceled -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnSkipVideo;
             }
             m_Wrapper.m_MiniGamesActionsCallbackInterface = instance;
             if (instance != null)
@@ -170,6 +196,9 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                 @Morze.started += instance.OnMorze;
                 @Morze.performed += instance.OnMorze;
                 @Morze.canceled += instance.OnMorze;
+                @SkipVideo.started += instance.OnSkipVideo;
+                @SkipVideo.performed += instance.OnSkipVideo;
+                @SkipVideo.canceled += instance.OnSkipVideo;
             }
         }
     }
@@ -178,5 +207,6 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
     {
         void OnLockPicking(InputAction.CallbackContext context);
         void OnMorze(InputAction.CallbackContext context);
+        void OnSkipVideo(InputAction.CallbackContext context);
     }
 }

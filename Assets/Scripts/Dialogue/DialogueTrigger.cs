@@ -16,6 +16,7 @@ public class DialogueTrigger : MonoBehaviour
     private bool _playerInRange;
     private PlayerAction _inputActions;
     private bool _isActive;
+    //private static bool _isActive;
 
     private void Awake()
     {
@@ -32,20 +33,23 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (_isActive)
+        /*if (_isActive)
         {
-            if (_playerInRange && !DialogueManager.GetInstance()._dialogueIsPlaying)
-                visualCue.SetActive(true);
-            else
-                visualCue.SetActive(false);
-        }
+            //if (_playerInRange && !DialogueManager.GetInstance()._dialogueIsPlaying)
+                //visualCue.SetActive(true);
+            //else
+                //visualCue.SetActive(false);
+        }*/
     }
 
     private void OpenDialogue()
     {
-        DialogueManager.GetInstance().EnterDialogueMode(inkJSON, sprite);
-        visualCue.SetActive(false);
-        _isActive = false;
+        if(_isActive)
+        {
+            DialogueManager.GetInstance().EnterDialogueMode(inkJSON, sprite);
+            visualCue.SetActive(false);
+            _isActive = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,6 +58,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             _inputActions.Enable();
             _playerInRange = true;
+            visualCue.SetActive(true);
         }
     }
 
@@ -63,6 +68,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             _inputActions.Disable();
             _playerInRange = false;
+            visualCue.SetActive(false);
         }
     }
 }

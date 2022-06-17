@@ -4,44 +4,50 @@ using UnityEngine;
 //[RequireComponent(typeof(Movement))]
 public class PlayerRotater : MonoBehaviour
 {
-    [SerializeField] private Movement plrMovement;
-    [SerializeField] private float speedRotated;
-    [SerializeField] private Transform camRotation;
+    [SerializeField] private Transform _cameraTransform;
 
     private bool _isMoveDown;
 
-    void Start()
-    {
-        plrMovement = GetComponentInParent<Movement>();
-    }
+    private float _newY;
+    private float _oldY;
+    private float _deltaY;
 
-    public void Rotate(Vector3 movement)
+    private void Awake()
     {
-        float y = 0f;
-        Debug.Log(movement);
-        if (movement.y > 0)
+        _newY = 0f;
+        _oldY = 0f;
+    }
+    public void Rotate(Vector3 inputValue)
+    {
+        _oldY = _newY;
+
+        _deltaY = _cameraTransform.transform.rotation.eulerAngles.y;
+
+        if (inputValue.z > 0)
         {
-            y = 0f;
+            _newY = 0f + _deltaY;
             _isMoveDown = false;
         }
-        else if (movement.y < 0)
+        else if (inputValue.z < 0)
         {
-            y = 180f;
+            _newY = 180f + _deltaY;
             _isMoveDown = true;
         }
 
-        if (movement.x > 0)
+        if (inputValue.x > 0)
         {
-            y = 90f;
+            _newY = 90f + _deltaY;
         }
-        else if (movement.x < 0)
+        else if (inputValue.x < 0)
         {
-            y = 270f;
+            _newY = 270f + _deltaY;
         }
 
-        Debug.Log(camRotation.rotation.y);
-        Debug.Log(camRotation.rotation.y + y);
+        else if (inputValue.x == 0 && inputValue.z == 0)
+        {
+            _newY = _oldY;
+        }
 
-        transform.rotation = Quaternion.Euler(0f, camRotation.rotation.y + y, 0f);
+        transform.rotation = Quaternion.Euler(0f, _newY, 0f);
     }
 }

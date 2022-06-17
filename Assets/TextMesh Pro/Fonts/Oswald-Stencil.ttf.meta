@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 88b9ab832a737bc4d88dfa73bc31701c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Oswald Stencil
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7316a72867c148142a290b96fca04aca, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
