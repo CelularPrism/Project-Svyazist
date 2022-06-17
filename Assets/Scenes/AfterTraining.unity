@@ -555,6 +555,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583989440}
   m_CullTransparentMesh: 1
+--- !u!328 &1447386504 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 3683904633366160914, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
+  m_PrefabInstance: {fileID: 3683904632182090508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1657765006
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +792,18 @@ PrefabInstance:
     - target: {fileID: 3683904633366160915, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683904633366160940, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
+      propertyPath: _pathName
+      value: Movies/S_bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683904633366160940, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
+      propertyPath: _videoPlayer
+      value: 
+      objectReference: {fileID: 1447386504}
+    - target: {fileID: 3683904633366160940, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
+      propertyPath: _nextSceneIndex
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}

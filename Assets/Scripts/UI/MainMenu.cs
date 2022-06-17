@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _smallSettingsMenu;
     [SerializeField] private GameObject _nameOfGame;
 
-    [SerializeField] private int _buildIndex;
+    [SerializeField] private int _buildIndex = 1;
 
     private void Start()
     {

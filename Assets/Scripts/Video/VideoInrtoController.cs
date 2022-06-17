@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class VideoInrtoController : MonoBehaviour
 {
@@ -28,12 +29,15 @@ public class VideoInrtoController : MonoBehaviour
     }
     private void FinishVideo()
     {
-        _videoPlayer.Stop();
-        EndReached(_videoPlayer);
+        if (_videoPlayer != null)
+        {
+            _videoPlayer.Stop();
+            EndReached(_videoPlayer);
+        }
     }
     private void EndReached(VideoPlayer videoPlayer)
     {
         Debug.Log("VideoEnd");
-        //LoadNextScene
+        SceneManager.LoadScene(_nextSceneIndex);
     }
 }

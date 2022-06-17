@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.SceneManagement;
 
 public class MorzeController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MorzeController : MonoBehaviour
     private float _leftSizeSetImage;
 
     private int _countOfCorrectAnswer = 0;
+    private int _buildIndex = 4;
 
     public string EventWrong;
     public string EventRight;
@@ -132,16 +134,21 @@ public class MorzeController : MonoBehaviour
         Debug.Log("_countOfCorrectAnswer " + _countOfCorrectAnswer + "_textMorzeData.FullAnswer" + _textMorzeData.FullAnswer);
         if (_countOfCorrectAnswer > (0.5f * _textMorzeData.FullAnswer))
         {
-            
+
             //_headerImageEvil.SetActive(false);
             //_headerImageGood.SetActive(true);
             //reload privious scene after 2 seconds
+            Invoke("LoadNextLevel", 1f);
         }
         else
         {
             LostGame();
             WrongSound();
         }
+    }
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(_buildIndex);
     }
     public void LostGame()
     {
