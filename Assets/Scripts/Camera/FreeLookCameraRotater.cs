@@ -9,6 +9,7 @@ public class FreeLookCameraRotater : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float inaccuracy;
     [SerializeField] private float[] XAxisValues;
+    [SerializeField] private Transform player;
 
     private CinemachineFreeLook _freeLook;
     private PlayerAction _inputActions;
