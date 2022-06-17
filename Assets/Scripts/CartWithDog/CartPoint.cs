@@ -10,6 +10,8 @@ public class CartPoint : MonoBehaviour
 
     private BoxCollider _pointColider;
     private Transform _pointTransform;
+    
+    private FMOD.Studio.EventInstance MineExplosion;
 
     public bool IsMine
     {
@@ -37,6 +39,12 @@ public class CartPoint : MonoBehaviour
     {
         if (_isMines && other.gameObject.tag == "Player")
         {
+            // FMOD Sound 
+            MineExplosion = FMODUnity.RuntimeManager.CreateInstance("event:/MiniGames/MineField/MineExplosion");
+            MineExplosion.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            MineExplosion.start();
+            MineExplosion.release();
+
             Debug.Log("Main Character is dead");
             //call method for death main character with animation
         }

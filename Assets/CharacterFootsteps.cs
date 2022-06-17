@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterFootsteps : MonoBehaviour {
+public class CharacterFootsteps : MonoBehaviour 
+{
 
     private enum CURRENT_TERRAIN { GRASS, PUDDLE, WOOD };
 
@@ -10,6 +11,8 @@ public class CharacterFootsteps : MonoBehaviour {
     private CURRENT_TERRAIN currentTerrain;
 
     private FMOD.Studio.EventInstance Character_Foosteps;
+    private FMOD.Studio.EventInstance Object_take;
+    private FMOD.Studio.EventInstance Object_use;
 
     private void Update()
     {
@@ -77,5 +80,21 @@ public class CharacterFootsteps : MonoBehaviour {
         Character_Foosteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         Character_Foosteps.start();
         Character_Foosteps.release();
+    }
+
+    private void PlayUse()
+    {
+        Object_use = FMODUnity.RuntimeManager.CreateInstance("event:/UI_And_Menu/Object_use");
+        Object_use.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        Object_use.start();
+        Object_use.release();
+    }
+
+    private void ItemTakeSound()
+    {
+        Object_take = FMODUnity.RuntimeManager.CreateInstance("event:/UI_And_Menu/Object_take");
+        Object_take.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        Object_take.start();
+        Object_take.release();
     }
 }

@@ -8,6 +8,8 @@ public class DogSearching : MonoBehaviour
     [SerializeField] private bool _isSearching;
     [SerializeField] private bool _isMoving;
 
+    private FMOD.Studio.EventInstance Dog;
+
     private BoxCollider _dogCollider;
 
     private PlayerAction _inputActions;
@@ -50,6 +52,13 @@ public class DogSearching : MonoBehaviour
         if(!_isSearching && _searchCount >= 0)
         {
             Debug.Log("Start Search..." + Time.realtimeSinceStartup);
+
+            // Stuff for FMOD Stuff for sound 
+            Dog = FMODUnity.RuntimeManager.CreateInstance("event:/MiniGames/MineField/Dog");
+            Dog.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            Dog.start();
+            Dog.release();
+            // END OF FMOD STUFF
 
             _isSearching = true;
             _isMoving = true;

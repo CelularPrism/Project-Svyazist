@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 1355198267}
   - component: {fileID: 1355198266}
   - component: {fileID: 1355198265}
+  - component: {fileID: 1355198268}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -348,7 +349,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355198264}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1355198266
 Camera:
   m_ObjectHideFlags: 0
@@ -407,6 +408,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1355198268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355198264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &1462958876
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +497,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1568598068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7167547861556044652, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+  m_PrefabInstance: {fileID: 7167547863536956700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1568598070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568598068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -599989820
+      Data2: 1195624881
+      Data3: 664694970
+      Data4: 384312480
+    Path: event:/MiniGames/MorzeCode/Morse_Background
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &7167547863536956700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -501,6 +550,18 @@ PrefabInstance:
     - target: {fileID: 7167547862239876398, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547862592901221, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: Event
+      value: event:/MiniGames/MorzeCode/Morze_Beep_Wrong
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547862592901221, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: EventRight
+      value: event:/MiniGames/MorzeCode/Morze_Beep_Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547862592901221, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: EventWrong
+      value: event:/MiniGames/MorzeCode/Morze_Beep_Wrong
       objectReference: {fileID: 0}
     - target: {fileID: 7167547862802111810, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_Name
