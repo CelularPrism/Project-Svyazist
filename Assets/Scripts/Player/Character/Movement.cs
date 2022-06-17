@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
         if (!_isRun)
             _character.Move(_moveInput * speed * Time.fixedDeltaTime);
         else
-            _character.Move(_moveInput * speed * Time.fixedDeltaTime);
+            _character.Move(_moveInput * (1.7f* speed) * Time.fixedDeltaTime);
     }
 
     private void SetMoveInput(InputAction.CallbackContext move)

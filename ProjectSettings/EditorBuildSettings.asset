@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DestroedLevelFinal.unity
     guid: ebf742ef2487cc540ae5830b1c8ec997
+  - enabled: 1
+    path: Assets/Scenes/SaveCrap.unity
+    guid: 12d8002f32f95114b9c1ea6faef0bad6
   m_configObjects: {}

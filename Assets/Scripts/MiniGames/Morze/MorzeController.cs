@@ -9,10 +9,9 @@ public class MorzeController : MonoBehaviour
 {
     [SerializeField] private GameObject _headerImageEvil;
     [SerializeField] private GameObject _headerImageGood;
+    [SerializeField] private TextMorzeData _textMorzeData;
 
     private MiniGamesAction _inputActions;
-
-    private TextMorzeData _textMorzeData;
 
     private float _rightSizeSelecter;
     private float _leftSizeSelecter;
@@ -47,7 +46,7 @@ public class MorzeController : MonoBehaviour
                 CheckSpacePosition(perf);
             }
         };
-        _textMorzeData = GetComponent<TextMorzeData>();
+        //_textMorzeData = GetComponent<TextMorzeData>();
 
         //_headerImageEvil.SetActive(true);
         //_headerImageGood.SetActive(false);
@@ -155,8 +154,9 @@ public class MorzeController : MonoBehaviour
         _countOfCorrectAnswer = 0;
         _textMorzeData.Initialaze();
         _textMorzeData.SetNewSymbol();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    
+
     public void WrongSound()
     {
         FMODUnity.RuntimeManager.PlayOneShotAttached(EventWrong, gameObject);

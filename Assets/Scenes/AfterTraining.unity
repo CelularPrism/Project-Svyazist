@@ -795,7 +795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3683904633366160940, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
       propertyPath: _pathName
-      value: Movies/S_bomb
+      value: Movies/Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 3683904633366160940, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
       propertyPath: _videoPlayer

@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     //It is necessary to add dead animation
-    //[SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement;
+    [SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement;
     public void Dead()
     {
-        //_playerAnimatorMovement.SetDeathFromEnemy();
+        _playerAnimatorMovement.SetDeathFromEnemy();
         Debug.Log("Dead");
-        //Invoke(ReloadScene, 2f);
+        Invoke("ReloadScene", 10f);
     }
-    /*public void DeadFromMine()
+    public void DeadFromMine()
     {
         _playerAnimatorMovement.SetDeathFromMine();
-        //Invoke(ReloadScene, 2f);
-    }*/
+        Invoke("ReloadScene", 10f);
+    }
 
     private void ReloadScene()
     {
-        //reload scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Application.Quit();
     }
 }

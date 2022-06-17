@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &476380006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7167547862592901220, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+  m_PrefabInstance: {fileID: 7167547863536956700}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a1724b39939d949b4fdea41c464418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &565302518
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +574,10 @@ PrefabInstance:
       propertyPath: EventWrong
       value: event:/MiniGames/MorzeCode/Morze_Beep_Wrong
       objectReference: {fileID: 0}
+    - target: {fileID: 7167547862592901221, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: _textMorzeData
+      value: 
+      objectReference: {fileID: 476380006}
     - target: {fileID: 7167547862802111810, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_Name
       value: CenterMorze

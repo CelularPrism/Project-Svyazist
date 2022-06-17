@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: fcd1c6056471d75418008f7924db02c5, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: fd4bfaf9cef106d4ebc0da41de2ddf21, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -742,7 +742,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2997397225493864280, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
       propertyPath: _pathName
-      value: Movies/S_intro
+      value: Movies/Intro
       objectReference: {fileID: 0}
     - target: {fileID: 2997397225493864280, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
       propertyPath: _nextSceneIndex
