@@ -455,8 +455,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -315, y: 75}
-  m_SizeDelta: {x: 800, y: 50}
+  m_AnchoredPosition: {x: -172.56812, y: 69.12912}
+  m_SizeDelta: {x: 345.1362, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583989442
 MonoBehaviour:
@@ -740,10 +740,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2997397225493864280, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
-      propertyPath: _pathName
-      value: Movies/End
-      objectReference: {fileID: 0}
     - target: {fileID: 2997397225493864293, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
       propertyPath: m_Name
       value: Video Player End

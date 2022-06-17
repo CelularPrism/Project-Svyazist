@@ -8,6 +8,7 @@ public class VideoInrtoController : MonoBehaviour
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private string _pathName;
     [SerializeField] private string _nextSceneName;
+    [SerializeField] private int _nextSceneIndex;
 
     private MiniGamesAction _inputActions;
     private void Awake()

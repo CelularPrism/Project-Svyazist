@@ -81,5 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _videoPlayer: {fileID: 0}
-  _pathName: Movies/Intro
+  _pathName: Movies/S_outro
   _nextSceneName: 
+  _nextSceneIndex: 0
