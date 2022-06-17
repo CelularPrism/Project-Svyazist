@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
 {
     private PlayerAction _inputActions;
     private CharacterController _character;
-    private BoxCollider _collider;
 
     private Vector3 _moveInput;
 
@@ -19,6 +18,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private PlayerGravity gravity;
     [SerializeField] private PlayerRotater rotater;
     [SerializeField] private Transform characterModel;
+    [SerializeField] private Transform cameraTransform;
     [SerializeField] private float speed;
 
     [SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement; //Script Movement is defined which animation should play
@@ -40,7 +40,6 @@ public class Movement : MonoBehaviour
         _inputActions.Player.SitDown.canceled += sit => SpeedSitDown(false);
 
         _character = GetComponent<CharacterController>();
-        _collider = GetComponent<BoxCollider>();
     }
 
     private void FixedUpdate()
@@ -51,18 +50,18 @@ public class Movement : MonoBehaviour
         }
 
         _moveInput = new Vector3(_moveInput.x, gravity.GetGravitySpeed(), _moveInput.z);
-        
+
         if (!_isRun)
             _character.Move(_moveInput * speed * Time.fixedDeltaTime);
         else
-            _character.Move(_moveInput * (1.7f * speed) * Time.fixedDeltaTime);
+            _character.Move(_moveInput * speed * Time.fixedDeltaTime);
     }
 
     private void SetMoveInput(InputAction.CallbackContext move)
     {
-        _moveInput = new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y);
-        Debug.Log(_moveInput);
-        rotater.Rotate(_moveInput);
+        _moveInput = cameraTransform.forward * move.ReadValue<Vector2>().y;
+        _moveInput += cameraTransform.right * move.ReadValue<Vector2>().x;
+        rotater.Rotate(new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y));
 
         if (_moveInput != Vector3.zero)
         {
@@ -78,7 +77,6 @@ public class Movement : MonoBehaviour
             _playerAnimatorMovement.Idle();
         }
     }
-
     public void SpeedSitDown(bool sitDown)
     {
         Debug.Log(sitDown);
@@ -105,12 +103,10 @@ public class Movement : MonoBehaviour
             speed *= 2;
         }
     }
-
     public Vector3 GetMoveInput() //can be delete
     {
         return _moveInput;
     }
-
     public bool IsMove() //can be delete
     {
         return _isMove;
