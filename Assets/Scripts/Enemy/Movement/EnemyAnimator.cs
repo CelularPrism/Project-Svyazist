@@ -14,7 +14,7 @@ public class EnemyAnimator : MonoBehaviour
     private string _nameIdleParameter = "Idle";
     private string _nameBlendTreeParameter = "BlendTree";
     private string _nameDetectedParameter = "Detected";
-    private string _nameLostGoalParameter = "LostGoal";
+    private string _nameCanMoveParameter = "CanMove";
     private string _nameCanShootParameter = "CanShoot";
     #endregion
 
@@ -27,7 +27,6 @@ public class EnemyAnimator : MonoBehaviour
         _enemyAnimator = GetComponent<Animator>();
 
         _enemyAnimator.ResetTrigger(_nameDetectedParameter);
-        _enemyAnimator.ResetTrigger(_nameLostGoalParameter);
         _enemyAnimator.ResetTrigger(_nameCanShootParameter);
         
         _enemyAnimator.SetFloat(_nameBlendTreeParameter, 0);
@@ -36,25 +35,22 @@ public class EnemyAnimator : MonoBehaviour
     }
     public void Idle()
     {
+        _enemyAnimator.SetBool(_nameCanMoveParameter, false);
+
         _currentIdleNum = Random.Range(0, _idleAnimations.Length);
         _enemyAnimator.SetFloat(_nameIdleParameter, _idleIndex[_currentIdleNum]);
     }
-    public void StartFollowing()
+    public void Move()
     {
-        StopAllCoroutines();
-
-        _enemyAnimator.SetTrigger(_nameDetectedParameter);
+        _enemyAnimator.SetBool(_nameCanMoveParameter, true);
     }
-    public void StopFollowing()
+    public void Detect()
     {
-        StopAllCoroutines();
-
-        _enemyAnimator.SetTrigger(_nameLostGoalParameter);
+        _enemyAnimator.SetTrigger(_nameDetectedParameter);
     }
 
     public void Shoot() //it is necessary to choose button
     {
-        StopAllCoroutines();
         _enemyAnimator.SetTrigger(_nameCanShootParameter);
     }
 }

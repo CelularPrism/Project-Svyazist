@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Sounds FMOD/Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637909061124719831
+  lastModified: 637909943384740238
   FileSizes:
   - Name: Desktop
-    Value: 4216512
+    Value: 5225376
   Exists: 1
 --- !u!114 &-6151768730122937928
 MonoBehaviour:
@@ -101,6 +101,33 @@ MonoBehaviour:
   - Puddle
   - Wood
   Exists: 1
+--- !u!114 &-1984387789266879975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Enemy_Idle
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Enemy_Idle
+  Guid:
+    Data1: -542247607
+    Data2: 1287784383
+    Data3: -1376235122
+    Data4: -907060931
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 9
+  Length: 12000
 --- !u!114 &-1056849567690125243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,10 +171,10 @@ MonoBehaviour:
   Path: Assets/Sounds FMOD/Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637909061124729301
+  lastModified: 637909943384750267
   FileSizes:
   - Name: Desktop
-    Value: 1268
+    Value: 1404
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -173,14 +200,44 @@ MonoBehaviour:
   - {fileID: -1056849567690125243}
   - {fileID: 1956617674290439360}
   - {fileID: -6151768730122937928}
+  - {fileID: -1984387789266879975}
+  - {fileID: 8308777741352165667}
+  - {fileID: 1465897055144664880}
   EditorParameters:
   - {fileID: -5029491085451455342}
   MasterBanks:
   - {fileID: -6654103470205927141}
   StringsBanks:
   - {fileID: -1001442758371809321}
-  cacheTime: 637909061124729301
+  cacheTime: 637909943384750267
   cacheVersion: 131591
+--- !u!114 &1465897055144664880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MiniGames/MineExplosion
+  m_EditorClassIdentifier: 
+  Path: event:/MiniGames/MineExplosion
+  Guid:
+    Data1: 1460538475
+    Data2: 1125126002
+    Data3: 674607237
+    Data4: 337032451
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3264
 --- !u!114 &1956617674290439360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,3 +425,30 @@ MonoBehaviour:
   - Puddle
   - Wood
   Exists: 1
+--- !u!114 &8308777741352165667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Enemy_Detect
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Enemy_Detect
+  Guid:
+    Data1: 985066828
+    Data2: 1330945538
+    Data3: -1912387424
+    Data4: -518974321
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 5.2000003
+  Length: 3700
