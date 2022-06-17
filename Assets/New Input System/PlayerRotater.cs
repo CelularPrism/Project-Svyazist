@@ -6,6 +6,7 @@ public class PlayerRotater : MonoBehaviour
 {
     [SerializeField] private Movement plrMovement;
     [SerializeField] private float speedRotated;
+    [SerializeField] private Transform camRotation;
 
     private bool _isMoveDown;
 
@@ -17,13 +18,13 @@ public class PlayerRotater : MonoBehaviour
     public void Rotate(Vector3 movement)
     {
         float y = 0f;
-
-        if (movement.z > 0)
+        Debug.Log(movement);
+        if (movement.y > 0)
         {
             y = 0f;
             _isMoveDown = false;
         }
-        else if (movement.z < 0)
+        else if (movement.y < 0)
         {
             y = 180f;
             _isMoveDown = true;
@@ -38,6 +39,9 @@ public class PlayerRotater : MonoBehaviour
             y = 270f;
         }
 
-        transform.rotation = Quaternion.Euler(0f, y, 0f);
+        Debug.Log(camRotation.rotation.y);
+        Debug.Log(camRotation.rotation.y + y);
+
+        transform.rotation = Quaternion.Euler(0f, camRotation.rotation.y + y, 0f);
     }
 }

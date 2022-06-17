@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private PlayerGravity gravity;
     [SerializeField] private PlayerRotater rotater;
     [SerializeField] private Transform characterModel;
+    [SerializeField] private Transform camPosition;
     [SerializeField] private float speed;
 
     [SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement; //Script Movement is defined which animation should play
@@ -38,6 +39,7 @@ public class Movement : MonoBehaviour
 
         _inputActions.Player.SitDown.performed += sit => SpeedSitDown(true);
         _inputActions.Player.SitDown.canceled += sit => SpeedSitDown(false);
+       
 
         _character = GetComponent<CharacterController>();
         _collider = GetComponent<BoxCollider>();
@@ -60,8 +62,10 @@ public class Movement : MonoBehaviour
 
     private void SetMoveInput(InputAction.CallbackContext move)
     {
-        _moveInput = new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y);
-        rotater.Rotate(_moveInput);
+     //   _moveInput = new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y);
+        _moveInput = camPosition.forward * move.ReadValue<Vector2>().y; 
+        _moveInput += camPosition.right * move.ReadValue<Vector2>().x; 
+        rotater.Rotate(new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y));
 
         if (_moveInput != Vector3.zero)
         {

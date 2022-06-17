@@ -11,7 +11,7 @@ public class EnemyLight : MonoBehaviour
     [SerializeField] private Light spotLight;
     [SerializeField] private Color defaultLightColor;
 
-    //[SerializeField] private EnemyAnimator _enemyAnimator; 
+    [SerializeField] private EnemyAnimator _enemyAnimator; 
 
     private float _viewAngle;
 
@@ -26,8 +26,8 @@ public class EnemyLight : MonoBehaviour
         {
             player.GetComponent<PlayerStealthController>().Detected();
             spotLight.color = Color.red;
-            //_enemyAnimator.Detect();
-            //_enemyAnimator.Shoot();
+            _enemyAnimator.Detect();
+            _enemyAnimator.Shoot();
         }
         else
         {
@@ -41,7 +41,7 @@ public class EnemyLight : MonoBehaviour
         {
             Vector3 dirPlayer = (player.position - lineCastPoint.position).normalized;
             float angleBetweenEnemyPlayer = Vector3.Angle(lineCastPoint.forward, dirPlayer);
-            if (angleBetweenEnemyPlayer < _viewAngle / 2f)
+            if (angleBetweenEnemyPlayer < _viewAngle / 2f -2f)
             {
                 if (!Physics.Linecast(lineCastPoint.position, player.position, viewMask))
                 {
