@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PointForTransmitter : MonoBehaviour
 {
     [SerializeField] private int mask;
     [SerializeField] private TransmitterDistance transmitter;
+    [SerializeField] private GameObject ButtonsCue;
 
     private bool _isActive;
     private PlayerAction _inputActions;
+
+    private int _buildIndex;
 
     void Start()
     {
@@ -20,16 +24,22 @@ public class PointForTransmitter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("In");
         if (other.gameObject.layer == mask)
         {
+            ButtonsCue.SetActive(true);
+            Debug.Log("In2");
             _inputActions.Enable();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("Out");
         if (other.gameObject.layer == mask)
         {
+            ButtonsCue.SetActive(false);
+            Debug.Log("Out2");
             _inputActions.Disable();
         }
     }
@@ -41,6 +51,7 @@ public class PointForTransmitter : MonoBehaviour
             transmitter.DisableTransmitter();
             _isActive = false;
             Debug.Log("Use Transmitter");
+            //SceneManager.LoadScene(_buildIndex);
         }
     }
 }

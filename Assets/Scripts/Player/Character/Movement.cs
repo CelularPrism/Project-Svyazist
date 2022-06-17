@@ -89,7 +89,7 @@ public class Movement : MonoBehaviour
     
             _character.height /= 2;
           //  _collider.size /= 2;
-            speed /= 2;
+            speed /= 1.5f;
         }
         else
         {
@@ -100,7 +100,7 @@ public class Movement : MonoBehaviour
 
             _character.height *= 2;
            // _collider.size *= 2;
-            speed *= 2;
+            speed *= 1.5f;
         }
     }
     public Vector3 GetMoveInput() //can be delete

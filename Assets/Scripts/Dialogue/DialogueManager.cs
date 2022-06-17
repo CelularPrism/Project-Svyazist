@@ -111,6 +111,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
         Debug.Log(dialoguePanel.activeSelf);
         _inputActions.Enable();
+        ContinueStory();
     }
 
     public void ExitDialogueMode()
