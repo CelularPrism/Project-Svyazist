@@ -21,6 +21,9 @@ public class MorzeController : MonoBehaviour
 
     private int _countOfCorrectAnswer = 0;
 
+    public string EventWrong;
+    public string EventRight;
+
 
     private void Awake()
     {
@@ -95,6 +98,7 @@ public class MorzeController : MonoBehaviour
             }
             else
                 LoseMatch();
+                
         }
         else
             LoseMatch();
@@ -102,6 +106,8 @@ public class MorzeController : MonoBehaviour
     public void WinMatch()
     {
         _textMorzeData.UpdateSprite(true);
+        RightSound();
+
         if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
             _textMorzeData.SetNewSymbol();
         else
@@ -112,6 +118,7 @@ public class MorzeController : MonoBehaviour
     }
     public void LoseMatch()
     {
+        WrongSound();
         _textMorzeData.UpdateSprite(false);
         if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
         {
@@ -133,6 +140,7 @@ public class MorzeController : MonoBehaviour
         else
         {
             LostGame();
+            WrongSound();
         }
     }
     public void LostGame()
@@ -140,5 +148,14 @@ public class MorzeController : MonoBehaviour
         _countOfCorrectAnswer = 0;
         _textMorzeData.Initialaze();
         _textMorzeData.SetNewSymbol();
+    }
+    
+    public void WrongSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(EventWrong, gameObject);
+    }
+    public void RightSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(EventRight, gameObject);
     }
 }
