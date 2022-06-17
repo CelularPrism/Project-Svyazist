@@ -10,9 +10,16 @@ public class GameController : MonoBehaviour
     {
         //_playerAnimatorMovement.SetDeathFromEnemy();
         Debug.Log("Dead");
+        //Invoke(ReloadScene, 2f);
     }
     /*public void DeadFromMine()
     {
         _playerAnimatorMovement.SetDeathFromMine();
+        //Invoke(ReloadScene, 2f);
     }*/
+
+    private void ReloadScene()
+    {
+        //reload scene
+    }
 }
