@@ -579,7 +579,15 @@ PrefabInstance:
       value: MainMenu_prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4714956811416078408, guid: 0caf2351e8ba96544814616d1ccecada, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714956811416078408, guid: 0caf2351e8ba96544814616d1ccecada, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284709968355695905, guid: 0caf2351e8ba96544814616d1ccecada, type: 3}
+      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781212919005504842, guid: 0caf2351e8ba96544814616d1ccecada, type: 3}

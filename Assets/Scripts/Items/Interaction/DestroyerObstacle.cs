@@ -18,7 +18,7 @@ public class DestroyerObstacle : AbstractInteraction
             _destroy = _playerInventory.GetItem(_object.key);
             if (_destroy)
             {
-                _object.Use();
+                _object.Use(this);
             }
         }
     }

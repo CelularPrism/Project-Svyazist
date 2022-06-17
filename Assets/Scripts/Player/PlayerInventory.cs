@@ -39,8 +39,11 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetItem(AbstractItemObstacle item)
     {
-        _playerAnimatorMovement.GetItem();
-        _dictItems[item.key] = item.spriteItem;
-        inventoryUI.InsertItem(item);
+        if(!_dictItems.ContainsKey(item.key))
+        {
+            _playerAnimatorMovement.GetItem();
+            _dictItems[item.key] = item.spriteItem;
+            inventoryUI.InsertItem(item);
+        }
     }
 }

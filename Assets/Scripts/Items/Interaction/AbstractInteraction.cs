@@ -16,6 +16,17 @@ public class AbstractInteraction : MonoBehaviour
 
     protected AbstractItemObstacle _object;
 
+    protected bool _ButtonUse = false;
+
+    public GameObject ButtonF
+    {
+        get { return ButtonsCue;  }
+    }
+    public bool ButtonUse
+    {
+        get { return ButtonsCue; }
+        set { _ButtonUse = value; }
+    }
     public virtual void Awake()
     {
         _inputActions = new PlayerAction();
@@ -27,9 +38,13 @@ public class AbstractInteraction : MonoBehaviour
     {
         if (other.gameObject.layer == mask)
         {
-            _object = other.gameObject.GetComponent<AbstractItemObstacle>();
-            _inputActions.Enable();
-            ButtonsCue.SetActive(true);
+            if(!_ButtonUse)
+            {
+                _object = other.gameObject.GetComponent<AbstractItemObstacle>();
+                _inputActions.Enable();
+                ButtonsCue.SetActive(true);
+                //_ButtonUse = true;
+            }
         }
     }
 
