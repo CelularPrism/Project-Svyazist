@@ -298,7 +298,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -490,17 +490,121 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304661863}
     m_Modifications:
-    - target: {fileID: 452871489, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 20.9
+    - target: {fileID: 1273766883, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1273766881, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+    - target: {fileID: 1569704603, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 1539351655, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 47.3
+    - target: {fileID: 1569704603, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2050141617, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+    - target: {fileID: 1569704603, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697212879, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697212879, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697212879, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 775431536849617363, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 775431536849617363, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 775431536849617363, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244325983014014074, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 14.4398
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244325983014014074, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 6.8802
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244325983014014074, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -21.8
+      value: -1.2075
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244325983014014074, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791584863233920321, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791584863233920321, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791584863233920321, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849715382822544920, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849715382822544920, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849715382822544920, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468935043347608699, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468935043347608699, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468935043347608699, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636622053371954105, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636622053371954105, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636622053371954105, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108216509059075963, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108216509059075963, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108216509059075963, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9162355910801714852, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
       propertyPath: m_Pivot.x
