@@ -490,6 +490,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304661863}
     m_Modifications:
+    - target: {fileID: 7167547862239876398, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547862239876398, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547862239876398, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7167547862802111810, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_Name
       value: CenterMorze
@@ -581,6 +593,18 @@ PrefabInstance:
     - target: {fileID: 7167547863156540214, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547863521502027, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547863521502027, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167547863521502027, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
