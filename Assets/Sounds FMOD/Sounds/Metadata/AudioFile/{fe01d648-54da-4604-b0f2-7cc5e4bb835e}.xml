@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fe01d648-54da-4604-b0f2-7cc5e4bb835e}">
+		<property name="assetPath">
+			<value>финальная катсцена.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>18.097083333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a708aebe-f39b-4089-a2a0-c247192121a0}</destination>
+		</relationship>
+	</object>
+</objects>

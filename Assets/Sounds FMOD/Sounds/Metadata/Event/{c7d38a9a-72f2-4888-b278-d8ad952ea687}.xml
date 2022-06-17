@@ -232,7 +232,7 @@
 			<value>10.153854166666658</value>
 		</property>
 		<property name="quantizationInterval">
-			<value>8</value>
+			<value>2</value>
 		</property>
 		<property name="looping">
 			<value>2</value>

@@ -191,7 +191,7 @@
 			<value>103.38463621794877</value>
 		</property>
 		<property name="quantizationInterval">
-			<value>8</value>
+			<value>2</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{9f88cb8f-df93-4772-b405-2b9bea91f787}</destination>
