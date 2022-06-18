@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class VideoInrtoController : MonoBehaviour
 {
     [SerializeField] private VideoPlayer _videoPlayer;
-    [SerializeField] private string _pathName;
+    [SerializeField] private VideoClip _videoClip;
+    //[SerializeField] private string _pathName;
     [SerializeField] private string _nextSceneName;
     [SerializeField] private int _nextSceneIndex;
 
@@ -15,7 +16,8 @@ public class VideoInrtoController : MonoBehaviour
     private void Awake()
     {
         _videoPlayer = GetComponent<VideoPlayer>();
-        _videoPlayer.clip = Resources.Load<VideoClip>(_pathName);
+        //_videoPlayer.clip = Resources.Load<VideoClip>(_pathName);
+        _videoPlayer.clip = _videoClip;
         
         _videoPlayer.loopPointReached += EndReached;
 

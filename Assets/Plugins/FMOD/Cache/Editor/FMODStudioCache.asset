@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Sounds FMOD/Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637911035855219362
+  lastModified: 637911199896050089
   FileSizes:
   - Name: Desktop
-    Value: 20087808
+    Value: 20924896
   Exists: 1
 --- !u!114 &-6151768730122937928
 MonoBehaviour:
@@ -209,6 +209,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-3053697689533580091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Cutscenes/Bomb_Cutscene
+  m_EditorClassIdentifier: 
+  Path: event:/Cutscenes/Bomb_Cutscene
+  Guid:
+    Data1: -472700822
+    Data2: 1102512086
+    Data3: -1344092019
+    Data4: 898159503
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 18000
 --- !u!114 &-1984387789266879975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,10 +306,10 @@ MonoBehaviour:
   Path: Assets/Sounds FMOD/Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637911035852958888
+  lastModified: 637911199896139871
   FileSizes:
   - Name: Desktop
-    Value: 2568
+    Value: 2722
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -328,13 +355,16 @@ MonoBehaviour:
   - {fileID: 3507891249921557608}
   - {fileID: -5185759018247080743}
   - {fileID: 769018384992538829}
+  - {fileID: 1153512406063632313}
+  - {fileID: -3053697689533580091}
+  - {fileID: 5025810261567355462}
   EditorParameters:
   - {fileID: -5029491085451455342}
   MasterBanks:
   - {fileID: -6654103470205927141}
   StringsBanks:
   - {fileID: -1001442758371809321}
-  cacheTime: 637911035855219362
+  cacheTime: 637911199896139871
   cacheVersion: 131591
 --- !u!114 &769018384992538829
 MonoBehaviour:
@@ -363,6 +393,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 530
+--- !u!114 &1153512406063632313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Cutscenes/Inro_Cutscene
+  m_EditorClassIdentifier: 
+  Path: event:/Cutscenes/Inro_Cutscene
+  Guid:
+    Data1: -469468368
+    Data2: 1161888062
+    Data3: 670258605
+    Data4: 598256310
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 41640
 --- !u!114 &1405315157902836320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,6 +690,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 17109
+--- !u!114 &5025810261567355462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Cutscenes/Final_Cutscene
+  m_EditorClassIdentifier: 
+  Path: event:/Cutscenes/Final_Cutscene
+  Guid:
+    Data1: -800417686
+    Data2: 1275368355
+    Data3: 2047120038
+    Data4: -1277903180
+  Banks:
+  - {fileID: -6654103470205927141}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 18097
 --- !u!114 &5480708709769868515
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -745,6 +745,10 @@ PrefabInstance:
       value: Movies/Intro
       objectReference: {fileID: 0}
     - target: {fileID: 2997397225493864280, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
+      propertyPath: _videoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: b399f61716685bb468de4262e6f123e0, type: 3}
+    - target: {fileID: 2997397225493864280, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
       propertyPath: _nextSceneIndex
       value: 2
       objectReference: {fileID: 0}

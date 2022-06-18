@@ -798,6 +798,10 @@ PrefabInstance:
       value: Movies/Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 3683904633366160940, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
+      propertyPath: _videoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 085c60523d1bf684fa79b204fffa0870, type: 3}
+    - target: {fileID: 3683904633366160940, guid: dda8d9ae73a777c4ba0bce22d54762fe, type: 3}
       propertyPath: _videoPlayer
       value: 
       objectReference: {fileID: 1447386504}

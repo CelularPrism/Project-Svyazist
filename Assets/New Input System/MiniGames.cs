@@ -71,7 +71,7 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d492574e-da17-4334-ac3e-a1431c0484b2"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Hold(duration=0.3),Tap(duration=0.15)"",
+                    ""interactions"": ""Hold(duration=0.25),Tap(duration=0.15)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Morze"",

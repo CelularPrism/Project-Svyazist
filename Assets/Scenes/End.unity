@@ -744,6 +744,10 @@ PrefabInstance:
       propertyPath: _pathName
       value: Movies/Final
       objectReference: {fileID: 0}
+    - target: {fileID: 2997397225493864280, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
+      propertyPath: _videoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 5caab2ff18a5b2d4d80d01872cce52c6, type: 3}
     - target: {fileID: 2997397225493864293, guid: 1ab6e8f26b3ed6347a8a164110c593d1, type: 3}
       propertyPath: m_Name
       value: Video Player End
