@@ -58,7 +58,11 @@
 			<destination>{bee3ed14-9ed7-49a5-8512-6095f284482c}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{a5553b43-ba9e-4309-a29d-7c7619e4d4a0}" />
+	<object class="EventAutomatableProperties" id="{a5553b43-ba9e-4309-a29d-7c7619e4d4a0}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{64739449-70d0-4304-9a1d-d2e5b6c9051e}" />
 	<object class="MarkerTrack" id="{90a65db4-0f5f-49da-850a-ea4762edb49c}" />
 	<object class="MarkerTrack" id="{5ea8e459-6ae3-49ba-95b1-3272cffc6c1d}" />
@@ -123,7 +127,7 @@
 	</object>
 	<object class="SingleSound" id="{65c6624e-4a39-48b1-83fd-5e081c2560a6}">
 		<property name="start">
-			<value>240</value>
+			<value>256</value>
 		</property>
 		<property name="length">
 			<value>16</value>
@@ -191,7 +195,7 @@
 			<value>217.59999999999997</value>
 		</property>
 		<property name="quantizationInterval">
-			<value>8</value>
+			<value>2</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{d37d4df5-cd5b-47c7-88c4-9672ff387582}</destination>

@@ -32,5 +32,6 @@ public class SaveCrop : MonoBehaviour
     private void GetNextLevel()
     {
         //load scene
+        Application.Quit();
     }
 }

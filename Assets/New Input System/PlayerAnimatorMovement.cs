@@ -93,7 +93,7 @@ public class PlayerAnimatorMovement : MonoBehaviour
         StopAllCoroutines();
         animator.SetBool(_nameSteathParameter, true);
     }
-    public void SetDeath()
+    public void SetDeathFromEnemy()
     {
         StopAllCoroutines();
         animator.SetTrigger(_nameDeadParameter);

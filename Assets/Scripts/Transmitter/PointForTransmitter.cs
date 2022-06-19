@@ -12,7 +12,7 @@ public class PointForTransmitter : MonoBehaviour
     private bool _isActive;
     private PlayerAction _inputActions;
 
-    private int _buildIndex;
+    private int _buildIndex = 3;
 
     void Start()
     {
@@ -51,7 +51,7 @@ public class PointForTransmitter : MonoBehaviour
             transmitter.DisableTransmitter();
             _isActive = false;
             Debug.Log("Use Transmitter");
-            //SceneManager.LoadScene(_buildIndex);
+            SceneManager.LoadScene(_buildIndex);
         }
     }
 }
