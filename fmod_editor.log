@@ -7,51 +7,17 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000020F1AE834A8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000015D80AB1F48 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[LOG] SystemI::createSound                     : filename = Assets/Sounds FMOD/Sounds/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000020EEDFF9B48 : node = 0000020FEEE73B30
-[LOG] SystemI::createSound                     : add node to async list : head = 0000020F130E5EB8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020EEDFF9B48
-[LOG] SystemI::createSoundInternal             :     Create name='Assets/Sounds FMOD/Sounds/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20780448
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 144448
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000020FEEE73C40
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='BombFar_1', format=5, channels=2, frequency=48000, lengthbytes=125856, lengthpcm=489471, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.986500.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020EEDFF9B48
-[LOG] SoundI::release                          : BombFar_1 (0000020EEDFF9B48)
-[LOG] SoundI::release                          :     BombFar_1 (0000020FD9FDC5D8)
-[LOG] SoundI::release                          :     BombFar_1 (0000020EE5E2E138)
-[LOG] SystemI::createSound                     : filename = Assets/Sounds FMOD/Sounds/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000020EED937D58 : node = 0000020F1AE807C0
-[LOG] SystemI::createSound                     : add node to async list : head = 0000020F130E5EB8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020EED937D58
-[LOG] SystemI::createSoundInternal             :     Create name='Assets/Sounds FMOD/Sounds/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 20780448
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 144448
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000020F1AE808D0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='bombing loop', format=5, channels=2, frequency=48000, lengthbytes=895008, lengthpcm=3544616, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.885241.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020EED937D58
-[LOG] SoundI::release                          : bombing first (0000020F131643F8)
-[LOG] SoundI::release                          :     bombing first (0000020FDA005318)
-[LOG] SoundI::release                          :     bombing first (0000020FD8741FB8)
+[LOG] Manager::readBank                        : fileversion = 141, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 141, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 141, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -59,64 +25,3 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
-[LOG] SoundI::release                          :  (0000020F12F04448)
-[LOG] SoundI::release                          :     BombFar_2 (0000020FD9FC8C38)
-[LOG] SoundI::release                          :  (0000020F10C91E08)
-[LOG] SoundI::release                          :     BombFar_3 (0000020FDA002F58)
-[LOG] SoundI::release                          :  (0000020F12F04CE8)
-[LOG] SoundI::release                          :     07010125-14 (0000020FD9FD43D8)
-[LOG] SoundI::release                          :  (0000020F12F04168)
-[LOG] SoundI::release                          :     07010125-15 (0000020FD9FD99F8)
-[LOG] SoundI::release                          :  (0000020F26831F18)
-[LOG] SoundI::release                          :     07010125-10 (0000020FDA005658)
-[LOG] SoundI::release                          :  (0000020F12F04898)
-[LOG] SoundI::release                          :     07010125-11 (0000020FD9FCAE58)
-[LOG] SoundI::release                          :  (0000020F26833BD8)
-[LOG] SoundI::release                          :     07010125-12 (0000020FDA0035D8)
-[LOG] SoundI::release                          :  (0000020F10C91B28)
-[LOG] SoundI::release                          :     07010125-13 (0000020FDA0023F8)
-[LOG] SoundI::release                          :  (0000020F26831678)
-[LOG] SoundI::release                          :     Birds 5 (0000020FDA003C58)
-[LOG] SoundI::release                          :  (0000020F12F04B78)
-[LOG] SoundI::release                          :     Birds_1 (0000020FD9FD9378)
-[LOG] SoundI::release                          :  (0000020F10C91848)
-[LOG] SoundI::release                          :     Birds 2 (0000020FDA0069D8)
-[LOG] SoundI::release                          :  (0000020F12F042D8)
-[LOG] SoundI::release                          :     Birds 3 (0000020FDA002738)
-[LOG] SoundI::release                          :  (0000020F26834FF8)
-[LOG] SoundI::release                          :     Birds 4 (0000020FDA005E78)
-[LOG] SoundI::release                          :  (0000020F268355B8)
-[LOG] SoundI::release                          :     ALotFire_4 (0000020FDA002258)
-[LOG] SoundI::release                          :  (0000020F26835898)
-[LOG] SoundI::release                          :     ALotFire_5 (0000020FDA003918)
-[LOG] SoundI::release                          :  (0000020F12F04A08)
-[LOG] SoundI::release                          :     ALotFire_1 (0000020FD9FCDBD8)
-[LOG] SoundI::release                          :  (0000020F12CCC768)
-[LOG] SoundI::release                          :     ALotFire_2 (0000020FDA003298)
-[LOG] SoundI::release                          :  (0000020F12CCC8D8)
-[LOG] SoundI::release                          :     ALotFire_3 (0000020FDA003438)
-[LOG] SoundI::release                          :  (0000020F26832D78)
-[LOG] SoundI::release                          :     Ochered_2 (0000020FDA006698)
-[LOG] SoundI::release                          : bombing loop (0000020EED937D58)
-[LOG] SoundI::release                          :     bombing loop (0000020FD9FE13D8)
-[LOG] SoundI::release                          :     bombing loop (0000020EEDFF9638)
-[LOG] SoundI::release                          :  (0000020F26830AF8)
-[LOG] SoundI::release                          :     Ochered_3 (0000020FDA0042D8)
-[LOG] SoundI::release                          :  (0000020F26833058)
-[LOG] SoundI::release                          :     Ochered (0000020FDA004478)
-[LOG] SoundI::release                          :  (0000020F12F045B8)
-[LOG] SoundI::release                          :     Ochered_1 (0000020FDA007BB8)
-[LOG] SoundI::release                          :  (0000020F12F04728)
-[LOG] SoundI::release                          :     Plane_FlyingOver (0000020FD9FCA978)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
