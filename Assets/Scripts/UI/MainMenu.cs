@@ -6,29 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _smallSettingsMenu;
     [SerializeField] private GameObject _nameOfGame;
 
     [SerializeField] private int _buildIndex = 1;
 
+    private bool _stateOfAddinionalMenu = false;
+
     private void Start()
     {
-        _smallSettingsMenu.SetActive(false);
         _nameOfGame.SetActive(true);
     }
     public void StartGame()
     {
         SceneManager.LoadScene(_buildIndex);
     }
-    public void OpenSettingMenu()
+    public void OpenSettingMenu(GameObject additionalMenu)
     {
-        _nameOfGame.SetActive(false);
-        _smallSettingsMenu.SetActive(true);
+        _stateOfAddinionalMenu = !_stateOfAddinionalMenu;
+        _nameOfGame.SetActive(!_stateOfAddinionalMenu);
+        additionalMenu.SetActive(_stateOfAddinionalMenu);
     }
-    public void CloseSettingMenu()
+    public void CloseSettingMenu(GameObject additionalMenu)
     {
-        _nameOfGame.SetActive(true);
-        _smallSettingsMenu.SetActive(false);
+        _stateOfAddinionalMenu = !_stateOfAddinionalMenu;
+
+        _nameOfGame.SetActive(!_stateOfAddinionalMenu);
+        additionalMenu.SetActive(_stateOfAddinionalMenu);
     }
     public void CloseGame()
     {

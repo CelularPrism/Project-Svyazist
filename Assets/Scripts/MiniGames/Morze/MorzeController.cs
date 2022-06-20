@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class MorzeController : MonoBehaviour
 {
-    [SerializeField] private GameObject _headerImageEvil;
-    [SerializeField] private GameObject _headerImageGood;
+    [SerializeField] private Animator _tipAnimator;
     [SerializeField] private TextMorzeData _textMorzeData;
+    [SerializeField] private bool _allowedPlay;
+    [SerializeField] private int _buildIndex;
 
     private MiniGamesAction _inputActions;
 
@@ -20,37 +21,49 @@ public class MorzeController : MonoBehaviour
     private float _leftSizeSetImage;
 
     private int _countOfCorrectAnswer = 0;
-    private int _buildIndex = 4;
 
     public string EventWrong;
     public string EventRight;
 
-
-    private void Awake()
+    public bool AllowedPlay
+    {
+        get { return _allowedPlay; }
+        set { _allowedPlay = value; }
+    }
+    private void OnEnable()
     {
         _inputActions = new MiniGamesAction();
         _inputActions.MiniGames.Enable();
-        _inputActions.MiniGames.Morze.performed += perf => 
-        //_inputActions.Player.Morze.canceled += perf =>
+
+        _inputActions.MiniGames.MorzeButton.started += perf => 
         {
-            if (perf.interaction is TapInteraction)
-            //if (perf.duration < 0.2f)
+            Debug.Log("Started");
+            if (_allowedPlay)
             {
-                Debug.Log(perf.interaction + "  short " + perf.duration);
-                CheckDotPosition(perf);
-            }
-            else if (perf.interaction is HoldInteraction)
-            //else if (0.2f > perf.duration && perf.duration < 0.8f)
-            {
-                Debug.Log(perf.interaction + "  long " + perf.duration);
-                CheckSpacePosition(perf);
+                CheckFirstPosition(perf);
             }
         };
-        //_textMorzeData = GetComponent<TextMorzeData>();
-
-        //_headerImageEvil.SetActive(true);
-        //_headerImageGood.SetActive(false);
-
+        _inputActions.MiniGames.MorzeButton.canceled += perf =>
+        {
+            Debug.Log("canceled" + perf.duration);
+            if (_allowedPlay)
+            {
+                if (perf.duration <= 0.15f)
+                {
+                    Debug.Log("CheckDotPosition with duration ");
+                    CheckDotPosition(perf);
+                }
+                else if (perf.duration > 0.15f && perf.duration < 0.5f)
+                {
+                    Debug.Log("CheckSpacePosition with duration ");
+                    CheckSpacePosition(perf);
+                }
+                else
+                {
+                    ResultMatch(false);
+                }
+            }
+        };        
     }
     private void Start()
     {
@@ -59,32 +72,33 @@ public class MorzeController : MonoBehaviour
         _leftSizeSelecter = _textMorzeData.SelecterWindow.rectTransform.anchoredPosition.x
             - ((_textMorzeData.SelecterWindow.GetComponent<BoxCollider2D>().size.x / 2) * _textMorzeData.SelecterWindow.transform.localScale.x);
 
-        Debug.Log("leftSizeSelecter " + _leftSizeSelecter + ", rightSizeSelecter " + _rightSizeSelecter);
-
-        _textMorzeData.SetNewSymbol();
+        _allowedPlay = false;
+        _tipAnimator.SetBool("Tip", true); 
     }
     private void CheckDotPosition(InputAction.CallbackContext perf)
     {
-        _rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
-        _leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
-
-        int imageNum = _textMorzeData.CurrentSymbol;
-
-        if (_rightSizeSetImage < _rightSizeSelecter && _leftSizeSetImage > _leftSizeSelecter)
-        {
-            if (imageNum == 0)
-            {
-                _countOfCorrectAnswer++;
-                WinMatch();
-            }
-            else
-                LoseMatch();
-        }
-        else
-            LoseMatch();
+        int dot = 0;
+        CalculatePosition(dot);
     }    
     private void CheckSpacePosition(InputAction.CallbackContext perf)
     {
+        int space = 1;
+        CalculatePosition(space);
+    }
+    private void CheckFirstPosition(InputAction.CallbackContext perf)
+    {
+        _rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
+        _leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
+
+        if (_leftSizeSetImage < _leftSizeSelecter
+            || _rightSizeSetImage > _rightSizeSelecter)
+        {
+            ResultMatch(false);
+            WrongSound();
+        }
+    }
+    private void CalculatePosition(int symbol)
+    {
         _rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
         _leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
 
@@ -92,51 +106,46 @@ public class MorzeController : MonoBehaviour
 
         if (_rightSizeSetImage < _rightSizeSelecter && _leftSizeSetImage > _leftSizeSelecter)
         {
-            if (imageNum == 1)
+            if (imageNum == symbol)
             {
                 _countOfCorrectAnswer++;
-                WinMatch();
+                ResultMatch(true);
+                RightSound();
             }
             else
-                LoseMatch();
-                
+            {
+                ResultMatch(false);
+                WrongSound();
+            }   
         }
         else
-            LoseMatch();
+        {
+            ResultMatch(false);
+            WrongSound();
+        }
     }
-    public void WinMatch()
+    public void ResultMatch(bool result)
     {
-        _textMorzeData.UpdateSprite(true);
-        RightSound();
+        _allowedPlay = false;
+        _textMorzeData.UpdateSprite(result);
 
         if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
-            _textMorzeData.SetNewSymbol();
+            Invoke("Restart", 0.5f);
         else
         {
             _textMorzeData.SetImage.GetComponent<Animator>().enabled = false;
             ScoreGame();
         }
     }
-    public void LoseMatch()
+    public void Restart()
     {
-        WrongSound();
-        _textMorzeData.UpdateSprite(false);
-        if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
-        {
-            _textMorzeData.SetNewSymbol();
-        }
-        else
-            ScoreGame();
+        _textMorzeData.SetNewSymbol();
     }
     public void ScoreGame()
     {
-        Debug.Log("_countOfCorrectAnswer " + _countOfCorrectAnswer + "_textMorzeData.FullAnswer" + _textMorzeData.FullAnswer);
+        _inputActions.MiniGames.Disable();
         if (_countOfCorrectAnswer > (0.5f * _textMorzeData.FullAnswer))
         {
-
-            //_headerImageEvil.SetActive(false);
-            //_headerImageGood.SetActive(true);
-            //reload privious scene after 2 seconds
             Invoke("LoadNextLevel", 1f);
         }
         else
@@ -151,12 +160,14 @@ public class MorzeController : MonoBehaviour
     }
     public void LostGame()
     {
-        _countOfCorrectAnswer = 0;
+        /*_countOfCorrectAnswer = 0;
         _textMorzeData.Initialaze();
         _textMorzeData.SetNewSymbol();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        _inputActions.MiniGames.Enable();*/
+        _countOfCorrectAnswer = 0;
+        _textMorzeData.Initialaze();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
     public void WrongSound()
     {
         FMODUnity.RuntimeManager.PlayOneShotAttached(EventWrong, gameObject);

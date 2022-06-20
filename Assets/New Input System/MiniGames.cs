@@ -53,6 +53,15 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MorzeButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""97fd49de-cdb4-4d20-9e6c-2c8479c0b056"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                     ""action"": ""SkipVideo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""972c267d-6901-4fed-bf4f-a446ac5e9153"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press(pressPoint=0.75,behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MorzeButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
         m_MiniGames_LockPicking = m_MiniGames.FindAction("LockPicking", throwIfNotFound: true);
         m_MiniGames_Morze = m_MiniGames.FindAction("Morze", throwIfNotFound: true);
         m_MiniGames_SkipVideo = m_MiniGames.FindAction("SkipVideo", throwIfNotFound: true);
+        m_MiniGames_MorzeButton = m_MiniGames.FindAction("MorzeButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,6 +182,7 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_MiniGames_LockPicking;
     private readonly InputAction m_MiniGames_Morze;
     private readonly InputAction m_MiniGames_SkipVideo;
+    private readonly InputAction m_MiniGames_MorzeButton;
     public struct MiniGamesActions
     {
         private @MiniGamesAction m_Wrapper;
@@ -168,6 +190,7 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
         public InputAction @LockPicking => m_Wrapper.m_MiniGames_LockPicking;
         public InputAction @Morze => m_Wrapper.m_MiniGames_Morze;
         public InputAction @SkipVideo => m_Wrapper.m_MiniGames_SkipVideo;
+        public InputAction @MorzeButton => m_Wrapper.m_MiniGames_MorzeButton;
         public InputActionMap Get() { return m_Wrapper.m_MiniGames; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -186,6 +209,9 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                 @SkipVideo.started -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnSkipVideo;
                 @SkipVideo.performed -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnSkipVideo;
                 @SkipVideo.canceled -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnSkipVideo;
+                @MorzeButton.started -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnMorzeButton;
+                @MorzeButton.performed -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnMorzeButton;
+                @MorzeButton.canceled -= m_Wrapper.m_MiniGamesActionsCallbackInterface.OnMorzeButton;
             }
             m_Wrapper.m_MiniGamesActionsCallbackInterface = instance;
             if (instance != null)
@@ -199,6 +225,9 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
                 @SkipVideo.started += instance.OnSkipVideo;
                 @SkipVideo.performed += instance.OnSkipVideo;
                 @SkipVideo.canceled += instance.OnSkipVideo;
+                @MorzeButton.started += instance.OnMorzeButton;
+                @MorzeButton.performed += instance.OnMorzeButton;
+                @MorzeButton.canceled += instance.OnMorzeButton;
             }
         }
     }
@@ -208,5 +237,6 @@ public partial class @MiniGamesAction : IInputActionCollection2, IDisposable
         void OnLockPicking(InputAction.CallbackContext context);
         void OnMorze(InputAction.CallbackContext context);
         void OnSkipVideo(InputAction.CallbackContext context);
+        void OnMorzeButton(InputAction.CallbackContext context);
     }
 }

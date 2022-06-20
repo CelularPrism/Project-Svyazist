@@ -30,6 +30,9 @@ public class TextMorzeData : MonoBehaviour
     [Header("Selecter window")]
     [SerializeField] private Image _selecterWindow;
 
+    [Header("MorzeController")]
+    [SerializeField] private MorzeController _morzeController;
+
     private int[] _images; 
     private int _index;
     private int _indexImages;
@@ -44,7 +47,8 @@ public class TextMorzeData : MonoBehaviour
     }
     public int CurrentSymbol
     {
-        get { return _images[_index - 1]; }
+        get 
+        { return _images[_index - 1]; }
     }
     public int FullAnswer
     {
@@ -54,9 +58,14 @@ public class TextMorzeData : MonoBehaviour
     {
         get { return _index - 1; }
     }
-    private void Awake()
+    private void OnEnable()
     {
+        _setImages = GameObject.FindGameObjectWithTag("SetText").GetComponent<Image>();
+        _setImages.enabled = false;
+
         Initialaze();
+
+        Debug.Log("Onenable" + Time.realtimeSinceStartup);
     }
     private void RememberImage(int picture)
     {
@@ -77,9 +86,6 @@ public class TextMorzeData : MonoBehaviour
                     image.sprite = _dotDefaultImage;
                     image.rectTransform.sizeDelta = new Vector2(_scaleDotWidth, _scaleDotYHeight);
 
-                    //image.sprite = _spaceDefaultImage;
-                    //image.rectTransform.sizeDelta = new Vector2(_scaleSpaceWidth, _scaleSpaceHeight);
-
                     RememberImage(picture);
                 }
                 else
@@ -89,21 +95,25 @@ public class TextMorzeData : MonoBehaviour
                     
                     RememberImage(picture);
                 }
-            }
+            } 
     }
     public void SetNewSymbol()
     {
         if (_images[_index] == 0)
             _setImages.sprite =_dotCorrecttImage;
-            //_setImages.sprite = _spaceCorrectImage;
 
         else
             _setImages.sprite = _spaceCorrectImage;
 
         _setImages.rectTransform.sizeDelta = _mainImages[_index].rectTransform.sizeDelta;
 
+        _setImages.enabled = true;
+
+        _setImages.GetComponent<Animator>().enabled = true;
         _setImages.GetComponent<Animator>().Play("Movement", -1, 0);
+
         _index++;
+        _morzeController.AllowedPlay = true;
     }
     public void UpdateSprite(bool result)
     {

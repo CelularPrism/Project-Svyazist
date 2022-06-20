@@ -8,6 +8,7 @@ TagManager:
   - Grass
   - Puddle
   - MapPoint
+  - SetText
   layers:
   - Default
   - TransparentFX
