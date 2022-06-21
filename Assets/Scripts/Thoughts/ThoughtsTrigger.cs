@@ -11,17 +11,24 @@ public class ThoughtsTrigger : MonoBehaviour
     [Header("Layer Player")]
     [SerializeField] private int layer;
 
+    private bool _isActive;
+
     private void Start()
     {
         text = text.Replace("<br>", "\n");
+        _isActive = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == layer)
+        if (_isActive)
         {
-            ThoughtsManager thoughts = other.gameObject.GetComponent<ThoughtsManager>();
-            thoughts.EnableThought(text, time);
+            if (other.gameObject.layer == layer)
+            {
+                _isActive = false;
+                ThoughtsManager thoughts = other.gameObject.GetComponent<ThoughtsManager>();
+                thoughts.EnableThought(text, time);
+            }
         }
     }
 
