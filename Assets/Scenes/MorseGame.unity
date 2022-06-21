@@ -515,6 +515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304661863}
     m_Modifications:
+    - target: {fileID: 1061348767646513601, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4202886143470597834, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_text
       value: 'Long press (> 0.15 sec) of the Space button '
