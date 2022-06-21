@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
 
     private Vector3 _moveInput;
 
+    private bool _move;
     private bool _isMove;
     private bool _isRun;
 
@@ -41,6 +42,7 @@ public class Movement : MonoBehaviour
        
 
         _character = GetComponent<CharacterController>();
+        _move = true;
     }
 
     private void FixedUpdate()
@@ -60,22 +62,28 @@ public class Movement : MonoBehaviour
 
     private void SetMoveInput(InputAction.CallbackContext move)
     {
-        _moveInput = cameraTransform.forward * move.ReadValue<Vector2>().y;
-        _moveInput += cameraTransform.right * move.ReadValue<Vector2>().x;
-        rotater.Rotate(new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y));
+        if (_move)
+        {
+            _moveInput = cameraTransform.forward * move.ReadValue<Vector2>().y;
+            _moveInput += cameraTransform.right * move.ReadValue<Vector2>().x;
+            rotater.Rotate(new Vector3(move.ReadValue<Vector2>().x, 0f, move.ReadValue<Vector2>().y));
 
-        if (_moveInput != Vector3.zero)
-        {
-            _isMove = true;
-            if (!_isRun)
-                _playerAnimatorMovement.Move();
+            if (_moveInput != Vector3.zero)
+            {
+                _isMove = true;
+                if (!_isRun)
+                    _playerAnimatorMovement.Move();
+                else
+                    _playerAnimatorMovement.Run();
+            }
             else
-                _playerAnimatorMovement.Run();
-        }
-        else
+            {
+                _isMove = false;
+                _playerAnimatorMovement.Idle();
+            }
+        } else
         {
-            _isMove = false;
-            _playerAnimatorMovement.Idle();
+            _moveInput = Vector3.zero;
         }
     }
     public void SpeedSitDown(bool sitDown)
@@ -104,6 +112,12 @@ public class Movement : MonoBehaviour
             speed *= 1.5f;
         }
     }
+
+    public void SetIsMove(bool value)
+    {
+        _move = value;
+    }
+
     public Vector3 GetMoveInput() //can be delete
     {
         return _moveInput;
