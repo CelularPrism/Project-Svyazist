@@ -37,7 +37,6 @@ public class MorzeController : MonoBehaviour
 
         _inputActions.MiniGames.MorzeButton.started += perf => 
         {
-            Debug.Log("Started");
             if (_allowedPlay)
             {
                 CheckFirstPosition(perf);
@@ -45,21 +44,21 @@ public class MorzeController : MonoBehaviour
         };
         _inputActions.MiniGames.MorzeButton.canceled += perf =>
         {
-            Debug.Log("canceled" + perf.duration);
             if (_allowedPlay)
             {
                 if (perf.duration <= 0.15f)
                 {
-                    Debug.Log("CheckDotPosition with duration ");
+                    Debug.Log("CheckDotPosition with duration " + perf.duration);
                     CheckDotPosition(perf);
                 }
-                else if (perf.duration > 0.15f && perf.duration < 0.5f)
+                else if (perf.duration > 0.15f && perf.duration < 0.55f)
                 {
-                    Debug.Log("CheckSpacePosition with duration ");
+                    Debug.Log("CheckSpacePosition with duration " + perf.duration);
                     CheckSpacePosition(perf);
                 }
                 else
                 {
+                    //Debug.Log("Long Hold" + Time.realtimeSinceStartup);
                     ResultMatch(false);
                 }
             }
@@ -90,11 +89,14 @@ public class MorzeController : MonoBehaviour
         _rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
         _leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
 
+        //Debug.Log("Started" + _rightSizeSetImage + ", " + _leftSizeSetImage);
+
         if (_leftSizeSetImage < _leftSizeSelecter
             || _rightSizeSetImage > _rightSizeSelecter)
         {
             ResultMatch(false);
             WrongSound();
+            //Debug.Log("Wrong " + Time.realtimeSinceStartup);
         }
     }
     private void CalculatePosition(int symbol)
@@ -111,17 +113,20 @@ public class MorzeController : MonoBehaviour
                 _countOfCorrectAnswer++;
                 ResultMatch(true);
                 RightSound();
+                //Debug.Log("Win" + Time.realtimeSinceStartup);
             }
             else
             {
                 ResultMatch(false);
                 WrongSound();
+                //Debug.Log("Wrong symbol" + Time.realtimeSinceStartup);
             }   
         }
         else
         {
             ResultMatch(false);
             WrongSound();
+            //Debug.Log("Lose" + _rightSizeSetImage + ", " + _leftSizeSetImage);
         }
     }
     public void ResultMatch(bool result)

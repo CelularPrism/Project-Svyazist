@@ -26,6 +26,7 @@ public class TextMorzeData : MonoBehaviour
 
     [Header("Image for Set")]
     [SerializeField] private Image _setImages;
+    [SerializeField] private Animator _setImageAnimator;
 
     [Header("Selecter window")]
     [SerializeField] private Image _selecterWindow;
@@ -61,11 +62,10 @@ public class TextMorzeData : MonoBehaviour
     private void OnEnable()
     {
         _setImages = GameObject.FindGameObjectWithTag("SetText").GetComponent<Image>();
+        _setImageAnimator = _setImages.GetComponent<Animator>();
         _setImages.enabled = false;
 
         Initialaze();
-
-        Debug.Log("Onenable" + Time.realtimeSinceStartup);
     }
     private void RememberImage(int picture)
     {
@@ -100,17 +100,21 @@ public class TextMorzeData : MonoBehaviour
     public void SetNewSymbol()
     {
         if (_images[_index] == 0)
-            _setImages.sprite =_dotCorrecttImage;
-
+        {
+            _setImages.sprite = _dotCorrecttImage;
+            _setImageAnimator.speed = 1.3f;
+        }
         else
+        {
             _setImages.sprite = _spaceCorrectImage;
-
+            _setImageAnimator.speed = 1.0f;
+        }
         _setImages.rectTransform.sizeDelta = _mainImages[_index].rectTransform.sizeDelta;
 
         _setImages.enabled = true;
 
-        _setImages.GetComponent<Animator>().enabled = true;
-        _setImages.GetComponent<Animator>().Play("Movement", -1, 0);
+        _setImageAnimator.enabled = true;
+        _setImageAnimator.Play("Movement", -1, 0);
 
         _index++;
         _morzeController.AllowedPlay = true;
