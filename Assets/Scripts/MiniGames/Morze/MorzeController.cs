@@ -96,7 +96,7 @@ public class MorzeController : MonoBehaviour
         {
             ResultMatch(false);
             WrongSound();
-            //Debug.Log("Wrong " + Time.realtimeSinceStartup);
+            Debug.Log("Wrong " + Time.realtimeSinceStartup);
         }
     }
     private void CalculatePosition(int symbol)
@@ -113,20 +113,20 @@ public class MorzeController : MonoBehaviour
                 _countOfCorrectAnswer++;
                 ResultMatch(true);
                 RightSound();
-                //Debug.Log("Win" + Time.realtimeSinceStartup);
+                Debug.Log("Win" + Time.realtimeSinceStartup);
             }
             else
             {
                 ResultMatch(false);
                 WrongSound();
-                //Debug.Log("Wrong symbol" + Time.realtimeSinceStartup);
+                Debug.Log("Wrong symbol" + Time.realtimeSinceStartup);
             }   
         }
         else
         {
             ResultMatch(false);
             WrongSound();
-            //Debug.Log("Lose" + _rightSizeSetImage + ", " + _leftSizeSetImage);
+            Debug.Log("Lose" + _rightSizeSetImage + ", " + _leftSizeSetImage);
         }
     }
     public void ResultMatch(bool result)
@@ -135,7 +135,7 @@ public class MorzeController : MonoBehaviour
         _textMorzeData.UpdateSprite(result);
 
         if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
-            Invoke("Restart", 0.5f);
+            Invoke("Restart", 0.7f);
         else
         {
             _textMorzeData.SetImage.GetComponent<Animator>().enabled = false;
