@@ -18,6 +18,8 @@ public class MorzeController : MonoBehaviour
     private float _rightSizeSelecter;
     private float _leftSizeSelecter;
 
+    private float _sizeSelecter;
+
     private float _rightSizeSetImage;
     private float _leftSizeSetImage;
     
@@ -96,8 +98,9 @@ public class MorzeController : MonoBehaviour
 
         _sizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x;
 
-        if (_leftSizeSetImage < _leftSizeSelecter
-            || _rightSizeSetImage > _rightSizeSelecter)
+        /*if (_leftSizeSetImage < _leftSizeSelecter
+            || _rightSizeSetImage > _rightSizeSelecter)*/
+        if (_sizeSetImage < _leftSizeSelecter)
         {
             ResultMatch(false, "Too Early!");
             WrongSound();
@@ -113,7 +116,7 @@ public class MorzeController : MonoBehaviour
 
         int imageNum = _textMorzeData.CurrentSymbol;
 
-        if (_rightSizeSetImage < _rightSizeSelecter && _leftSizeSetImage > _leftSizeSelecter)
+        if (_sizeSetImage < _rightSizeSelecter && _sizeSetImage > _leftSizeSelecter)
         {
             if (imageNum == symbol)
             {
