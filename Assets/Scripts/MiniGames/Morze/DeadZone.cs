@@ -21,7 +21,7 @@ public class DeadZone : MonoBehaviour
     {
         if (_canTrigger)
         {
-            _morzeController.ResultMatch(false);
+            _morzeController.ResultMatch(false, "Miss symbol");
             _morzeController.WrongSound();
         }
     }

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Interactions;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class MorzeController : MonoBehaviour
 {
     [SerializeField] private Animator _tipAnimator;
     [SerializeField] private TextMorzeData _textMorzeData;
+    [SerializeField] private TMP_Text _result;
     [SerializeField] private bool _allowedPlay;
     [SerializeField] private int _buildIndex;
 
@@ -19,6 +20,8 @@ public class MorzeController : MonoBehaviour
 
     private float _rightSizeSetImage;
     private float _leftSizeSetImage;
+    
+    private float _sizeSetImage;
 
     private int _countOfCorrectAnswer = 0;
 
@@ -32,6 +35,8 @@ public class MorzeController : MonoBehaviour
     }
     private void OnEnable()
     {
+        _result.enabled = false;
+        
         _inputActions = new MiniGamesAction();
         _inputActions.MiniGames.Enable();
 
@@ -59,7 +64,7 @@ public class MorzeController : MonoBehaviour
                 else
                 {
                     //Debug.Log("Long Hold" + Time.realtimeSinceStartup);
-                    ResultMatch(false);
+                    ResultMatch(false, "Too long");
                 }
             }
         };        
@@ -86,23 +91,25 @@ public class MorzeController : MonoBehaviour
     }
     private void CheckFirstPosition(InputAction.CallbackContext perf)
     {
-        _rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
-        _leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
+        //_rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
+        //_leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
 
-        //Debug.Log("Started" + _rightSizeSetImage + ", " + _leftSizeSetImage);
+        _sizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x;
 
         if (_leftSizeSetImage < _leftSizeSelecter
             || _rightSizeSetImage > _rightSizeSelecter)
         {
-            ResultMatch(false);
+            ResultMatch(false, "Too Early!");
             WrongSound();
             Debug.Log("Wrong " + Time.realtimeSinceStartup);
         }
     }
     private void CalculatePosition(int symbol)
     {
-        _rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
-        _leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
+        //_rightSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x + (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
+        //_leftSizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x - (_textMorzeData.SetImage.rectTransform.sizeDelta.x / 2);
+
+        _sizeSetImage = _textMorzeData.SetImage.rectTransform.anchoredPosition.x;
 
         int imageNum = _textMorzeData.CurrentSymbol;
 
@@ -111,26 +118,29 @@ public class MorzeController : MonoBehaviour
             if (imageNum == symbol)
             {
                 _countOfCorrectAnswer++;
-                ResultMatch(true);
+                ResultMatch(true, "Good!");
                 RightSound();
                 Debug.Log("Win" + Time.realtimeSinceStartup);
             }
             else
             {
-                ResultMatch(false);
+                ResultMatch(false, "Wrong Symbol!");
                 WrongSound();
                 Debug.Log("Wrong symbol" + Time.realtimeSinceStartup);
             }   
         }
         else
         {
-            ResultMatch(false);
+            ResultMatch(false, "Too Late!");
             WrongSound();
             Debug.Log("Lose" + _rightSizeSetImage + ", " + _leftSizeSetImage);
         }
     }
-    public void ResultMatch(bool result)
+    public void ResultMatch(bool result, string resultText)
     {
+        _result.enabled = true;
+        _result.text = resultText;
+
         _allowedPlay = false;
         _textMorzeData.UpdateSprite(result);
 
@@ -145,6 +155,7 @@ public class MorzeController : MonoBehaviour
     public void Restart()
     {
         _textMorzeData.SetNewSymbol();
+        _result.enabled = false;
     }
     public void ScoreGame()
     {

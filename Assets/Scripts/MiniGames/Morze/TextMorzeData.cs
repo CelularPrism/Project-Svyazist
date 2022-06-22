@@ -117,6 +117,7 @@ public class TextMorzeData : MonoBehaviour
         _setImageAnimator.Play("Movement", -1, 0);
 
         _index++;
+
         _morzeController.AllowedPlay = true;
     }
     public void UpdateSprite(bool result)
