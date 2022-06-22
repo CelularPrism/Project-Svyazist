@@ -12,6 +12,7 @@ public class MorzeController : MonoBehaviour
     [SerializeField] private TMP_Text _result;
     [SerializeField] private bool _allowedPlay;
     [SerializeField] private int _buildIndex;
+    [SerializeField] private DeadZone _deadZone;
 
     private MiniGamesAction _inputActions;
 
@@ -127,20 +128,22 @@ public class MorzeController : MonoBehaviour
             }
             else
             {
+                Debug.Log("Wrong symbol" + Time.realtimeSinceStartup);
                 ResultMatch(false, "Wrong Symbol!");
                 WrongSound();
-                Debug.Log("Wrong symbol" + Time.realtimeSinceStartup);
             }   
         }
         else
         {
             ResultMatch(false, "Too Late!");
             WrongSound();
-            Debug.Log("Lose" + _rightSizeSetImage + ", " + _leftSizeSetImage);
+            Debug.Log("Lose" + _sizeSetImage);
         }
     }
     public void ResultMatch(bool result, string resultText)
     {
+        _deadZone.CanTrigger = false;
+        
         _result.enabled = true;
         _result.text = resultText;
 
@@ -148,7 +151,7 @@ public class MorzeController : MonoBehaviour
         _textMorzeData.UpdateSprite(result);
 
         if (_textMorzeData.CurrentIndexSymbol < _textMorzeData.FullAnswer - 1)
-            Invoke("Restart", 0.7f);
+            Invoke("Restart", 0.5f);
         else
         {
             _textMorzeData.SetImage.GetComponent<Animator>().enabled = false;
@@ -159,6 +162,7 @@ public class MorzeController : MonoBehaviour
     {
         _textMorzeData.SetNewSymbol();
         _result.enabled = false;
+        _deadZone.CanTrigger = true;
     }
     public void ScoreGame()
     {

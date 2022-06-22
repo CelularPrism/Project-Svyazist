@@ -217,6 +217,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &658627871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7167547862239876394, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+  m_PrefabInstance: {fileID: 7167547863536956700}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8061c450f9fae84c88b0b65af7c55c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &743762015 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7167547862802111811, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
@@ -504,14 +515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304661863}
     m_Modifications:
-    - target: {fileID: 7167547862239876399, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
-      propertyPath: m_Size.x
-      value: 100.74551
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167547862239876399, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
-      propertyPath: m_Offset.x
-      value: 25.087605
-      objectReference: {fileID: 0}
+    - target: {fileID: 7167547862592901221, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
+      propertyPath: _deadZone
+      value: 
+      objectReference: {fileID: 658627871}
     - target: {fileID: 7167547862802111810, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_Name
       value: CenterMorze
@@ -599,14 +606,6 @@ PrefabInstance:
     - target: {fileID: 7167547862802111811, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167547862925699433, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167547862925699434, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}
-      propertyPath: m_Sprite
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7edfe1eeebe97f848b09a3655cac5046, type: 3}

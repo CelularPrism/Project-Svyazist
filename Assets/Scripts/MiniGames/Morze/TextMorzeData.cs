@@ -64,6 +64,7 @@ public class TextMorzeData : MonoBehaviour
         _setImages = GameObject.FindGameObjectWithTag("SetText").GetComponent<Image>();
         _setImageAnimator = _setImages.GetComponent<Animator>();
         _setImages.enabled = false;
+        _setImageAnimator.enabled = false;
 
         Initialaze();
     }
