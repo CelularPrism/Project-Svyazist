@@ -9,6 +9,12 @@ public class DeadZone : MonoBehaviour
     
     private MiniGamesAction _inputActions;
 
+    public bool CanTrigger
+    {
+        get { return _canTrigger; }
+        set { _canTrigger = value;  }
+    }
+
     private void OnEnable()
     {
         _inputActions = new MiniGamesAction();
@@ -16,12 +22,15 @@ public class DeadZone : MonoBehaviour
 
         _inputActions.MiniGames.MorzeButton.started += perf => _canTrigger = false;
         _inputActions.MiniGames.MorzeButton.canceled += perf => _canTrigger = true;
+
+        _canTrigger = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_canTrigger)
         {
-            _morzeController.ResultMatch(false);
+            Debug.Log("Trigger");
+            _morzeController.ResultMatch(false, "Miss symbol");
             _morzeController.WrongSound();
         }
     }
