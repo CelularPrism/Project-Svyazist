@@ -490,6 +490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304661863}
     m_Modifications:
+    - target: {fileID: 835127364, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_CharacterLimit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1273766883, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -593,6 +597,18 @@ PrefabInstance:
     - target: {fileID: 7636622053371954105, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
       propertyPath: m_fontSizeBase
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123631157836846949, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_CharacterLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406977463647131257, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_CharacterLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563942002573773538, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
+      propertyPath: m_CharacterLimit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9108216509059075963, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
       propertyPath: m_fontSize
