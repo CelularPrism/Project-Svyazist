@@ -189,3 +189,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask: 6
   transmitter: {fileID: 1574909459497121511}
+  ButtonsCue: {fileID: 0}
+  _buildIndex: 3

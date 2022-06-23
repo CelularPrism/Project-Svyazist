@@ -8,11 +8,11 @@ public class PointForTransmitter : MonoBehaviour
     [SerializeField] private int mask;
     [SerializeField] private TransmitterDistance transmitter;
     [SerializeField] private GameObject ButtonsCue;
+    [SerializeField] private int _buildIndex = 3;
 
     private bool _isActive;
     private PlayerAction _inputActions;
 
-    private int _buildIndex = 3;
 
     void Start()
     {
