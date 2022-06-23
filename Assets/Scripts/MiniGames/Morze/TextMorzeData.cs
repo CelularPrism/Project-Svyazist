@@ -26,9 +26,13 @@ public class TextMorzeData : MonoBehaviour
 
     [Header("Image for Set")]
     [SerializeField] private Image _setImages;
+    [SerializeField] private Animator _setImageAnimator;
 
     [Header("Selecter window")]
     [SerializeField] private Image _selecterWindow;
+
+    [Header("MorzeController")]
+    [SerializeField] private MorzeController _morzeController;
 
     private int[] _images; 
     private int _index;
@@ -44,7 +48,8 @@ public class TextMorzeData : MonoBehaviour
     }
     public int CurrentSymbol
     {
-        get { return _images[_index - 1]; }
+        get 
+        { return _images[_index - 1]; }
     }
     public int FullAnswer
     {
@@ -54,8 +59,12 @@ public class TextMorzeData : MonoBehaviour
     {
         get { return _index - 1; }
     }
-    private void Awake()
+    private void OnEnable()
     {
+        _setImages = GameObject.FindGameObjectWithTag("SetText").GetComponent<Image>();
+        _setImageAnimator = _setImages.GetComponent<Animator>();
+        _setImages.enabled = false;
+
         Initialaze();
     }
     private void RememberImage(int picture)
@@ -77,9 +86,6 @@ public class TextMorzeData : MonoBehaviour
                     image.sprite = _dotDefaultImage;
                     image.rectTransform.sizeDelta = new Vector2(_scaleDotWidth, _scaleDotYHeight);
 
-                    //image.sprite = _spaceDefaultImage;
-                    //image.rectTransform.sizeDelta = new Vector2(_scaleSpaceWidth, _scaleSpaceHeight);
-
                     RememberImage(picture);
                 }
                 else
@@ -89,21 +95,29 @@ public class TextMorzeData : MonoBehaviour
                     
                     RememberImage(picture);
                 }
-            }
+            } 
     }
     public void SetNewSymbol()
     {
         if (_images[_index] == 0)
-            _setImages.sprite =_dotCorrecttImage;
-            //_setImages.sprite = _spaceCorrectImage;
-
+        {
+            _setImages.sprite = _dotCorrecttImage;
+            _setImageAnimator.speed = 1.3f;
+        }
         else
+        {
             _setImages.sprite = _spaceCorrectImage;
-
+            _setImageAnimator.speed = 1.0f;
+        }
         _setImages.rectTransform.sizeDelta = _mainImages[_index].rectTransform.sizeDelta;
 
-        _setImages.GetComponent<Animator>().Play("Movement", -1, 0);
+        _setImages.enabled = true;
+
+        _setImageAnimator.enabled = true;
+        _setImageAnimator.Play("Movement", -1, 0);
+
         _index++;
+        _morzeController.AllowedPlay = true;
     }
     public void UpdateSprite(bool result)
     {

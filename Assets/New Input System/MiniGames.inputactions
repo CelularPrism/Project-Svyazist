@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MorzeButton",
+                    "type": "Button",
+                    "id": "97fd49de-cdb4-4d20-9e6c-2c8479c0b056",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -64,6 +73,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SkipVideo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "972c267d-6901-4fed-bf4f-a446ac5e9153",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press(pressPoint=0.75,behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MorzeButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
