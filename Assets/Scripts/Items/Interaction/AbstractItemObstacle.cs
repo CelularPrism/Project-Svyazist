@@ -26,7 +26,7 @@ public class AbstractItemObstacle : MonoBehaviour
         {
             mr.enabled = false;
             ai.ButtonF.SetActive(false);
-            ai.ButtonUse = true;
+         //   ai.ButtonUse = true;
         }
         //Destroy(this.gameObject);
     }

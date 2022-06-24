@@ -8,8 +8,11 @@ public class Safe : MonoBehaviour
     [SerializeField] private int mask;
     [SerializeField] private int _buildIndex = 6;
     [SerializeField] protected GameObject ButtonsCue;
+    [SerializeField] private Movement movement;
+    
 
-    protected PlayerAction _inputActions;
+   protected PlayerAction _inputActions;
+    
 
     public virtual void Awake()
     {
@@ -34,6 +37,8 @@ public class Safe : MonoBehaviour
     }
     private void LoadSafeScene()
     {
-        SceneManager.LoadScene(_buildIndex);
+        SceneManager.LoadScene(_buildIndex, LoadSceneMode.Additive);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("SaveCrap"));
+        movement.SetIsMove(false);
     }
 }

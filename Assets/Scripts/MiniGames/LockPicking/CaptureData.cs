@@ -8,6 +8,8 @@ public class CaptureData : MonoBehaviour
 {
     [SerializeField] private Image[] _detectionZones;
     [SerializeField] private float _sliderSpeed;
+    [SerializeField] private int _previousSceneIndex;    
+    [SerializeField] private int _currentSceneIndex;
 
     private BoxCollider2D _currentDetectionZoneCollider;
 
@@ -16,8 +18,7 @@ public class CaptureData : MonoBehaviour
 
     private int _currentIndex;
 
-    private string _previousSceneName; //It is necessary to store the name or index of the scene in the global data
-
+  
     public float RightSize
     {
         get { return _rightSize; }
@@ -46,24 +47,30 @@ public class CaptureData : MonoBehaviour
     public void SetNextDetectionZones()
     {
         if (CurrentIndex >= _detectionZones.Length)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //it is necessary to load previous scene
+            ReturnPreviousScene(); //it is necessary to load previous scene
         else
         {
-            for(int i = 0; i < _detectionZones.Length; i++)
+            for (int i = 0; i < _detectionZones.Length; i++)
             {
                 if (CurrentIndex == i)
                 {
                     _detectionZones[i].gameObject.SetActive(true);
                     _currentDetectionZoneCollider = _detectionZones[i].GetComponent<BoxCollider2D>();
 
-                    _rightSize = _detectionZones[i].GetComponent<RectTransform>().anchoredPosition3D.x + 
+                    _rightSize = _detectionZones[i].GetComponent<RectTransform>().anchoredPosition3D.x +
                         (_currentDetectionZoneCollider.size.x / 2) * _detectionZones[i].transform.localScale.x;
-                    _leftSize = _detectionZones[i].GetComponent<RectTransform>().anchoredPosition3D.x - 
-                        (_currentDetectionZoneCollider.size.x / 2)* _detectionZones[i].transform.localScale.x;
+                    _leftSize = _detectionZones[i].GetComponent<RectTransform>().anchoredPosition3D.x -
+                        (_currentDetectionZoneCollider.size.x / 2) * _detectionZones[i].transform.localScale.x;
                 }
                 else
                     _detectionZones[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    private void ReturnPreviousScene()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(_previousSceneIndex));
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByBuildIndex(_currentSceneIndex));
     }
 }

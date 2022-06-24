@@ -7,23 +7,27 @@ public class GameController : MonoBehaviour
 {
     //It is necessary to add dead animation
     [SerializeField] private PlayerAnimatorMovement _playerAnimatorMovement;
+    [SerializeField] private DeathImage deathImage;
     [SerializeField] private Movement movement;
+
+    [SerializeField] private float time;
     public void Dead()
     {
         _playerAnimatorMovement.SetDeathFromEnemy();
-        Debug.Log("Dead");
         movement.SetIsMove(false);
-        Invoke("ReloadScene", 10f);
+        Invoke("ReloadScene", time);
     }
     public void DeadFromMine()
     {
         _playerAnimatorMovement.SetDeathFromMine();
-        Invoke("ReloadScene", 10f);
+        movement.SetIsMove(false);
+        Invoke("ReloadScene", time);
     }
 
     private void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        deathImage.Death();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //Application.Quit();
     }
 }
