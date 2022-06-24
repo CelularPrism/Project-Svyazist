@@ -15,7 +15,7 @@ public class DestroyerObstacle : AbstractInteraction
 
     private void DestroyObstacle()
     {
-        if (_object != null)
+        if (_object != null && _object.isActiveAndEnabled)
         {
             _destroy = _playerInventory.GetItem(_object.key);
             Obstacle _obstacle = (Obstacle)_object;
@@ -32,4 +32,5 @@ public class DestroyerObstacle : AbstractInteraction
             }
         }
     }
+
 }

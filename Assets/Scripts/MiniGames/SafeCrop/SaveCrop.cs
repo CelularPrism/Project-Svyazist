@@ -55,9 +55,8 @@ public class SaveCrop : MonoBehaviour
     }
     private void GetNextLevel()
     {
-        SceneManager.LoadScene(nextScene);
-        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(currentScene));
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(prevScene));
-
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(currentScene));
+        SceneManager.LoadScene(nextScene);
     }
 }
