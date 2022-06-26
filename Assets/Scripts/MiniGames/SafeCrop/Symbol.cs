@@ -7,6 +7,7 @@ using TMPro;
 public class Symbol : MonoBehaviour
 {
     [SerializeField] private SaveCrop _saveCrop;
+    [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private string _symbolString;
     [SerializeField] private int _symbolNumber;
 
@@ -25,6 +26,8 @@ public class Symbol : MonoBehaviour
         {
             _saveCrop.PasswordCount++;
             Debug.Log("Correct " + _saveCrop.PasswordCount);
+
+            _inputField.enabled = false;
         }
     }
 }
