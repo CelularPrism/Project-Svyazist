@@ -18,6 +18,7 @@ public class Safe : MonoBehaviour
     {
         _inputActions = new PlayerAction();
         _inputActions.Player.GetItem.performed += perf => LoadSafeScene();
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -38,7 +39,12 @@ public class Safe : MonoBehaviour
     private void LoadSafeScene()
     {
         SceneManager.LoadScene(_buildIndex, LoadSceneMode.Additive);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("SaveCrap"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(_buildIndex));
         movement.SetIsMove(false);
+    }
+
+    private void OnDestroy()
+    {
+        _inputActions.Disable();
     }
 }
