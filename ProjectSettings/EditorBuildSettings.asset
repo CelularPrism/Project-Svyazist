@@ -6,27 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/TrainingLevel.unity
+    path: Assets/Scenes/WIP/TrainingLevel.unity
     guid: 0147406648926b8439301e2a713dc491
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Final/MainMenu.unity
     guid: b946030c4fe06d04782cf8dcc2970dd4
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
+    path: Assets/Scenes/Final/Intro.unity
     guid: f65ff0be89e97e641a9b5eca3bf4e553
   - enabled: 0
-    path: Assets/Scenes/TrainingLevelFinal.unity
+    path: Assets/Scenes/Final/1TrainingLevelFinal.unity
     guid: 1a75fb3e2d41d1b4abbab0556d6463b7
   - enabled: 1
-    path: Assets/Scenes/MorseGame.unity
+    path: Assets/Scenes/Final/MorseGame.unity
     guid: ae7d097515b5bfa4b8227036631fb5f4
   - enabled: 0
-    path: Assets/Scenes/AfterTraining.unity
+    path: Assets/Scenes/Final/AfterTraining.unity
     guid: 49313fadfd4d365409672a49af5d0e7e
   - enabled: 0
-    path: Assets/Scenes/DestroedLevelFinal.unity
+    path: Assets/Scenes/Final/2DestroedLevelFinal.unity
     guid: ebf742ef2487cc540ae5830b1c8ec997
   - enabled: 0
-    path: Assets/Scenes/SaveCrap.unity
+    path: Assets/Scenes/Final/SaveCrap.unity
     guid: 12d8002f32f95114b9c1ea6faef0bad6
   m_configObjects: {}
