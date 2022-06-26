@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SmallMenu : MonoBehaviour
 {
@@ -59,5 +60,15 @@ public class SmallMenu : MonoBehaviour
     public bool GetIsOpen()
     {
         return _isOpen;
+    }
+
+    public void RestartLevel(int buildIndex)
+    {
+        SceneManager.LoadScene(buildIndex);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

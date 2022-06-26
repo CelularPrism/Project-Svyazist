@@ -16,9 +16,15 @@ public class DestroyerObstacle : AbstractInteraction
         if (_object != null)
         {
             _destroy = _playerInventory.GetItem(_object.key);
+            Obstacle _obstacle = (Obstacle)_object;
+
             if (_destroy)
             {
                 _object.Use(this);
+            } else
+            {
+                Debug.Log("Необходим " + _obstacle.nameItem);
+                ButtonsCue.SetActive(false);
             }
         }
     }
