@@ -23,6 +23,10 @@ public class DestroyerObstacle : AbstractInteraction
             if (_destroy)
             {
                 _object.Use(this);
+            } else
+            {
+                Debug.Log("Необходим " + _obstacle.nameItem);
+                ButtonsCue.SetActive(false);
             }
             else
             {
