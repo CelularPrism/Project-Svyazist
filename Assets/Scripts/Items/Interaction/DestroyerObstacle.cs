@@ -23,7 +23,7 @@ public class DestroyerObstacle : AbstractInteraction
             if (_destroy)
             {
                 _object.Use(this);
-            } 
+            }
             else
             {
                 _obstacle.sayHelp();
