@@ -1605,6 +1605,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082956888}
     m_Modifications:
+    - target: {fileID: 770977373, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3289205484600276720, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
       propertyPath: transmitter
       value: 
@@ -4400,6 +4404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae36ebe276f7942bcf44d03a72658b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimatorMovement: {fileID: 0}
+  deathImage: {fileID: 0}
+  movement: {fileID: 0}
+  time: 0
 --- !u!1 &2091063992
 GameObject:
   m_ObjectHideFlags: 0
