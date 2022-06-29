@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1535409423}
+      - m_Target: {fileID: 834817064}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
         m_MethodName: ReloadScene
         m_Mode: 1
@@ -2271,6 +2271,7 @@ GameObject:
   - component: {fileID: 770977375}
   - component: {fileID: 770977377}
   - component: {fileID: 770977378}
+  - component: {fileID: 834817065}
   m_Layer: 5
   m_Name: DeathPanel
   m_TagString: Untagged
@@ -2360,6 +2361,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &770977378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770977373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2839736e83532bb41b8db59218c60b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 165600127}
+  - {fileID: 1725246384}
+--- !u!114 &834817065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5643,7 +5659,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1535409423}
+      - m_Target: {fileID: 834817064}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
         m_MethodName: QuitMainMenu
         m_Mode: 1
@@ -7716,6 +7732,7 @@ GameObject:
   - component: {fileID: 3289205484752137255}
   - component: {fileID: 3289205484752137254}
   - component: {fileID: 3289205484752137252}
+  - component: {fileID: 1786851640}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -7764,7 +7781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7807,6 +7824,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1786851640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289205484752137272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &3289205484773536993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8071,6 +8101,8 @@ GameObject:
   - component: {fileID: 1431078859}
   - component: {fileID: 1512247339}
   - component: {fileID: 1535409423}
+  - component: {fileID: 834817064}
+  - component: {fileID: 834817066}
   m_Layer: 5
   m_Name: CanvasUI
   m_TagString: Untagged
@@ -8205,6 +8237,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: 0
+--- !u!114 &834817064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289205485056062148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4604d3e2783fec4595dd465adfd257a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: 0
+--- !u!114 &834817066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289205485056062148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08de69778febee4d810109390fc71bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPanel: {fileID: 770977373}
 --- !u!1 &3289205485063306463
 GameObject:
   m_ObjectHideFlags: 0
