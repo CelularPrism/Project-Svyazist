@@ -17,4 +17,9 @@ public class PlayerStealthController : MonoBehaviour
         _isDetected = true;
         gameController.Dead();
     }
+    public void StepOnMine()
+    {
+        _isDetected = true;
+        gameController.DeadFromMine();
+    }
 }

@@ -9976,7 +9976,7 @@ PrefabInstance:
     - target: {fileID: 1268555521, guid: b95cca9dea30cd548b9d04f6edfcbd12, type: 3}
       propertyPath: gameController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2082956889}
     - target: {fileID: 1268555523, guid: b95cca9dea30cd548b9d04f6edfcbd12, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -17718,7 +17718,7 @@ PrefabInstance:
     - target: {fileID: 3289205484600276723, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
       propertyPath: transmitter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 292059788}
     - target: {fileID: 3289205484600276723, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
       propertyPath: stateOfDistance.Array.data[2]
       value: 5
@@ -17833,6 +17833,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
+--- !u!114 &735862488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1512247339, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
+  m_PrefabInstance: {fileID: 735862487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08de69778febee4d810109390fc71bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &739451199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1063d548e29421b4fb2bf3d2cb25c023, type: 3}
@@ -41410,7 +41421,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655237166}
-  m_LocalRotation: {x: -0.00000066142263, y: 0.9467376, z: -0.3220062, w: -0.0000019446634}
+  m_LocalRotation: {x: -0.0000006614226, y: 0.9467376, z: -0.3220062, w: -0.0000019446632}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52312,9 +52323,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimatorMovement: {fileID: 233837425}
-  deathImage: {fileID: 0}
+  deathImage: {fileID: 735862488}
   movement: {fileID: 233837428}
-  time: 0
+  time: 5
 --- !u!1001 &2084067643
 PrefabInstance:
   m_ObjectHideFlags: 0
