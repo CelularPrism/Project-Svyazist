@@ -8236,7 +8236,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359659749}
-  m_LocalRotation: {x: -0.00000061852563, y: 0.95243806, z: -0.3047323, w: -0.000001933196}
+  m_LocalRotation: {x: -0.00000063335597, y: 0.95243806, z: -0.3047323, w: -0.0000019795484}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10289,7 +10289,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439244716}
-  m_LocalRotation: {x: -0.0000006189785, y: 0.95243806, z: -0.3047323, w: -0.0000019317815}
+  m_LocalRotation: {x: -0.0000006329033, y: 0.95243806, z: -0.3047323, w: -0.0000019809634}
   m_LocalPosition: {x: -119.849945, y: 116.94, z: -51.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16466,7 +16466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &697976586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17707,9 +17707,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082956888}
     m_Modifications:
+    - target: {fileID: 165600127, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 770977373, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512247339, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
+      propertyPath: deathPanel
+      value: 
+      objectReference: {fileID: 1623879982}
+    - target: {fileID: 1725246384, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3289205484600276720, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
       propertyPath: transmitter
@@ -39874,6 +39886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0387341206daf4a8e81545039833d9, type: 3}
+--- !u!1 &1623879982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 770977373, guid: 06063b56ccc5b7f4fa9672d36067975e, type: 3}
+  m_PrefabInstance: {fileID: 735862487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1624875470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e06641d316758d4d843ee900a888573, type: 3}
@@ -52325,7 +52342,7 @@ MonoBehaviour:
   _playerAnimatorMovement: {fileID: 233837425}
   deathImage: {fileID: 735862488}
   movement: {fileID: 233837428}
-  time: 5
+  time: 2
 --- !u!1001 &2084067643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54039,7 +54056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2145514899
 MonoBehaviour:
   m_ObjectHideFlags: 0
