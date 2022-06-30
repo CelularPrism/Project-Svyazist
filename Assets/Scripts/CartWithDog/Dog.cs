@@ -48,6 +48,7 @@ public class Dog : MonoBehaviour
                 if (_dogSearching.IsMoving)
                     _dogAnimator.Find();
                 _dogSearching.IsMoving = false;
+                _dogSearching.TurnOffCollider();
             }
 
             if ((transform.position.z - _playerTransform.position.z) < _searchingDistanceZ && !_dogSearching.IsMoving)
