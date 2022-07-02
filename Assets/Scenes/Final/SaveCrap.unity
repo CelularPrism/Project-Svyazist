@@ -884,7 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9162355911276988157, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
       propertyPath: nextScene
-      value: Hill
+      value: Medium
       objectReference: {fileID: 0}
     - target: {fileID: 9162355911276988157, guid: 59e47f3579734dd44a56509b14f8664f, type: 3}
       propertyPath: prevScene

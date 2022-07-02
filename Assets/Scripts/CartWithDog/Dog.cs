@@ -20,8 +20,8 @@ public class Dog : MonoBehaviour
 
     private void Awake()
     {
-        _dogRigidBody = GetComponent<Rigidbody>();
-        _dogSearching = GetComponent<DogSearching>();
+       // _dogRigidBody = GetComponent<Rigidbody>();
+       // _dogSearching = GetComponent<DogSearching>();
         _dogAnimator = GetComponentInChildren<DogAnimator>();
     }
 
