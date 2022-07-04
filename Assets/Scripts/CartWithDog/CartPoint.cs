@@ -37,7 +37,7 @@ public class CartPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_isMines && other.gameObject.tag == "Player")
+        if (_isMines && other.gameObject.name == "Player_ver_2")
         {
             // FMOD Sound 
             MineExplosion = FMODUnity.RuntimeManager.CreateInstance("event:/MiniGames/MineField/MineExplosion");
@@ -45,6 +45,7 @@ public class CartPoint : MonoBehaviour
             MineExplosion.start();
             MineExplosion.release();
 
+            other.GetComponent<PlayerStealthController>().StepOnMine();
             Debug.Log("Main Character is dead");
             //call method for death main character with animation
         }

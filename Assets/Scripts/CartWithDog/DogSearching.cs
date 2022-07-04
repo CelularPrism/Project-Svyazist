@@ -7,6 +7,7 @@ public class DogSearching : MonoBehaviour
 {
     [SerializeField] private bool _isSearching;
     [SerializeField] private bool _isMoving;
+    [SerializeField] private int _searchCount = 4;
 
     private FMOD.Studio.EventInstance Dog;
 
@@ -15,8 +16,6 @@ public class DogSearching : MonoBehaviour
     private PlayerAction _inputActions;
 
     private Vector3 _positionMine;
-
-    private int _searchCount = 4;
 
     public bool IsSearching
     {
@@ -38,7 +37,7 @@ public class DogSearching : MonoBehaviour
     private void Awake()
     {
         _dogCollider = GetComponent<BoxCollider>();
-        //_dogCollider.enabled = false;
+        _dogCollider.enabled = false;
 
         _inputActions = new PlayerAction();
         _inputActions.Enable();
@@ -60,6 +59,7 @@ public class DogSearching : MonoBehaviour
             Dog.release();
             // END OF FMOD STUFF
 
+            _dogCollider.enabled = true;
             _isSearching = true;
             _isMoving = true;
 
@@ -67,9 +67,9 @@ public class DogSearching : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "MapPoint" && other.gameObject.GetComponent<CartPoint>().IsMine)
+        if (other.gameObject.tag == "MapPoint")
         {
-            if (!other.gameObject.GetComponent<CartPoint>().IsChecked)
+            if (!other.gameObject.GetComponent<CartPoint>().IsChecked && other.gameObject.GetComponent<CartPoint>().IsMine)
             {
                 other.gameObject.GetComponent<CartPoint>().IsChecked = true;
                 _positionMine = other.gameObject.GetComponent<CartPoint>().PointPosition;
@@ -79,5 +79,9 @@ public class DogSearching : MonoBehaviour
                 Debug.Log("searchCount" + _searchCount);
             }
         }
+    }
+    public void TurnOffCollider()
+    {
+        _dogCollider.enabled = false;
     }
 }

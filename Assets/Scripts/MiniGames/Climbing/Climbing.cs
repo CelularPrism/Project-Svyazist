@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Climbing : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class Climbing : MonoBehaviour
 
     public void GoToTheNextScene()
     {
-        Debug.Log("Nest scene");
-
+        SceneManager.LoadScene(_nextScene);
     }
 }
