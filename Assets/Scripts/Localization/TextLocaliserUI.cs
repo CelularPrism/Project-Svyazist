@@ -27,7 +27,6 @@ public class TextLocaliserUI : MonoBehaviour
         {
             _language = lang;
             string value = LocalisationSystem.GetLocalisedValue(key);
-            Debug.Log(value);
             textField.text = value;
         }
     }

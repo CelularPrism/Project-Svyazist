@@ -55,11 +55,9 @@ public class CSVLoader : MonoBehaviour
                 }
 
                 string value = fields[attributeIndex];
-
                 dictionary.Add(key, value);
             }
         }
-
 
         return dictionary;
     }

@@ -38,9 +38,9 @@ public class AbstractInteraction : MonoBehaviour
     {
         if (other.gameObject.layer == mask)
         {
-            if(!_ButtonUse)
+            _object = other.gameObject.GetComponent<AbstractItemObstacle>();
+            if (!_ButtonUse && _object.enabled)
             {
-                _object = other.gameObject.GetComponent<AbstractItemObstacle>();
                 _inputActions.Enable();
                 ButtonsCue.SetActive(true);
                 //_ButtonUse = true;

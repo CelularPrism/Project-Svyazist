@@ -48,10 +48,6 @@ public class LocalisationSystem : MonoBehaviour
                 localisedRU.TryGetValue(key, out value);
                 break;
         }
-        foreach (var val in localisedRU)
-        {
-            Debug.Log(val.Key + " " + val.Value);
-        }
         return value;
     }
 
