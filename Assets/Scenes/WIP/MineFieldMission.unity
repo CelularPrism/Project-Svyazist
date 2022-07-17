@@ -8202,7 +8202,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14578,7 +14578,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -29720,7 +29720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1356222998
 Transform:
   m_ObjectHideFlags: 0
@@ -39426,7 +39426,7 @@ LightingSettings:
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 1
-  m_BakeBackend: 2
+  m_BakeBackend: 1
   m_LightmapMaxSize: 1024
   m_BakeResolution: 40
   m_Padding: 2
@@ -41223,7 +41223,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -46436,7 +46436,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -50600,6 +50600,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2029867635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5755001425993240334, guid: 92f131e3fc4655c4e82500501d96eb2a, type: 3}
+  m_PrefabInstance: {fileID: 5755001425052393172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2029867636 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5755001425993240372, guid: 92f131e3fc4655c4e82500501d96eb2a, type: 3}
+  m_PrefabInstance: {fileID: 5755001425052393172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029867635}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de12b5ac66a75d4390f4102e85a83d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2029867639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029867635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c595004165bcae4aa92dfdbfa127b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 1915453212}
+  dog: {fileID: 2029867636}
+  dogSearching: {fileID: 1356222997}
 --- !u!1001 &2030182113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54477,6 +54508,10 @@ PrefabInstance:
     - target: {fileID: 5755001425993240334, guid: 92f131e3fc4655c4e82500501d96eb2a, type: 3}
       propertyPath: m_Name
       value: MainDog
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755001425993240372, guid: 92f131e3fc4655c4e82500501d96eb2a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5755001425993240372, guid: 92f131e3fc4655c4e82500501d96eb2a, type: 3}
       propertyPath: _dogAnimator

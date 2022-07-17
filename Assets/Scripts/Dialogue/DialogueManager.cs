@@ -109,7 +109,7 @@ public class DialogueManager : MonoBehaviour
         _curentStory = new Story(inkJSON.text);
         _dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-        Debug.Log(dialoguePanel.activeSelf);
+        //Debug.Log(dialoguePanel.activeSelf);
         _inputActions.Enable();
         ContinueStory();
     }

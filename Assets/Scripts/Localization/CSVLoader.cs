@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CSVLoader : MonoBehaviour
 {
+    [SerializeField] private string pathFile;
     private TextAsset csvFile;
     private char lineSeperator = '\n';
     private char surround = '"';
@@ -12,7 +13,9 @@ public class CSVLoader : MonoBehaviour
 
     public void LoadCSV()
     {
-        csvFile = Resources.Load<TextAsset>("Localization/Localization");
+        if (pathFile == null)
+            pathFile = "Localization/Localisation";
+        csvFile = Resources.Load<TextAsset>(pathFile);
     }
 
     public Dictionary<string, string> GetDictionaryValues(string attributeId) 
@@ -21,16 +24,22 @@ public class CSVLoader : MonoBehaviour
 
         string[] lines = csvFile.text.Split(lineSeperator);
         int attributeIndex = -1;
-        string[] headers = lines[0].Split(fieldSeperator, StringSplitOptions.None);
+        string[] headers = lines[0].Split(","/*fieldSeperator*/, StringSplitOptions.None);
         
         for (int i = 0; i < headers.Length; i++)
         {
             if (headers[i].Contains(attributeId))
             {
+                Debug.Log(i);
                 attributeIndex = i;
                 break;
             }
         }
+
+        /*foreach (string line in lines)
+        {
+            Debug.Log(line);
+        }*/
 
         Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
 
@@ -38,11 +47,13 @@ public class CSVLoader : MonoBehaviour
         {
             string line = lines[i];
             string[] fields = CSVParser.Split(line);
+            //Debug.Log(fields[0]);
 
             for (int f = 0; f < fields.Length; f++)
             {
                 fields[f] = fields[f].TrimStart(' ', surround);
                 fields[f] = fields[f].TrimEnd(surround);
+                //Debug.Log(fields[f]);
             }
 
             if (fields.Length > attributeIndex)

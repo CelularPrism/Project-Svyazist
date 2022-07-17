@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657886, g: 0.4964128, b: 0.5748176, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,6 +229,8 @@ GameObject:
   - component: {fileID: 1304661862}
   - component: {fileID: 1304661861}
   - component: {fileID: 1304661860}
+  - component: {fileID: 1304661865}
+  - component: {fileID: 1304661864}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -318,6 +320,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1304661864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304661859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c9a38b2bb1f0843a3db17fde8dcc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathFile: Localization/Localisation
+--- !u!114 &1304661865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304661859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7c77ea873666d4ba4255b031dc5131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1355198264
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,10 +530,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CenterMorze 2 ver
       objectReference: {fileID: 0}
-    - target: {fileID: 4827989922570950852, guid: c425d8a169bed674f9e915cb3ff48d2e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4827989922570950853, guid: c425d8a169bed674f9e915cb3ff48d2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -517,7 +540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4827989922570950853, guid: c425d8a169bed674f9e915cb3ff48d2e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4827989922570950853, guid: c425d8a169bed674f9e915cb3ff48d2e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -590,10 +613,6 @@ PrefabInstance:
     - target: {fileID: 4827989922570950853, guid: c425d8a169bed674f9e915cb3ff48d2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4827989922997939403, guid: c425d8a169bed674f9e915cb3ff48d2e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 270
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c425d8a169bed674f9e915cb3ff48d2e, type: 3}

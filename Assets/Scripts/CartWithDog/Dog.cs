@@ -59,7 +59,7 @@ public class Dog : MonoBehaviour
     }
     private void Move(Vector3 targetPosition)
     {
-        Vector3 newTransform = targetPosition - transform.position;
+        Vector3 newTransform = targetPosition - transform.position - Vector3.one;
         newTransform.y = 0;
 
         _dogRigidBody.MovePosition(transform.position + (newTransform * _speed * Time.fixedDeltaTime));

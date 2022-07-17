@@ -1,0 +1,22 @@
+﻿key,en,ru
+Bubble_1.1,I have to speak to comrade Semyonov,Я должен поговорить с товарищем Семеновым
+Bubble_1.2,They must not see me. Perhaps there is another way,Они не должны меня заметить. Возможно есть другой путь
+Bubble_2.1,Clock stopped at  09:25,Время на часах остановилось на 09:25
+Bubble_3.1,The stairs are broken. I have to find something to climb,"Лестница сломана. Мне нужно найти что-то, чтобы залезть"
+Bubble_3.2,It is locked. I have to find a way to open it,Заперто. Я должен найти способ открыть дверь
+Menu_Start,START GAME,НАЧАТЬ ИГРУ
+Menu_Options,SETTINGS,НАСТРОЙКИ
+Menu_Exit,EXIT,ВЫХОД
+Options_Music,MUSIC,МУЗЫКА
+Options_Sound,SOUND,ЗВУК
+Options_VFX,VFX,VFX
+Options_Return,RETURN,НАЗАД
+GameMenu_Continue,CONTINUE,ПРОДОЛЖИТЬ
+GameMenu_Docs,DOCUMENTS,ДОКУМЕНТЫ
+GameMenu_Checkpoint,LAST CHECKPOINT,ТОЧКА СОХРАНЕНИЯ
+GameOptions_Apply,APPLY,ПРИМЕНИТЬ
+Dialogue_Done,DONE,ГОТОВО
+Morse_Head,Catch the symbol in the correct area. Press Space button,Поймай символ в нужной зоне. Нажми Пробел
+Morse_Short,Short press (< 0.15 sec),Короткое нажатие (< 0.15 сек)
+Morse_Long,Long press (> 0.15 sec),Длинное нажатие (> 0.15 sec)
+,,
