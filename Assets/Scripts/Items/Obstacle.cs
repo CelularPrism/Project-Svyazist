@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Obstacle : AbstractItemObstacle
 {
     [Header("Thought")]
-    [SerializeField] private string key = "";
+    [SerializeField] private string keyLocalisation = "";
     [SerializeField] private float time = 0.1f;
     [SerializeField] private ThoughtsManager manager;
     [SerializeField] private int _sceneIndex = -1;
@@ -41,7 +41,7 @@ public class Obstacle : AbstractItemObstacle
     public void sayHelp()
     {
         string text = "";
-        text = LocalisationSystem.GetLocalisedValue(key);
+        text = LocalisationSystem.GetLocalisedValue(keyLocalisation);
         manager.EnableThought(text, time);
     }
 

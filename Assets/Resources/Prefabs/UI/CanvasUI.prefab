@@ -461,7 +461,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1674996546429461676}
+      - m_Target: {fileID: 1051575005}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
         m_MethodName: ReloadScene
         m_Mode: 1
@@ -1599,8 +1599,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2506,6 +2506,7 @@ GameObject:
   - component: {fileID: 770977378}
   - component: {fileID: 834817065}
   - component: {fileID: 6159420264263990367}
+  - component: {fileID: 1923211742}
   m_Layer: 5
   m_Name: DeathPanel
   m_TagString: Untagged
@@ -2625,6 +2626,21 @@ MonoBehaviour:
   - {fileID: 165600127}
   - {fileID: 1725246384}
 --- !u!114 &6159420264263990367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770977373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2839736e83532bb41b8db59218c60b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 165600127}
+  - {fileID: 1725246384}
+--- !u!114 &1923211742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5167,8 +5183,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6247,7 +6263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1674996546429461676}
+      - m_Target: {fileID: 1051575005}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
         m_MethodName: QuitMainMenu
         m_Mode: 1
@@ -6674,8 +6690,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9051,6 +9067,8 @@ GameObject:
   - component: {fileID: 1674996546429461676}
   - component: {fileID: 1816476135046179776}
   - component: {fileID: 1964642154448804002}
+  - component: {fileID: 1051575005}
+  - component: {fileID: 1051575010}
   m_Layer: 5
   m_Name: CanvasUI
   m_TagString: Untagged
@@ -9263,7 +9281,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c9a38b2bb1f0843a3db17fde8dcc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFile: {fileID: 4900000, guid: 14238cad65e2cd84e81b8b39b88db48a, type: 3}
+  pathFile: 
+--- !u!114 &1051575005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289205485056062148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4604d3e2783fec4595dd465adfd257a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: 0
+--- !u!114 &1051575010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289205485056062148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08de69778febee4d810109390fc71bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPanel: {fileID: 770977373}
 --- !u!1 &3289205485063306463
 GameObject:
   m_ObjectHideFlags: 0
