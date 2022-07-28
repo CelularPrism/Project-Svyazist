@@ -6,7 +6,7 @@ public class DogEnabler : MonoBehaviour
 {
     [SerializeField] private DialogueTrigger dialogueTrigger;
     [SerializeField] private Dog dog;
-    [SerializeField] private GameObject dogSearching;
+    [SerializeField] private GameObject dogSearching; //private DogSearching dofSearching;
 
     private bool _enabled;
 
@@ -20,7 +20,7 @@ public class DogEnabler : MonoBehaviour
         if (!dialogueTrigger._isActive && _enabled)
         {
             dog.enabled = true;
-            dogSearching.SetActive(true);
+            dogSearching.SetActive(true); //this isn't work since dog (gameobject) is active from start of the level
             _enabled = false;
         }
     }

@@ -12,7 +12,7 @@ public class Dog : MonoBehaviour
 
     [SerializeField] private DogAnimator _dogAnimator;
 
-    private float _movingDistance = 1.6f;
+    private float _movingDistance = 0.5f;
     private float _searchingDistanceZ = 0.5f;
     private float _moveDistance = 0.7f;
 
@@ -29,26 +29,30 @@ public class Dog : MonoBehaviour
     {
         if (!_dogSearching.IsSearching)
         {
-            if (Vector3.Distance(_playerTransform.position, transform.position) > _movingDistance)
+            if (Vector3.Distance(_playerTransform.position, transform.position) >= _movingDistance)
             {
                 Move(_playerTransform.position);
                 Rotate(_playerTransform.position);
             }
             else
+            {
                 _dogAnimator.SitDown();
+                Debug.Log("Sit down");
+            }
         }
         else 
         {
             Move(_dogSearching.PositionMine);
             Rotate(_dogSearching.PositionMine);
 
-            if (Vector3.Distance(_dogSearching.PositionMine, transform.position) < _moveDistance)
+            if (Vector3.Distance(_dogSearching.PositionMine, transform.position) <= _moveDistance)
             {
                 _dogAnimator.Search();
                 if (_dogSearching.IsMoving)
                     _dogAnimator.Find();
                 _dogSearching.IsMoving = false;
                 _dogSearching.TurnOffCollider();
+                Debug.Log("Start searching");
             }
 
             if ((transform.position.z - _playerTransform.position.z) < _searchingDistanceZ && !_dogSearching.IsMoving)
