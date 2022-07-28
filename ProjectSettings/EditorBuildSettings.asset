@@ -36,12 +36,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Final/UnlockDoor.unity
     guid: e3f75deb61b4a844fb716faf5c883474
   - enabled: 1
+    path: Assets/Scenes/Final/Climbing.unity
+    guid: f74269930c1c0304fb78b7c5cb0c9a13
+  - enabled: 1
     path: Assets/Scenes/WIP/Village.unity
     guid: 0542b51ef02900d4f9f7028cfad9306e
   - enabled: 1
     path: Assets/Scenes/WIP/MineFieldMission.unity
     guid: c6d134afbb3425c43908c3410f4aefb5
   - enabled: 1
+    path: Assets/Scenes/Final/MorseGame End.unity
+    guid: 28ea943cd14fc1043b0c2eccfe9b6d9e
+  - enabled: 1
     path: Assets/Scenes/Final/End.unity
     guid: d3b0f55485bda724d9827a22419eb258
+  - enabled: 1
+    path: Assets/Scenes/Final/Medium.unity
+    guid: d8620f73b9324414fac80cd2305b9ab7
+  - enabled: 1
+    path: Assets/Scenes/Final/MorseGame Climbing.unity
+    guid: 9c5cd3629f72a574197014141b84b8cd
+  - enabled: 1
+    path: Assets/Scenes/Final/After Climbing.unity
+    guid: 0a7afa3092851324db631109f00bbd0d
+  - enabled: 1
+    path: Assets/Scenes/Final/After Village.unity
+    guid: 4192d3912a24ddc4fb686da7d74bf848
   m_configObjects: {}

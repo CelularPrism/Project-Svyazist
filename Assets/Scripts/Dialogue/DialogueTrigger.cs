@@ -10,12 +10,13 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private int playerLayer;
 
     [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private TextAsset inkJSONEn;
+    [SerializeField] private TextAsset inkJSONRu;
     [SerializeField] private Sprite sprite;
 
     private bool _playerInRange;
     private PlayerAction _inputActions;
-    private bool _isActive;
+    public bool _isActive { get; private set; }
     //private static bool _isActive;
 
     private void Awake()
@@ -46,6 +47,13 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(_isActive)
         {
+            TextAsset inkJSON = null;
+
+            if (LocalisationSystem.GetLanguage() == LocalisationSystem.Language.English)
+                inkJSON = inkJSONEn;
+            else
+                inkJSON = inkJSONRu;
+
             DialogueManager.GetInstance().EnterDialogueMode(inkJSON, sprite);
             visualCue.SetActive(false);
             _isActive = false;

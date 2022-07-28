@@ -10,10 +10,11 @@ public class AbstractItemObstacle : MonoBehaviour
     public int key;
     public Sprite spriteItem;
     public MeshRenderer[] _objectMeshRender;
+    public bool enabled;
 
     private void Awake()
     {
-
+        enabled = true;
     }
     public virtual AbstractItemObstacle Get()
     {
@@ -26,6 +27,7 @@ public class AbstractItemObstacle : MonoBehaviour
         {
             mr.enabled = false;
             ai.ButtonF.SetActive(false);
+            enabled = false;
          //   ai.ButtonUse = true;
         }
         //Destroy(this.gameObject);

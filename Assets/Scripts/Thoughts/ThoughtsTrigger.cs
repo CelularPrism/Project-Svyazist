@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThoughtsTrigger : MonoBehaviour
 {
     [Header("Thought")]
-    [SerializeField] private string text;
+    [SerializeField] private string key;
     [SerializeField] private float time;
 
     [Header("Layer Player")]
@@ -15,7 +15,7 @@ public class ThoughtsTrigger : MonoBehaviour
 
     private void Start()
     {
-        text = text.Replace("<br>", "\n");
+        //text = text.Replace("<br>", "\n");
         _isActive = true;
     }
 
@@ -27,6 +27,9 @@ public class ThoughtsTrigger : MonoBehaviour
             {
                 _isActive = false;
                 ThoughtsManager thoughts = other.gameObject.GetComponent<ThoughtsManager>();
+
+                string text = LocalisationSystem.GetLocalisedValue(key);
+                Debug.Log(text);
                 thoughts.EnableThought(text, time);
             }
         }
